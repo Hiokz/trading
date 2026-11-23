@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initCommandPalette();
     initLiveClocks();
     initJournal();
+    initCustomSelects();
+    initNumberSteppers();
     initModals();
 
     // Check URL Hash for initial navigation
@@ -508,4 +510,136 @@ function escapeHTML(str) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
+}
+
+/* -------------------------------------------------------------
+ * Custom Animated Dropdowns (Hiok.Digital Architecture)
+ * ------------------------------------------------------------- */
+function initCustomSelects() {
+    const customSelectSources = document.querySelectorAll('.custom-select-source');
+
+    customSelectSources.forEach(select => {
+        if (select.closest('.custom-select-container')) return;
+
+        select.classList.add('hidden-select');
+        const wrapper = document.createElement('div');
+        wrapper.className = 'custom-select-container';
+        select.parentNode.insertBefore(wrapper, select);
+        wrapper.appendChild(select);
+
+        const trigger = document.createElement('div');
+        trigger.className = 'custom-select-trigger';
+
+        let selectedOption = select.options[select.selectedIndex];
+        let placeholderText = selectedOption ? selectedOption.text : 'Select an option';
+
+        trigger.innerHTML = `
+            <span class="trigger-text">${placeholderText}</span>
+            <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        `;
+        wrapper.appendChild(trigger);
+
+        const optionsContainer = document.createElement('div');
+        optionsContainer.className = 'custom-options-container';
+        wrapper.appendChild(optionsContainer);
+
+        Array.from(select.options).forEach((option) => {
+            const optionDiv = document.createElement('div');
+            optionDiv.className = 'custom-option';
+            if (option.selected) optionDiv.classList.add('selected');
+            optionDiv.dataset.value = option.value;
+            optionDiv.textContent = option.text;
+
+            if (option.disabled && option.value === "") {
+                optionDiv.classList.add('is-placeholder');
+            }
+
+            optionDiv.addEventListener('click', (e) => {
+                e.stopPropagation();
+                trigger.querySelector('.trigger-text').textContent = optionDiv.textContent;
+                select.value = optionDiv.dataset.value;
+
+                optionsContainer.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('selected'));
+                optionDiv.classList.add('selected');
+
+                wrapper.classList.remove('open');
+                select.dispatchEvent(new Event('change', { bubbles: true }));
+            });
+
+            optionsContainer.appendChild(optionDiv);
+        });
+
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('.custom-select-container').forEach(c => {
+                if (c !== wrapper) c.classList.remove('open');
+            });
+            wrapper.classList.toggle('open');
+        });
+
+        // Sync with form resets
+        const parentForm = select.closest('form');
+        if (parentForm) {
+            parentForm.addEventListener('reset', () => {
+                setTimeout(() => {
+                    const opt = select.options[select.selectedIndex];
+                    if (opt) {
+                        trigger.querySelector('.trigger-text').textContent = opt.text;
+                        optionsContainer.querySelectorAll('.custom-option').forEach(o => {
+                            o.classList.toggle('selected', o.dataset.value === opt.value);
+                        });
+                    }
+                }, 0);
+            });
+        }
+    });
+
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.custom-select-container').forEach(c => c.classList.remove('open'));
+    });
+}
+
+/* -------------------------------------------------------------
+ * Custom Number Steppers (Position Size, Entry & Exit Prices)
+ * ------------------------------------------------------------- */
+function initNumberSteppers() {
+    document.querySelectorAll('.stepper-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = btn.getAttribute('data-target');
+            const direction = parseFloat(btn.getAttribute('data-step')) || 1;
+            const input = document.getElementById(targetId);
+            if (input) {
+                let currentVal = parseFloat(input.value);
+                if (isNaN(currentVal)) {
+                    currentVal = 0;
+                }
+
+                let step = 1;
+                if (targetId === 'j-entry' || targetId === 'j-exit') {
+                    if (currentVal >= 100) {
+                        step = 1;
+                    } else if (currentVal >= 10) {
+                        step = 0.5;
+                    } else {
+                        step = 0.1;
+                    }
+                } else if (targetId === 'j-size') {
+                    if (currentVal >= 100) {
+                        step = 10;
+                    } else if (currentVal >= 10) {
+                        step = 5;
+                    } else {
+                        step = 1;
+                    }
+                }
+
+                let updated = currentVal + (direction * step);
+                if (updated < 0) updated = 0;
+                input.value = Math.round(updated * 10000) / 10000;
+                input.dispatchEvent(new Event('input', { bubbles: true }));
+                input.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+        });
+    });
 }

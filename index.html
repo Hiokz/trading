@@ -937,7 +937,7 @@
     <div class="modal-overlay" id="modal-add-trade">
         <div class="modal-box">
             <div class="modal-header">
-                <h3><i class="fa-solid fa-pen-to-square text-primary"></i> Log New Trade Execution</h3>
+                <h3><i class="fa-solid fa-book-bookmark text-primary"></i> Log New Trade Execution</h3>
                 <button class="modal-close">&times;</button>
             </div>
             <div class="modal-body">
@@ -957,28 +957,46 @@
                     <div class="grid-2">
                         <div class="form-group">
                             <label for="j-direction">Direction</label>
-                            <select id="j-direction" class="form-control">
+                            <select id="j-direction" class="form-control custom-select-source">
                                 <option value="long">Long (Buy)</option>
                                 <option value="short">Short (Sell)</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="j-size">Position Size (Shares/Contracts)</label>
-                            <input type="number" id="j-size" class="form-control" placeholder="100" min="0.0001"
-                                step="any" required>
+                            <div class="number-stepper-wrap">
+                                <input type="number" id="j-size" class="form-control stepper-input" placeholder="100" min="0.0001"
+                                    step="any" required>
+                                <div class="stepper-controls">
+                                    <button type="button" class="stepper-btn up" data-target="j-size" data-step="1" title="Increase"><i class="fa-solid fa-chevron-up"></i></button>
+                                    <button type="button" class="stepper-btn down" data-target="j-size" data-step="-1" title="Decrease"><i class="fa-solid fa-chevron-down"></i></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="grid-2">
                         <div class="form-group">
                             <label for="j-entry">Entry Price ($)</label>
-                            <input type="number" id="j-entry" class="form-control" placeholder="150.00" step="any"
-                                required>
+                            <div class="number-stepper-wrap">
+                                <input type="number" id="j-entry" class="form-control stepper-input" placeholder="150.00" step="any"
+                                    required>
+                                <div class="stepper-controls">
+                                    <button type="button" class="stepper-btn up" data-target="j-entry" data-step="1" title="Increase"><i class="fa-solid fa-chevron-up"></i></button>
+                                    <button type="button" class="stepper-btn down" data-target="j-entry" data-step="-1" title="Decrease"><i class="fa-solid fa-chevron-down"></i></button>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="j-exit">Exit Price ($)</label>
-                            <input type="number" id="j-exit" class="form-control" placeholder="155.00" step="any"
-                                required>
+                            <div class="number-stepper-wrap">
+                                <input type="number" id="j-exit" class="form-control stepper-input" placeholder="155.00" step="any"
+                                    required>
+                                <div class="stepper-controls">
+                                    <button type="button" class="stepper-btn up" data-target="j-exit" data-step="1" title="Increase"><i class="fa-solid fa-chevron-up"></i></button>
+                                    <button type="button" class="stepper-btn down" data-target="j-exit" data-step="-1" title="Decrease"><i class="fa-solid fa-chevron-down"></i></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
