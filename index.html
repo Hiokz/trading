@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <div class="app-layout">
+    <div class="app-layout" id="app-layout" style="display: none;">
         <!-- =========================================================
              Sidebar Navigation (8 Core Sections)
              ========================================================= -->
@@ -1098,9 +1098,8 @@
     </div>
 
     <!-- Login Screen (FinTracks Architecture) -->
-    <div id="login-overlay" class="login-overlay" style="display: none;">
+    <div id="login-overlay" class="login-overlay active" style="display: flex;">
         <div class="login-container">
-            <button class="modal-close" id="btn-close-login" style="position: absolute; top: 16px; right: 16px;">&times;</button>
             <div class="login-logo-wrap">
                 <i class="fa-solid fa-shield-halved text-primary" style="font-size: 2.2rem; margin-bottom: 12px; display: inline-block;"></i>
                 <h2 id="auth-title" style="font-size: 1.4rem; font-weight: 700; margin-bottom: 6px;">Terminal Access</h2>

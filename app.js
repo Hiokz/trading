@@ -813,73 +813,72 @@ function initAuth() {
         });
     }
 
-    function updateAuthUI(user) {
-        if (user) {
-            currentAuthUser = user;
-            const email = user.email || '';
-            const rawName = email.includes('@') ? email.split('@')[0] : 'Trader';
-            const displayName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
+    const appLayout = document.getElementById('app-layout');
 
-            if (authProfile) authProfile.style.display = 'flex';
-            if (btnLogout) btnLogout.style.display = 'inline-flex';
-            if (btnOpenLogin) btnOpenLogin.style.display = 'none';
-            if (userDisplayEmail) userDisplayEmail.textContent = `Welcome! ${displayName}`;
-            if (userDisplayStatus) userDisplayStatus.textContent = 'Cloud Synced';
-        } else {
-            currentAuthUser = null;
-            if (authProfile) authProfile.style.display = 'none';
-            if (btnLogout) btnLogout.style.display = 'none';
-            if (btnOpenLogin) btnOpenLogin.style.display = 'inline-flex';
+    function unlockApp(user) {
+        currentAuthUser = user;
+        const email = user.email || '';
+        const rawName = email.includes('@') ? email.split('@')[0] : 'Trader';
+        const displayName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
+
+        if (authProfile) authProfile.style.display = 'flex';
+        if (btnLogout) btnLogout.style.display = 'inline-flex';
+        if (btnOpenLogin) btnOpenLogin.style.display = 'none';
+        if (userDisplayEmail) userDisplayEmail.textContent = `Welcome! ${displayName}`;
+        if (userDisplayStatus) userDisplayStatus.textContent = 'Cloud Synced';
+
+        if (loginOverlay) {
+            loginOverlay.classList.remove('active');
+            setTimeout(() => {
+                loginOverlay.style.display = 'none';
+                if (appLayout) appLayout.style.display = 'flex';
+                if (loginForm) loginForm.reset();
+            }, 250);
+        } else if (appLayout) {
+            appLayout.style.display = 'flex';
         }
     }
 
-    function openLogin() {
-        if (!loginOverlay) return;
-        setAuthMode(false);
-        loginOverlay.style.display = 'flex';
-        setTimeout(() => loginOverlay.classList.add('active'), 10);
-        if (loginError) loginError.style.display = 'none';
-        if (loginUsername) loginUsername.focus();
+    function lockApp() {
+        currentAuthUser = null;
+        if (authProfile) authProfile.style.display = 'none';
+        if (btnLogout) btnLogout.style.display = 'none';
+        if (btnOpenLogin) btnOpenLogin.style.display = 'inline-flex';
+
+        if (appLayout) appLayout.style.display = 'none';
+        if (loginOverlay) {
+            setAuthMode(false);
+            loginOverlay.style.display = 'flex';
+            setTimeout(() => {
+                loginOverlay.classList.add('active');
+            }, 10);
+            if (loginUsername) loginUsername.focus();
+        }
     }
 
-    function closeLogin() {
-        if (!loginOverlay) return;
-        loginOverlay.classList.remove('active');
-        setTimeout(() => {
-            loginOverlay.style.display = 'none';
-            if (loginForm) loginForm.reset();
-        }, 250);
-    }
-
-    if (btnOpenLogin) btnOpenLogin.addEventListener('click', openLogin);
-    if (btnCloseLogin) btnCloseLogin.addEventListener('click', closeLogin);
-    if (loginOverlay) {
-        loginOverlay.addEventListener('click', (e) => {
-            if (e.target === loginOverlay) closeLogin();
-        });
-    }
+    if (btnOpenLogin) btnOpenLogin.addEventListener('click', () => lockApp());
 
     // Initialize Supabase Auth Session
     if (supabaseClient) {
         supabaseClient.auth.getSession().then(({ data: { session } }) => {
             if (session && session.user) {
-                updateAuthUI(session.user);
+                unlockApp(session.user);
                 loadTradesFromSupabase();
             } else {
-                updateAuthUI(null);
+                lockApp();
             }
         });
 
         supabaseClient.auth.onAuthStateChange((event, session) => {
             if (session && session.user) {
-                updateAuthUI(session.user);
+                unlockApp(session.user);
                 loadTradesFromSupabase();
             } else {
-                updateAuthUI(null);
+                lockApp();
             }
         });
     } else {
-        updateAuthUI(null);
+        lockApp();
     }
 
     if (loginForm) {
@@ -923,8 +922,8 @@ function initAuth() {
                     if (error) {
                         loginError.textContent = error.message;
                         loginError.style.display = 'block';
-                    } else if (data && data.session) {
-                        closeLogin();
+                    } else if (data && data.session && data.session.user) {
+                        unlockApp(data.session.user);
                     } else {
                         loginError.style.color = 'var(--success)';
                         loginError.textContent = 'Account created successfully! You can now sign in.';
@@ -937,8 +936,8 @@ function initAuth() {
                     if (error) {
                         loginError.textContent = error.message;
                         loginError.style.display = 'block';
-                    } else {
-                        closeLogin();
+                    } else if (data && data.user) {
+                        unlockApp(data.user);
                     }
                 }
             } catch (err) {
@@ -961,7 +960,7 @@ function initAuth() {
             if (supabaseClient) {
                 await supabaseClient.auth.signOut();
             }
-            updateAuthUI(null);
+            lockApp();
         });
     }
 }
