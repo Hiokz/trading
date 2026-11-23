@@ -443,7 +443,7 @@ function initModals() {
             if (target) {
                 target.classList.add('active');
                 // Auto-fill today's current date when opening modal
-                const dateInp = target.querySelector('input[type="date"]');
+                const dateInp = target.querySelector('#j-date, input[type="date"]');
                 if (dateInp) {
                     const now = new Date();
                     const yyyy = now.getFullYear();
@@ -687,18 +687,16 @@ function initNumberSteppers() {
                         step = 0.1;
                     }
                 } else if (targetId === 'j-size') {
-                    if (currentVal >= 100) {
-                        step = 10;
-                    } else if (currentVal >= 10) {
-                        step = 5;
-                    } else {
-                        step = 1;
-                    }
+                    step = 0.01;
                 }
 
                 let updated = currentVal + (direction * step);
                 if (updated < 0) updated = 0;
-                input.value = Math.round(updated * 10000) / 10000;
+                if (targetId === 'j-size') {
+                    input.value = (Math.round(updated * 100) / 100).toFixed(2);
+                } else {
+                    input.value = Math.round(updated * 10000) / 10000;
+                }
                 input.dispatchEvent(new Event('input', { bubbles: true }));
                 input.dispatchEvent(new Event('change', { bubbles: true }));
             }

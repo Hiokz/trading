@@ -876,33 +876,24 @@ select.form-control option {
     color: #fafafa;
 }
 
-/* Date Picker Calendar Icon - Guaranteed 100% Pure White */
-/* Date Picker Calendar Icon - Pure White in All States (Normal, Hover, Focus) */
-input[type="date"] {
-    color-scheme: dark !important;
+/* Readonly Date Input (Auto-logged as today - No calendar icon) */
+#j-date[readonly] {
+    cursor: default;
+    background-color: rgba(18, 18, 21, 0.65);
+    color: var(--text-muted);
+    user-select: none;
+    border-color: var(--border-color);
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="date"]::-webkit-calendar-picker-indicator:hover,
-input[type="date"]::-webkit-calendar-picker-indicator:focus,
-input[type="date"]:hover::-webkit-calendar-picker-indicator,
-input[type="date"]:focus::-webkit-calendar-picker-indicator {
-    filter: brightness(0) invert(1) !important;
-    -webkit-filter: brightness(0) invert(1) !important;
-    opacity: 1 !important;
-    cursor: pointer;
-    padding: 3px;
-    border-radius: 4px;
-    transition: var(--transition);
+#j-date[readonly]:hover,
+#j-date[readonly]:focus {
+    box-shadow: none;
+    border-color: var(--border-color);
+    transform: none;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator:hover,
-input[type="date"]:hover::-webkit-calendar-picker-indicator {
-    filter: brightness(0) invert(1) !important;
-    -webkit-filter: brightness(0) invert(1) !important;
-    opacity: 1 !important;
-    background: rgba(255, 255, 255, 0.15) !important;
-    transform: scale(1.15);
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none !important;
 }
 
 /* Custom Animated Dropdown (Hiok.Digital Architecture) */
