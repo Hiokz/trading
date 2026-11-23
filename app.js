@@ -887,15 +887,55 @@ function initAuth() {
             const rawUser = loginUsername ? loginUsername.value.trim().toLowerCase() : '';
             const password = loginPassword ? loginPassword.value : '';
 
-            if (!rawUser || !password) {
+            function showError(msg) {
                 if (loginError) {
-                    loginError.textContent = 'Please enter both username/email and password.';
+                    loginError.style.color = 'var(--danger)';
+                    loginError.textContent = msg;
                     loginError.style.display = 'block';
                 }
+                if (authSubmitBtn) {
+                    authSubmitBtn.disabled = false;
+                    authSubmitBtn.textContent = isRegisterMode ? 'Create Account' : 'Sign In';
+                }
+            }
+
+            if (!rawUser || !password) {
+                showError('Please enter both your username and password.');
                 return;
             }
 
-            const email = rawUser.includes('@') ? rawUser : `${rawUser}@tradinghub.local`;
+            // Strictly disallow email formats
+            if (rawUser.includes('@')) {
+                showError('Please enter a username only, not an email.');
+                return;
+            }
+
+            // Validate Username: minimum 4 letters
+            const letterCount = (rawUser.match(/[a-zA-Z]/g) || []).length;
+            if (rawUser.length < 4 || letterCount < 4) {
+                showError('Username must contain at least 4 letters.');
+                return;
+            }
+
+            if (!/^[a-zA-Z0-9_]+$/.test(rawUser)) {
+                showError('Username can only contain letters, numbers, and underscores.');
+                return;
+            }
+
+            // Validate Password: minimum 8 alphanumeric characters (both letters and numbers)
+            if (password.length < 8) {
+                showError('Password must be at least 8 characters long.');
+                return;
+            }
+
+            const hasLetter = /[a-zA-Z]/.test(password);
+            const hasNumber = /[0-9]/.test(password);
+            if (!hasLetter || !hasNumber) {
+                showError('Password must be alphanumeric (contain both letters and numbers).');
+                return;
+            }
+
+            const email = `${rawUser}@tradinghub.local`;
 
             if (authSubmitBtn) {
                 authSubmitBtn.disabled = true;
@@ -904,14 +944,7 @@ function initAuth() {
             if (loginError) loginError.style.display = 'none';
 
             if (!supabaseClient) {
-                if (loginError) {
-                    loginError.textContent = 'Supabase client is not loaded.';
-                    loginError.style.display = 'block';
-                }
-                if (authSubmitBtn) {
-                    authSubmitBtn.disabled = false;
-                    authSubmitBtn.textContent = isRegisterMode ? 'Create Account' : 'Sign In';
-                }
+                showError('Supabase client is not loaded.');
                 return;
             }
 
@@ -920,8 +953,7 @@ function initAuth() {
                     // Registration
                     const { data, error } = await supabaseClient.auth.signUp({ email, password });
                     if (error) {
-                        loginError.textContent = error.message;
-                        loginError.style.display = 'block';
+                        showError(error.message);
                     } else if (data && data.session && data.session.user) {
                         unlockApp(data.session.user);
                     } else {
@@ -934,17 +966,13 @@ function initAuth() {
                     // Sign In
                     const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
                     if (error) {
-                        loginError.textContent = error.message;
-                        loginError.style.display = 'block';
+                        showError(error.message);
                     } else if (data && data.user) {
                         unlockApp(data.user);
                     }
                 }
             } catch (err) {
-                if (loginError) {
-                    loginError.textContent = err.message || 'An error occurred during authentication.';
-                    loginError.style.display = 'block';
-                }
+                showError(err.message || 'An error occurred during authentication.');
             } finally {
                 if (authSubmitBtn) {
                     authSubmitBtn.disabled = false;

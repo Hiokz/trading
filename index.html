@@ -1107,12 +1107,12 @@
             <p class="login-subtext" id="auth-subtitle" style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 22px;">Sign in to sync and protect your trading records.</p>
             <form id="login-form">
                 <div class="form-group" style="text-align: left; margin-bottom: 14px;">
-                    <label for="login-username" style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 6px;">Username or Email</label>
-                    <input type="text" id="login-username" class="form-control" placeholder="Enter username or email" required>
+                    <label for="login-username" style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 6px;">Username</label>
+                    <input type="text" id="login-username" class="form-control" placeholder="Enter username (min. 4 letters)" required autocomplete="username">
                 </div>
                 <div class="form-group" style="text-align: left; margin-bottom: 18px;">
                     <label for="login-password" style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 6px;">Password</label>
-                    <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+                    <input type="password" id="login-password" class="form-control" placeholder="•••••••• (min. 8 alphanumeric)" required autocomplete="current-password">
                 </div>
                 <div id="login-error" class="text-danger" style="display: none; font-size: 0.825rem; margin-bottom: 14px; text-align: left;"></div>
                 <button type="submit" id="auth-submit-btn" class="btn btn-primary btn-block" style="width: 100%; justify-content: center; padding: 11px;">Sign In</button>
