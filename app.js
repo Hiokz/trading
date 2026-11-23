@@ -307,11 +307,11 @@ function initJournal() {
                     ${pnl >= 0 ? '+' : ''}${formatUSD(pnl)}
                 </td>
                 <td><span class="tag-badge">${escapeHTML(trade.strategy || 'Discretionary')}</span></td>
-                <td style="max-width: 200px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                <td style="max-width: 200px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;" title="${escapeHTML(trade.notes || '-')}">
                     ${escapeHTML(trade.notes || '-')}
                 </td>
-                <td>
-                    <button class="btn btn-icon btn-danger" style="width:28px; height:28px;" onclick="deleteJournalTrade(${index})" title="Delete">
+                <td class="td-action" style="text-align: center;">
+                    <button class="btn btn-icon btn-danger" style="width:28px; height:28px; margin: 0 auto; display: inline-flex; align-items: center; justify-content: center;" onclick="deleteJournalTrade(${index})" title="Delete">
                         <i class="fa-solid fa-trash" style="font-size: 0.75rem;"></i>
                     </button>
                 </td>
