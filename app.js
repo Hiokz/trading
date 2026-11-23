@@ -798,7 +798,10 @@ function initAuth() {
 
     function setAuthMode(register) {
         isRegisterMode = register;
-        if (loginError) loginError.style.display = 'none';
+        if (loginError) {
+            loginError.style.display = 'none';
+            loginError.textContent = '';
+        }
         if (authTitle) authTitle.textContent = isRegisterMode ? 'Create Account' : 'Terminal Access';
         if (authSubtitle) authSubtitle.textContent = isRegisterMode ? 'Register a new trader account to sync with Supabase.' : 'Sign in to sync and protect your trading records.';
         if (authSubmitBtn) authSubmitBtn.textContent = isRegisterMode ? 'Create Account' : 'Sign In';
@@ -889,8 +892,13 @@ function initAuth() {
 
             function showError(msg) {
                 if (loginError) {
-                    loginError.style.color = 'var(--danger)';
-                    loginError.textContent = msg;
+                    let cleanMsg = msg;
+                    if (cleanMsg.toLowerCase().includes('at least 6') || cleanMsg.toLowerCase().includes('least 6 characters')) {
+                        cleanMsg = 'Password must be at least 8 alphanumeric characters (both letters and numbers).';
+                    }
+                    loginError.style.color = '#ef4444';
+                    loginError.style.textAlign = 'center';
+                    loginError.textContent = cleanMsg;
                     loginError.style.display = 'block';
                 }
                 if (authSubmitBtn) {
