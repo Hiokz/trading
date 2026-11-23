@@ -1,6 +1,6 @@
 /* ==========================================================================
    Trading Command Center & Research Hub - Design System
-   Color Palette: Deep Zinc (#09090b) + Electric Blue (#3b82f6) + Emerald (#10b981)
+   Color Palette: Deep Zinc (#09090b) + Crimson Red (#ef4444) + Emerald (#10b981)
    ========================================================================== */
 
 :root {
@@ -11,10 +11,10 @@
     --border-color: rgba(255, 255, 255, 0.08);
     --border-color-hover: rgba(255, 255, 255, 0.2);
 
-    --primary: #3b82f6;
-    --primary-hover: #2563eb;
-    --primary-glow: rgba(59, 130, 246, 0.25);
-    --primary-gradient: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+    --primary: #ef4444;
+    --primary-hover: #dc2626;
+    --primary-glow: rgba(239, 68, 68, 0.25);
+    --primary-gradient: linear-gradient(135deg, #f87171 0%, #dc2626 100%);
 
     --success: #10b981;
     --success-bg: rgba(16, 185, 129, 0.12);
@@ -57,7 +57,7 @@ body {
     height: 100vh;
     overflow: hidden;
     background-image: 
-        radial-gradient(circle at 10% 15%, rgba(59, 130, 246, 0.07), transparent 35%),
+        radial-gradient(circle at 10% 15%, rgba(239, 68, 68, 0.08), transparent 35%),
         radial-gradient(circle at 90% 85%, rgba(16, 185, 129, 0.05), transparent 35%);
 }
 
@@ -105,13 +105,17 @@ body {
     width: 36px;
     height: 36px;
     border-radius: var(--radius-sm);
-    background: var(--primary-gradient);
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    font-size: 1.1rem;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.35);
+    font-size: 0.95rem;
+    font-weight: 800;
+    font-family: var(--font-family);
+    letter-spacing: -0.5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
 
 .brand-text h2 {
@@ -127,9 +131,9 @@ body {
     color: var(--primary);
     font-size: 0.75rem;
     padding: 2px 6px;
-    background: rgba(59, 130, 246, 0.15);
+    background: rgba(239, 68, 68, 0.15);
     border-radius: 4px;
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 .sidebar-search-btn {
@@ -225,8 +229,8 @@ body {
 
 .nav-item.active {
     color: #ffffff;
-    background: rgba(59, 130, 246, 0.15);
-    border: 1px solid rgba(59, 130, 246, 0.25);
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.25);
     font-weight: 600;
 }
 
@@ -591,7 +595,7 @@ body {
 
 .resource-card:hover {
     transform: translateY(-2px);
-    border-color: rgba(59, 130, 246, 0.4);
+    border-color: rgba(239, 68, 68, 0.4);
     background: var(--bg-panel-hover);
 }
 
@@ -645,7 +649,7 @@ body {
     font-weight: 500;
 }
 
-.tag-badge.blue { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+.tag-badge.blue { background: rgba(239, 68, 68, 0.15); color: #f87171; }
 .tag-badge.green { background: rgba(16, 185, 129, 0.15); color: #34d399; }
 .tag-badge.purple { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
 .tag-badge.amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
@@ -901,7 +905,7 @@ textarea.form-control {
 }
 
 .cmd-item:hover, .cmd-item.selected {
-    background: rgba(59, 130, 246, 0.15);
+    background: rgba(239, 68, 68, 0.15);
     color: var(--text-main);
 }
 

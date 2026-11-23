@@ -7,9 +7,9 @@
     <title>Trading Hub | Command Center & Research Platform</title>
     <meta name="description" content="Personal Trading Command Center, Research Hub, Resource Directory, and Trading Journal.">
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
-    <link rel="icon" type="image/png" href="favicon.png?v=1">
-    <link rel="apple-touch-icon" href="favicon.png?v=1">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+    <link rel="icon" type="image/png" href="favicon.png?v=2">
+    <link rel="apple-touch-icon" href="favicon.png?v=2">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,13 +24,13 @@
 <body>
     <div class="app-layout">
         <!-- =========================================================
-             Sidebar Navigation (12 Sections)
+             Sidebar Navigation (8 Core Sections)
              ========================================================= -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <a href="#academy" class="brand-logo">
+                <a href="#technical" class="brand-logo">
                     <div class="brand-icon">
-                        <i class="fa-solid fa-chart-line"></i>
+                        <span>TH</span>
                     </div>
                     <div class="brand-text">
                         <h2>TradingHub <span>PRO</span></h2>
@@ -46,23 +46,10 @@
 
             <!-- Nav Items Scroll -->
             <div class="nav-menu-scroll">
-                <!-- Group 1: Foundations -->
-                <div class="nav-group">
-                    <div class="nav-group-title">Foundations</div>
-                    <a href="#academy" class="nav-item active" data-target="academy">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <span>Trading Academy</span>
-                    </a>
-                    <a href="#strategies" class="nav-item" data-target="strategies">
-                        <i class="fa-solid fa-chess"></i>
-                        <span>Trading Strategies</span>
-                    </a>
-                </div>
-
-                <!-- Group 2: Analysis & Code -->
+                <!-- Group 1: Analysis & Models -->
                 <div class="nav-group">
                     <div class="nav-group-title">Analysis &amp; Models</div>
-                    <a href="#technical" class="nav-item" data-target="technical">
+                    <a href="#technical" class="nav-item active" data-target="technical">
                         <i class="fa-solid fa-chart-candlestick"></i>
                         <span>Technical Analysis</span>
                     </a>
@@ -80,7 +67,7 @@
                     </a>
                 </div>
 
-                <!-- Group 3: Market Pulse -->
+                <!-- Group 2: Market Pulse -->
                 <div class="nav-group">
                     <div class="nav-group-title">Market Pulse</div>
                     <a href="#news" class="nav-item" data-target="news">
@@ -91,13 +78,9 @@
                         <i class="fa-solid fa-chart-line"></i>
                         <span>Market Data</span>
                     </a>
-                    <a href="#options" class="nav-item" data-target="options">
-                        <i class="fa-solid fa-layer-group"></i>
-                        <span>Options &amp; Derivatives</span>
-                    </a>
                 </div>
 
-                <!-- Group 4: Execution & Risk -->
+                <!-- Group 3: Execution & Risk -->
                 <div class="nav-group">
                     <div class="nav-group-title">Execution &amp; Management</div>
                     <a href="#journal" class="nav-item" data-target="journal">
@@ -108,11 +91,7 @@
                     <a href="#risk" class="nav-item" data-target="risk">
                         <i class="fa-solid fa-shield-halved"></i>
                         <span>Risk Management</span>
-                        <span class="nav-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">Calc</span>
-                    </a>
-                    <a href="#glossary" class="nav-item" data-target="glossary">
-                        <i class="fa-solid fa-book-open"></i>
-                        <span>Glossary &amp; Wiki</span>
+                        <span class="nav-badge" style="background:rgba(239,68,68,0.15); color:#f87171;">Calc</span>
                     </a>
                 </div>
             </div>
@@ -144,7 +123,7 @@
                     <div class="breadcrumb">
                         <span>Trading Hub</span>
                         <i class="fa-solid fa-chevron-right sep"></i>
-                        <span class="current" id="header-breadcrumb-title">Trading Academy</span>
+                        <span class="current" id="header-breadcrumb-title">Technical Analysis</span>
                     </div>
                 </div>
 
@@ -179,250 +158,9 @@
             <!-- Scrollable Content Viewport -->
             <div class="content-viewport">
                 <!-- =========================================================
-                     Section 1: Trading Academy
+                     Section 1: Technical Analysis
                      ========================================================= -->
-                <section id="sec-academy" class="hub-section active">
-                    <div class="section-banner">
-                        <div class="banner-content">
-                            <h1><i class="fa-solid fa-graduation-cap text-primary"></i> Trading Academy</h1>
-                            <p>Structured curriculum from beginner market mechanics to professional institutional execution, risk mastery, and psychology.</p>
-                        </div>
-                        <div class="banner-actions">
-                            <span class="tag-badge blue">12 Core Tracks</span>
-                            <span class="tag-badge green">Self-Paced</span>
-                        </div>
-                    </div>
-
-                    <!-- Learning Tracks Grid -->
-                    <div class="grid-3">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <i class="fa-solid fa-seedling"></i>
-                                    <span>Track 1: Foundations</span>
-                                </div>
-                                <span class="tag-badge green">Beginner</span>
-                            </div>
-                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 16px;">
-                                Market structure, order types (Limit, Stop, Trailing), bid-ask spread, liquidity pools, margin, and broker mechanics.
-                            </p>
-                            <ul style="color: var(--text-muted); font-size: 0.85rem; padding-left: 20px; line-height: 1.8;">
-                                <li>Understanding Financial Instruments (Equities, Forex, Futures)</li>
-                                <li>How Exchanges &amp; Market Makers Operate</li>
-                                <li>Trading Psychology &amp; Capital Preservation</li>
-                            </ul>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <i class="fa-solid fa-chart-line"></i>
-                                    <span>Track 2: Price Action &amp; Auction</span>
-                                </div>
-                                <span class="tag-badge blue">Intermediate</span>
-                            </div>
-                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 16px;">
-                                Reading raw price delivery, market auction theory, volume profile, liquidity sweeps, and fair value imbalance zones.
-                            </p>
-                            <ul style="color: var(--text-muted); font-size: 0.85rem; padding-left: 20px; line-height: 1.8;">
-                                <li>Support, Resistance &amp; Supply/Demand Dynamics</li>
-                                <li>Wyckoff Accumulation &amp; Distribution Cycles</li>
-                                <li>High Timeframe Multi-Timeframe Alignment</li>
-                            </ul>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <i class="fa-solid fa-building-columns"></i>
-                                    <span>Track 3: Institutional &amp; Quant</span>
-                                </div>
-                                <span class="tag-badge purple">Professional</span>
-                            </div>
-                            <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 16px;">
-                                Macro economic cycles, yield curve analysis, central bank liquidity, algorithmic backtesting, and systematic execution.
-                            </p>
-                            <ul style="color: var(--text-muted); font-size: 0.85rem; padding-left: 20px; line-height: 1.8;">
-                                <li>Order Flow, Cumulative Volume Delta &amp; Footprints</li>
-                                <li>Statistical Edge &amp; Expectancy Modeling</li>
-                                <li>Portfolio Risk Management &amp; Hedging</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Recommended Resources & Shortcuts -->
-                    <h3 style="margin: 28px 0 16px; font-size: 1.2rem;">Curated Academy Resources &amp; Shortcuts</h3>
-                    <div class="grid-4">
-                        <a href="https://www.investopedia.com" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-book"></i></div>
-                                <div class="resource-meta">
-                                    <h3>Investopedia</h3>
-                                    <p>Comprehensive financial education encyclopedia and market concepts.</p>
-                                </div>
-                            </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Reference</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
-                            </div>
-                        </a>
-
-                        <a href="https://www.babypips.com" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                                <div class="resource-meta">
-                                    <h3>BabyPips School</h3>
-                                    <p>Premier structured course on technical analysis and macro fundamentals.</p>
-                                </div>
-                            </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Curriculum</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
-                            </div>
-                        </a>
-
-                        <a href="https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-university"></i></div>
-                                <div class="resource-meta">
-                                    <h3>MIT OpenCourseWare</h3>
-                                    <p>Sloan School Finance Theory, options pricing, and capital markets.</p>
-                                </div>
-                            </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Academic</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
-                            </div>
-                        </a>
-
-                        <a href="https://www.khanacademy.org/economics-finance-domain" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-brain"></i></div>
-                                <div class="resource-meta">
-                                    <h3>Khan Academy Finance</h3>
-                                    <p>Macroeconomics, banking reserves, interest rates, and bond math.</p>
-                                </div>
-                            </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Economics</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
-                            </div>
-                        </a>
-                    </div>
-                </section>
-
-                <!-- =========================================================
-                     Section 2: Trading Strategies
-                     ========================================================= -->
-                <section id="sec-strategies" class="hub-section">
-                    <div class="section-banner">
-                        <div class="banner-content">
-                            <h1><i class="fa-solid fa-chess text-primary"></i> Trading Strategies Playbook</h1>
-                            <p>Proven frameworks spanning technical breakouts, mean reversion, fundamental catalysts, and quantitative factor models.</p>
-                        </div>
-                        <div class="banner-actions">
-                            <button class="btn btn-secondary strategy-filter-btn active" data-filter="all">All Models</button>
-                            <button class="btn btn-secondary strategy-filter-btn" data-filter="technical">Technical</button>
-                            <button class="btn btn-secondary strategy-filter-btn" data-filter="fundamental">Fundamental</button>
-                            <button class="btn btn-secondary strategy-filter-btn" data-filter="quant">Quant</button>
-                            <button class="btn btn-secondary strategy-filter-btn" data-filter="institutional">Institutional</button>
-                        </div>
-                    </div>
-
-                    <div class="grid-3" id="strategies-grid">
-                        <!-- Strategy 1 -->
-                        <div class="card strategy-card" data-category="technical">
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <i class="fa-solid fa-arrow-trend-up"></i>
-                                    <span>Trend Momentum Breakout</span>
-                                </div>
-                                <span class="tag-badge green">Win Rate ~54%</span>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
-                                <strong>Timeframe:</strong> 4H / Daily &bull; <strong>R:R Target:</strong> 1 : 2.5+
-                            </p>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px;">
-                                Identifies multi-week consolidation channels. Enters on volume-backed break above 50-day high with ATR expansion.
-                            </p>
-                            <div style="background: var(--bg-card-inner); padding: 12px; border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">
-                                <strong>Setup Rules:</strong>
-                                <ul style="padding-left: 16px; margin-top: 4px;">
-                                    <li>Price trading above 200 EMA &amp; 50 EMA</li>
-                                    <li>Volume on breakout &gt; 150% 20-day average</li>
-                                    <li>Stop loss set 1.5 &times; ATR below entry candle</li>
-                                </ul>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                                <span class="tag-badge blue">Technical</span>
-                                <span class="pill win"><i class="fa-solid fa-check"></i> Verified Edge</span>
-                            </div>
-                        </div>
-
-                        <!-- Strategy 2 -->
-                        <div class="card strategy-card" data-category="institutional">
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <i class="fa-solid fa-droplet"></i>
-                                    <span>Liquidity Sweep &amp; FVG Fill</span>
-                                </div>
-                                <span class="tag-badge green">Win Rate ~62%</span>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
-                                <strong>Timeframe:</strong> 15m / 1H &bull; <strong>R:R Target:</strong> 1 : 3.0+
-                            </p>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px;">
-                                Capitalizes on stops triggered outside Asian or London sessions. Enters on market structure shift with Fair Value Gap confluence.
-                            </p>
-                            <div style="background: var(--bg-card-inner); padding: 12px; border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">
-                                <strong>Setup Rules:</strong>
-                                <ul style="padding-left: 16px; margin-top: 4px;">
-                                    <li>Clean sweep of previous session high/low</li>
-                                    <li>Aggressive Displacement creating an imbalance</li>
-                                    <li>Limit order entry at 50% FVG retracement</li>
-                                </ul>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                                <span class="tag-badge purple">Institutional</span>
-                                <span class="pill win"><i class="fa-solid fa-check"></i> High R:R</span>
-                            </div>
-                        </div>
-
-                        <!-- Strategy 3 -->
-                        <div class="card strategy-card" data-category="quant">
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <i class="fa-solid fa-calculator"></i>
-                                    <span>Pairs Stat-Arb Mean Reversion</span>
-                                </div>
-                                <span class="tag-badge green">Win Rate ~68%</span>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
-                                <strong>Timeframe:</strong> 1H / Daily &bull; <strong>R:R Target:</strong> 1 : 1.5
-                            </p>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px;">
-                                Cointegrated asset pair (e.g. KO vs. PEP). Calculates rolling Z-score of spread; enters when Z-score exceeds &plusmn;2.0.
-                            </p>
-                            <div style="background: var(--bg-card-inner); padding: 12px; border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">
-                                <strong>Setup Rules:</strong>
-                                <ul style="padding-left: 16px; margin-top: 4px;">
-                                    <li>Engle-Granger cointegration p-value &lt; 0.05</li>
-                                    <li>Spread Z-Score &gt; +2.0 (Short Spread)</li>
-                                    <li>Take profit at Z-Score = 0.0 mean cross</li>
-                                </ul>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                                <span class="tag-badge cyan">Quant</span>
-                                <span class="pill win"><i class="fa-solid fa-check"></i> Market Neutral</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- =========================================================
-                     Section 3: Technical Analysis
-                     ========================================================= -->
-                <section id="sec-technical" class="hub-section">
+                <section id="sec-technical" class="hub-section active">
                     <div class="section-banner">
                         <div class="banner-content">
                             <h1><i class="fa-solid fa-chart-candlestick text-primary"></i> Technical Analysis</h1>
@@ -440,7 +178,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="card-title"><i class="fa-solid fa-water"></i> <span>VWAP &amp; Bands</span></div>
-                                <span class="tag-badge blue">Intraday</span>
+                                <span class="tag-badge red">Intraday</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
                                 Volume-Weighted Average Price serves as benchmark for institutional execution. &plusmn;1 and &plusmn;2 standard deviation bands act as statistical overbought/oversold boundaries.
@@ -530,7 +268,7 @@
                 </section>
 
                 <!-- =========================================================
-                     Section 4: Fundamental Analysis
+                     Section 2: Fundamental Analysis
                      ========================================================= -->
                 <section id="sec-fundamental" class="hub-section">
                     <div class="section-banner">
@@ -548,7 +286,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="card-title"><i class="fa-solid fa-building-columns"></i> <span>Federal Funds Rate</span></div>
-                                <span class="tag-badge blue">Monetary Policy</span>
+                                <span class="tag-badge red">Monetary Policy</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
                                 The base risk-free rate dictating discount rates for all financial assets. Higher rates compress equity P/E multiples and strengthen the US Dollar.
@@ -638,7 +376,7 @@
                 </section>
 
                 <!-- =========================================================
-                     Section 5: Quantitative Trading
+                     Section 3: Quantitative Trading
                      ========================================================= -->
                 <section id="sec-quant" class="hub-section">
                     <div class="section-banner">
@@ -657,9 +395,9 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="card-title"><i class="fa-brands fa-python"></i> <span>Essential Python Quant Stack</span></div>
-                                <span class="tag-badge blue">Libraries</span>
+                                <span class="tag-badge red">Libraries</span>
                             </div>
-                            <div style="background: var(--bg-card-inner); padding: 14px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.6; color: #93c5fd;">
+                            <div style="background: var(--bg-card-inner); padding: 14px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.6; color: #fca5a5;">
                                 # Core Quantitative Environment<br>
                                 pip install pandas numpy scipy statsmodels<br>
                                 pip install vectorbt ccxt yfinance<br>
@@ -746,7 +484,7 @@
                 </section>
 
                 <!-- =========================================================
-                     Section 6: Backtesting Laboratory
+                     Section 4: Backtesting Laboratory
                      ========================================================= -->
                 <section id="sec-backtest" class="hub-section">
                     <div class="section-banner">
@@ -777,7 +515,7 @@
 
                         <div class="stat-widget">
                             <div class="stat-label">Target Profit Factor</div>
-                            <div class="stat-val" style="color: #60a5fa;">&ge; 1.60</div>
+                            <div class="stat-val" style="color: #f87171;">&ge; 1.60</div>
                             <div class="stat-sub text-muted">Gross Profit / Gross Loss ratio after commissions</div>
                         </div>
                     </div>
@@ -804,7 +542,7 @@
                 </section>
 
                 <!-- =========================================================
-                     Section 7: Market News
+                     Section 5: Market News
                      ========================================================= -->
                 <section id="sec-news" class="hub-section">
                     <div class="section-banner">
@@ -865,7 +603,7 @@
                 </section>
 
                 <!-- =========================================================
-                     Section 8: Market Data
+                     Section 6: Market Data
                      ========================================================= -->
                 <section id="sec-market-data" class="hub-section">
                     <div class="section-banner">
@@ -895,7 +633,7 @@
                                 <div class="resource-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                                 <div class="resource-meta">
                                     <h3>Yahoo Finance</h3>
-                                    <p>Quotes, historical CSV downloads, options chains, and key company statistics.</p>
+                                    <p>Quotes, historical CSV downloads, balance sheet data, and key company statistics.</p>
                                 </div>
                             </div>
                             <div class="resource-bottom">
@@ -935,104 +673,7 @@
                 </section>
 
                 <!-- =========================================================
-                     Section 9: Options & Derivatives
-                     ========================================================= -->
-                <section id="sec-options" class="hub-section">
-                    <div class="section-banner">
-                        <div class="banner-content">
-                            <h1><i class="fa-solid fa-layer-group text-primary"></i> Options &amp; Derivatives</h1>
-                            <p>Options Greeks, implied volatility surfaces, non-linear payoff curves, and risk-defined hedging structures.</p>
-                        </div>
-                    </div>
-
-                    <!-- Greeks Reference Table -->
-                    <div class="grid-4" style="margin-bottom: 28px;">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title"><span style="color:var(--primary); font-size:1.4rem;">&Delta;</span> <span>Delta</span></div>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted);">
-                                Sensitivity of option price to a \$1 change in underlying asset. Also proxies probability of expiring In-The-Money (ITM).
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title"><span style="color:var(--success); font-size:1.4rem;">&Gamma;</span> <span>Gamma</span></div>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted);">
-                                Rate of change of Delta for a \$1 move in the underlying. Highest for At-The-Money (ATM) options approaching expiration.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title"><span style="color:var(--danger); font-size:1.4rem;">&Theta;</span> <span>Theta</span></div>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted);">
-                                Time decay: dollar amount an option loses each calendar day, assuming all other factors remain constant. Accelerates in last 30 days.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title"><span style="color:var(--purple); font-size:1.4rem;">&nu;</span> <span>Vega</span></div>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted);">
-                                Sensitivity of option price to a 1% change in Implied Volatility (IV). Long options are positive Vega; short options are negative Vega.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Tools -->
-                    <h3 style="margin: 28px 0 16px; font-size: 1.2rem;">Options Analytics Shortcuts</h3>
-                    <div class="grid-3">
-                        <a href="https://optionstrat.com" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-calculator"></i></div>
-                                <div class="resource-meta">
-                                    <h3>OptionStrat</h3>
-                                    <p>Interactive graphical visualizer for multi-leg option payoff tables and Greeks.</p>
-                                </div>
-                            </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Visualizer</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
-                            </div>
-                        </a>
-
-                        <a href="https://www.optionsprofitcalculator.com" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-table"></i></div>
-                                <div class="resource-meta">
-                                    <h3>Options Profit Calculator</h3>
-                                    <p>Quick matrix calculations for spreads, iron condors, straddles, and calendars.</p>
-                                </div>
-                            </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Calculator</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
-                            </div>
-                        </a>
-
-                        <a href="https://marketchameleon.com" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-chart-pie"></i></div>
-                                <div class="resource-meta">
-                                    <h3>Market Chameleon</h3>
-                                    <p>Unusual options volume, IV rank percentile, and earnings volatility expectations.</p>
-                                </div>
-                            </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">IV Screener</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
-                            </div>
-                        </a>
-                    </div>
-                </section>
-
-                <!-- =========================================================
-                     Section 10: Trading Journal
+                     Section 7: Trading Journal
                      ========================================================= -->
                 <section id="sec-journal" class="hub-section">
                     <div class="section-banner">
@@ -1069,7 +710,7 @@
 
                         <div class="stat-widget">
                             <div class="stat-label">Profit Factor</div>
-                            <div class="stat-val" id="journal-stat-pf" style="color:#60a5fa;">0.00</div>
+                            <div class="stat-val" id="journal-stat-pf" style="color:#f87171;">0.00</div>
                             <div class="stat-sub text-muted">Total Gains / Total Losses</div>
                         </div>
                     </div>
@@ -1103,7 +744,7 @@
                 </section>
 
                 <!-- =========================================================
-                     Section 11: Risk Management & Calculator
+                     Section 8: Risk Management & Calculator
                      ========================================================= -->
                 <section id="sec-risk" class="hub-section">
                     <div class="section-banner">
@@ -1166,7 +807,7 @@
 
                                     <div style="background:var(--bg-card-inner); padding:16px; border-radius:var(--radius-sm);">
                                         <div style="font-size:0.775rem; color:var(--text-muted);">Optimal Position Size</div>
-                                        <div id="calc-out-position-size" style="font-size:1.6rem; font-weight:700; color:#60a5fa;">50 Shares</div>
+                                        <div id="calc-out-position-size" style="font-size:1.6rem; font-weight:700; color:#f87171;">50 Shares</div>
                                     </div>
                                 </div>
 
@@ -1219,138 +860,6 @@
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted);">
                                 Only enter setups where potential reward is at least 2.0&times; greater than the risk. At a 1:2 R:R, you only need a 34% win rate to break even.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- =========================================================
-                     Section 12: Glossary & Knowledge Base
-                     ========================================================= -->
-                <section id="sec-glossary" class="hub-section">
-                    <div class="section-banner">
-                        <div class="banner-content">
-                            <h1><i class="fa-solid fa-book-open text-primary"></i> Glossary &amp; Knowledge Base</h1>
-                            <p>Searchable institutional dictionary, trading vocabulary, reference notes, and personal research archive.</p>
-                        </div>
-                    </div>
-
-                    <!-- Search & Letter Bar -->
-                    <div style="margin-bottom: 24px;">
-                        <input type="text" id="glossary-search-input" class="form-control" placeholder="Search glossary terms (e.g. Delta, VWAP, FVG, Arbitrage)..." style="padding: 12px 18px; font-size: 1rem;">
-                        
-                        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top: 14px;">
-                            <button class="tag-badge letter-filter-chip active" data-letter="ALL">ALL</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="A">A</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="B">B</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="C">C</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="D">D</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="E">E</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="F">F</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="G">G</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="H">H</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="I">I</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="L">L</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="M">M</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="O">O</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="P">P</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="R">R</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="S">S</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="T">T</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="V">V</button>
-                            <button class="tag-badge letter-filter-chip" data-letter="Y">Y</button>
-                        </div>
-                    </div>
-
-                    <!-- Glossary Cards Grid -->
-                    <div class="grid-3" id="glossary-grid">
-                        <div class="card glossary-card" data-term="Arbitrage">
-                            <div class="card-header">
-                                <div class="card-title"><span>Arbitrage</span></div>
-                                <span class="tag-badge purple">Execution</span>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Simultaneous purchase and sale of equivalent assets in different markets to exploit pricing discrepancies without market directional risk.
-                            </p>
-                        </div>
-
-                        <div class="card glossary-card" data-term="Beta">
-                            <div class="card-header">
-                                <div class="card-title"><span>Beta (&beta;)</span></div>
-                                <span class="tag-badge blue">Risk Metric</span>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Measure of an asset's volatility and systematic risk in comparison to the broader benchmark market (such as the S&amp;P 500, which has Beta = 1.0).
-                            </p>
-                        </div>
-
-                        <div class="card glossary-card" data-term="Cumulative Volume Delta">
-                            <div class="card-header">
-                                <div class="card-title"><span>Cumulative Volume Delta (CVD)</span></div>
-                                <span class="tag-badge amber">Order Flow</span>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Running total of market buy volume minus market sell volume executed at the bid and ask, revealing hidden institutional absorption.
-                            </p>
-                        </div>
-
-                        <div class="card glossary-card" data-term="Drawdown">
-                            <div class="card-header">
-                                <div class="card-title"><span>Maximum Drawdown (MDD)</span></div>
-                                <span class="tag-badge red">Risk</span>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                The peak-to-trough decline during a specific period for an investment portfolio or strategy, measured as a percentage of the peak value.
-                            </p>
-                        </div>
-
-                        <div class="card glossary-card" data-term="Edge">
-                            <div class="card-header">
-                                <div class="card-title"><span>Statistical Edge</span></div>
-                                <span class="tag-badge green">Probability</span>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Positive mathematical expectancy over a large series of trades: Expectancy = (Win% &times; Avg Win) &minus; (Loss% &times; Avg Loss).
-                            </p>
-                        </div>
-
-                        <div class="card glossary-card" data-term="Fair Value Gap">
-                            <div class="card-header">
-                                <div class="card-title"><span>Fair Value Gap (FVG)</span></div>
-                                <span class="tag-badge blue">Price Action</span>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                A three-candle price imbalance where candle 1 high and candle 3 low do not overlap, leaving an unfilled liquidity pocket in candle 2.
-                            </p>
-                        </div>
-
-                        <div class="card glossary-card" data-term="Implied Volatility">
-                            <div class="card-header">
-                                <div class="card-title"><span>Implied Volatility (IV)</span></div>
-                                <span class="tag-badge purple">Options</span>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Market expectation of future price volatility derived backward from the Black-Scholes option pricing model. High IV inflates option premiums.
-                            </p>
-                        </div>
-
-                        <div class="card glossary-card" data-term="Liquidity Sweep">
-                            <div class="card-header">
-                                <div class="card-title"><span>Liquidity Sweep / Raid</span></div>
-                                <span class="tag-badge cyan">Order Flow</span>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Intentional push beyond major swing highs or lows to fill large institutional orders against retail stop-losses before reversing direction.
-                            </p>
-                        </div>
-
-                        <div class="card glossary-card" data-term="Slippage">
-                            <div class="card-header">
-                                <div class="card-title"><span>Slippage</span></div>
-                                <span class="tag-badge red">Execution</span>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                The difference between the expected price of a trade and the actual filled price, common during fast news releases or illiquid hours.
                             </p>
                         </div>
                     </div>
@@ -1488,7 +997,7 @@
         <div class="modal-box cmd-palette">
             <div class="cmd-input-wrap">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="cmd-search-input" class="cmd-input" placeholder="Type a section or tool name (e.g. Risk, Journal, Options)..." autocomplete="off">
+                <input type="text" id="cmd-search-input" class="cmd-input" placeholder="Type a section or tool name (e.g. Technical, Backtest, Risk, Journal)..." autocomplete="off">
             </div>
             <div class="cmd-results" id="cmd-results-list">
                 <!-- Dynamically rendered by app.js -->

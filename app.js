@@ -5,7 +5,7 @@
 
 // Application State
 const state = {
-    activeSection: 'academy',
+    activeSection: 'technical',
     journalTrades: [],
     backtestRuns: [],
     customNotes: []
@@ -13,18 +13,14 @@ const state = {
 
 // Section Metadata Registry
 const SECTIONS = [
-    { id: 'academy', name: 'Trading Academy', icon: 'fa-graduation-cap', group: 'Foundations' },
-    { id: 'strategies', name: 'Trading Strategies', icon: 'fa-chess', group: 'Foundations' },
-    { id: 'technical', name: 'Technical Analysis', icon: 'fa-chart-candlestick', group: 'Analysis & Code' },
-    { id: 'fundamental', name: 'Fundamental Analysis', icon: 'fa-landmark', group: 'Analysis & Code' },
-    { id: 'quant', name: 'Quantitative Trading', icon: 'fa-code', group: 'Analysis & Code' },
-    { id: 'backtest', name: 'Backtesting Laboratory', icon: 'fa-flask-vial', group: 'Analysis & Code' },
+    { id: 'technical', name: 'Technical Analysis', icon: 'fa-chart-candlestick', group: 'Analysis & Models' },
+    { id: 'fundamental', name: 'Fundamental Analysis', icon: 'fa-landmark', group: 'Analysis & Models' },
+    { id: 'quant', name: 'Quantitative Trading', icon: 'fa-code', group: 'Analysis & Models' },
+    { id: 'backtest', name: 'Backtesting Laboratory', icon: 'fa-flask-vial', group: 'Analysis & Models' },
     { id: 'news', name: 'Market News', icon: 'fa-newspaper', group: 'Market Pulse' },
     { id: 'market-data', name: 'Market Data', icon: 'fa-chart-line', group: 'Market Pulse' },
-    { id: 'options', name: 'Options & Derivatives', icon: 'fa-layer-group', group: 'Market Pulse' },
     { id: 'journal', name: 'Trading Journal', icon: 'fa-book-bookmark', group: 'Execution & Risk' },
-    { id: 'risk', name: 'Risk Management', icon: 'fa-shield-halved', group: 'Execution & Risk' },
-    { id: 'glossary', name: 'Glossary & Knowledge Base', icon: 'fa-book-open', group: 'Execution & Risk' }
+    { id: 'risk', name: 'Risk Management', icon: 'fa-shield-halved', group: 'Execution & Risk' }
 ];
 
 // Initialize Application
@@ -36,8 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initRiskCalculator();
     initJournal();
     initBacktestLab();
-    initGlossaryFilter();
-    initStrategyFilter();
     initModals();
 
     // Check URL Hash for initial navigation
@@ -45,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (initialHash && SECTIONS.some(s => s.id === initialHash)) {
         switchSection(initialHash);
     } else {
-        switchSection('academy');
+        switchSection('technical');
     }
 });
 
@@ -334,7 +328,7 @@ function initJournal() {
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td><strong>${escapeHTML(trade.date || '--')}</strong></td>
-                <td><span class="tag-badge blue">${escapeHTML(trade.ticker.toUpperCase())}</span></td>
+                <td><span class="tag-badge red">${escapeHTML(trade.ticker.toUpperCase())}</span></td>
                 <td><span class="pill ${trade.direction === 'long' ? 'long' : 'short'}">${trade.direction.toUpperCase()}</span></td>
                 <td>${formatUSD(trade.entry)}</td>
                 <td>${formatUSD(trade.exit)}</td>
@@ -430,7 +424,7 @@ function initBacktestLab() {
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td><strong>${escapeHTML(bt.name)}</strong></td>
-                <td><span class="tag-badge blue">${escapeHTML(bt.asset)}</span></td>
+                <td><span class="tag-badge red">${escapeHTML(bt.asset)}</span></td>
                 <td>${escapeHTML(bt.timeframe)}</td>
                 <td>${escapeHTML(bt.tradesCount)}</td>
                 <td><span class="pill win">${escapeHTML(bt.winRate)}%</span></td>
@@ -472,77 +466,6 @@ function initBacktestLab() {
     };
 
     renderBacktests();
-}
-
-/* -------------------------------------------------------------
- * Glossary Search & Filter
- * ------------------------------------------------------------- */
-function initGlossaryFilter() {
-    const input = document.getElementById('glossary-search-input');
-    const cards = document.querySelectorAll('.glossary-card');
-    const letterChips = document.querySelectorAll('.letter-filter-chip');
-
-    let currentLetter = 'ALL';
-    let currentQuery = '';
-
-    function applyFilter() {
-        cards.forEach(card => {
-            const term = (card.getAttribute('data-term') || '').toLowerCase();
-            const firstLetter = term.charAt(0).toUpperCase();
-            const text = card.textContent.toLowerCase();
-
-            const matchesLetter = currentLetter === 'ALL' || firstLetter === currentLetter;
-            const matchesQuery = !currentQuery || text.includes(currentQuery);
-
-            if (matchesLetter && matchesQuery) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
-
-    if (input) {
-        input.addEventListener('input', (e) => {
-            currentQuery = e.target.value.trim().toLowerCase();
-            applyFilter();
-        });
-    }
-
-    letterChips.forEach(chip => {
-        chip.addEventListener('click', () => {
-            letterChips.forEach(c => c.classList.remove('active'));
-            chip.classList.add('active');
-            currentLetter = chip.getAttribute('data-letter') || 'ALL';
-            applyFilter();
-        });
-    });
-}
-
-/* -------------------------------------------------------------
- * Strategy Playbook Filter
- * ------------------------------------------------------------- */
-function initStrategyFilter() {
-    const filterBtns = document.querySelectorAll('.strategy-filter-btn');
-    const cards = document.querySelectorAll('.strategy-card');
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.getAttribute('data-filter');
-
-            cards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                if (filter === 'all' || category === filter) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
 }
 
 /* -------------------------------------------------------------
