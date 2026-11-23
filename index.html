@@ -96,12 +96,14 @@
                 </div>
 
                 <!-- Sign Out Button -->
-                <button id="btn-logout" class="btn-icon text-danger" title="Sign Out" style="color:var(--danger); flex-shrink:0;">
+                <button id="btn-logout" class="btn-icon text-danger" title="Sign Out"
+                    style="color:var(--danger); flex-shrink:0;">
                     <i class="fa-solid fa-right-from-bracket"></i>
                 </button>
 
                 <!-- Logged Out View (Sign In Button) -->
-                <button id="btn-open-login" class="btn btn-primary btn-block" style="display:none; width:100%; justify-content:center;">
+                <button id="btn-open-login" class="btn btn-primary btn-block"
+                    style="display:none; width:100%; justify-content:center;">
                     <i class="fa-solid fa-right-to-bracket"></i> Sign In
                 </button>
             </div>
@@ -870,7 +872,14 @@
                                 your psychological discipline.</p>
                             <div class="journal-execution-note">
                                 <i class="fa-solid fa-circle-info"></i>
-                                <span><strong>Execution &amp; Leverage Specification (1:100):</strong> Leverage is calibrated at <strong>1:100</strong> with a standard 100-multiplier contract size (1.00 lot = 100 oz / units). For example, buying and selling <strong>XAU/USD</strong> between <strong>$3,500</strong> and <strong>$3,700</strong>: with a <strong>0.01 lot size</strong> (1 oz), you make <strong>+$200.00</strong> profit (1 oz &times; $200 price move); with a <strong>0.02 lot size</strong> (2 oz), you make <strong>+$400.00</strong> profit (2 oz &times; $200 price move).</span>
+                                <span><strong>Execution &amp; Leverage Specification (1:100):</strong> Leverage is
+                                    calibrated at <strong>1:100</strong> with a standard 100-multiplier contract size
+                                    (1.00 lot = 100 oz / units). For example, buying and selling
+                                    <strong>XAU/USD</strong> between <strong>$3,500</strong> and
+                                    <strong>$3,700</strong>: with a <strong>0.01 lot size</strong> (1 oz), you make
+                                    <strong>+$200.00</strong> profit (1 oz &times; $200 price move); with a <strong>0.02
+                                        lot size</strong> (2 oz), you make <strong>+$400.00</strong> profit (2 oz
+                                    &times; $200 price move).</span>
                             </div>
                         </div>
                         <div class="banner-actions">
@@ -920,7 +929,7 @@
                                     <th>Size (Lots)</th>
                                     <th>P&amp;L ($)</th>
                                     <th>Strategy</th>
-                                    <th>Notes / Reflection</th>
+                                    <th>Notes</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -957,7 +966,8 @@
                     <div class="grid-2">
                         <div class="form-group">
                             <label for="j-date">Date</label>
-                            <input type="text" id="j-date" class="form-control" readonly style="cursor: default;" title="Automatically logged as today's date">
+                            <input type="text" id="j-date" class="form-control" readonly style="cursor: default;"
+                                title="Automatically logged as today's date">
                         </div>
                         <div class="form-group">
                             <label for="j-ticker">Ticker / Symbol</label>
@@ -975,13 +985,17 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="j-size">Position Size (Lots) <span style="font-size:0.75rem; color:var(--text-muted); font-weight:normal;">[1.00 lot = 100 oz]</span></label>
+                            <label for="j-size">Position Size (Lots) <span
+                                    style="font-size:0.75rem; color:var(--text-muted); font-weight:normal;">[1.00 lot =
+                                    100 oz]</span></label>
                             <div class="number-stepper-wrap">
-                                <input type="number" id="j-size" class="form-control stepper-input" placeholder="0.01" min="0.01"
-                                    step="0.01" required>
+                                <input type="number" id="j-size" class="form-control stepper-input" placeholder="0.01"
+                                    min="0.01" step="0.01" required>
                                 <div class="stepper-controls">
-                                    <button type="button" class="stepper-btn up" data-target="j-size" data-step="1" title="Increase"><i class="fa-solid fa-chevron-up"></i></button>
-                                    <button type="button" class="stepper-btn down" data-target="j-size" data-step="-1" title="Decrease"><i class="fa-solid fa-chevron-down"></i></button>
+                                    <button type="button" class="stepper-btn up" data-target="j-size" data-step="1"
+                                        title="Increase"><i class="fa-solid fa-chevron-up"></i></button>
+                                    <button type="button" class="stepper-btn down" data-target="j-size" data-step="-1"
+                                        title="Decrease"><i class="fa-solid fa-chevron-down"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -991,22 +1005,26 @@
                         <div class="form-group">
                             <label for="j-entry">Entry Price ($)</label>
                             <div class="number-stepper-wrap">
-                                <input type="number" id="j-entry" class="form-control stepper-input" placeholder="150.00" step="any"
-                                    required>
+                                <input type="number" id="j-entry" class="form-control stepper-input"
+                                    placeholder="150.00" step="any" required>
                                 <div class="stepper-controls">
-                                    <button type="button" class="stepper-btn up" data-target="j-entry" data-step="1" title="Increase"><i class="fa-solid fa-chevron-up"></i></button>
-                                    <button type="button" class="stepper-btn down" data-target="j-entry" data-step="-1" title="Decrease"><i class="fa-solid fa-chevron-down"></i></button>
+                                    <button type="button" class="stepper-btn up" data-target="j-entry" data-step="1"
+                                        title="Increase"><i class="fa-solid fa-chevron-up"></i></button>
+                                    <button type="button" class="stepper-btn down" data-target="j-entry" data-step="-1"
+                                        title="Decrease"><i class="fa-solid fa-chevron-down"></i></button>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="j-exit">Exit Price ($)</label>
                             <div class="number-stepper-wrap">
-                                <input type="number" id="j-exit" class="form-control stepper-input" placeholder="155.00" step="any"
-                                    required>
+                                <input type="number" id="j-exit" class="form-control stepper-input" placeholder="155.00"
+                                    step="any" required>
                                 <div class="stepper-controls">
-                                    <button type="button" class="stepper-btn up" data-target="j-exit" data-step="1" title="Increase"><i class="fa-solid fa-chevron-up"></i></button>
-                                    <button type="button" class="stepper-btn down" data-target="j-exit" data-step="-1" title="Decrease"><i class="fa-solid fa-chevron-down"></i></button>
+                                    <button type="button" class="stepper-btn up" data-target="j-exit" data-step="1"
+                                        title="Increase"><i class="fa-solid fa-chevron-up"></i></button>
+                                    <button type="button" class="stepper-btn down" data-target="j-exit" data-step="-1"
+                                        title="Decrease"><i class="fa-solid fa-chevron-down"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -1014,8 +1032,10 @@
 
                     <!-- Live PnL Preview Badge -->
                     <div class="trade-pnl-preview" id="modal-trade-pnl-preview">
-                        <span style="color:var(--text-muted);"><i class="fa-solid fa-calculator"></i> Estimated P&amp;L:</span>
-                        <strong id="modal-pnl-val" style="font-family:var(--font-mono); font-size:0.95rem;">+$0.00 (0.00%)</strong>
+                        <span style="color:var(--text-muted);"><i class="fa-solid fa-calculator"></i> Estimated
+                            P&amp;L:</span>
+                        <strong id="modal-pnl-val" style="font-family:var(--font-mono); font-size:0.95rem;">+$0.00
+                            (0.00%)</strong>
                     </div>
 
                     <div class="form-group">
@@ -1101,24 +1121,36 @@
     <div id="login-overlay" class="login-overlay active" style="display: flex;">
         <div class="login-container">
             <div class="login-logo-wrap">
-                <i class="fa-solid fa-shield-halved text-primary" style="font-size: 2.2rem; margin-bottom: 12px; display: inline-block;"></i>
-                <h2 id="auth-title" style="font-size: 1.4rem; font-weight: 700; margin-bottom: 6px;">Terminal Access</h2>
+                <i class="fa-solid fa-shield-halved text-primary"
+                    style="font-size: 2.2rem; margin-bottom: 12px; display: inline-block;"></i>
+                <h2 id="auth-title" style="font-size: 1.4rem; font-weight: 700; margin-bottom: 6px;">Terminal Access
+                </h2>
             </div>
-            <p class="login-subtext" id="auth-subtitle" style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 22px;">Sign in to sync and protect your trading records.</p>
+            <p class="login-subtext" id="auth-subtitle"
+                style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 22px;">Sign in to sync and protect
+                your trading records.</p>
             <form id="login-form">
                 <div class="form-group" style="text-align: left; margin-bottom: 14px;">
-                    <label for="login-username" style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 6px;">Username</label>
-                    <input type="text" id="login-username" class="form-control" placeholder="Enter username (min. 4 letters)" required autocomplete="username">
+                    <label for="login-username"
+                        style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 6px;">Username</label>
+                    <input type="text" id="login-username" class="form-control"
+                        placeholder="Enter username (min. 4 letters)" required autocomplete="username">
                 </div>
                 <div class="form-group" style="text-align: left; margin-bottom: 18px;">
-                    <label for="login-password" style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 6px;">Password</label>
-                    <input type="password" id="login-password" class="form-control" placeholder="•••••••• (min. 8 alphanumeric)" required autocomplete="current-password">
+                    <label for="login-password"
+                        style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 6px;">Password</label>
+                    <input type="password" id="login-password" class="form-control"
+                        placeholder="•••••••• (min. 8 alphanumeric)" required autocomplete="current-password">
                 </div>
-                <div id="login-error" class="text-danger" style="display: none; font-size: 0.85rem; margin-bottom: 14px; text-align: center; color: #ef4444; font-weight: 500; line-height: 1.4;"></div>
-                <button type="submit" id="auth-submit-btn" class="btn btn-primary btn-block" style="width: 100%; justify-content: center; padding: 11px;">Sign In</button>
+                <div id="login-error" class="text-danger"
+                    style="display: none; font-size: 0.85rem; margin-bottom: 14px; text-align: center; color: #ef4444; font-weight: 500; line-height: 1.4;">
+                </div>
+                <button type="submit" id="auth-submit-btn" class="btn btn-primary btn-block"
+                    style="width: 100%; justify-content: center; padding: 11px;">Sign In</button>
                 <div style="margin-top: 14px; font-size: 0.8rem; color: var(--text-muted);">
                     <span id="auth-toggle-prompt">Don't have an account?</span>
-                    <a href="#" id="btn-toggle-auth-mode" style="color: var(--primary); text-decoration: underline; margin-left: 4px;">Create one</a>
+                    <a href="#" id="btn-toggle-auth-mode"
+                        style="color: var(--primary); text-decoration: underline; margin-left: 4px;">Create one</a>
                 </div>
             </form>
         </div>
