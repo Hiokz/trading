@@ -867,6 +867,15 @@ body {
     box-shadow: 0 0 0 3px var(--primary-glow);
 }
 
+select.form-control {
+    cursor: pointer;
+}
+
+select.form-control option {
+    background: #18181b;
+    color: #fafafa;
+}
+
 textarea.form-control {
     resize: none;
     min-height: 90px;
