@@ -261,7 +261,6 @@ function initJournal() {
     const emptyState = document.getElementById('journal-empty-state');
     const statTotalPnl = document.getElementById('journal-stat-total-pnl');
     const statWinRate = document.getElementById('journal-stat-win-rate');
-    const statProfitFactor = document.getElementById('journal-stat-pf');
     const statTotalTrades = document.getElementById('journal-stat-total-trades');
 
     function renderJournal() {
@@ -273,7 +272,6 @@ function initJournal() {
             if (statTotalTrades) statTotalTrades.textContent = '0';
             if (statTotalPnl) statTotalPnl.textContent = '$0.00';
             if (statWinRate) statWinRate.textContent = '0%';
-            if (statProfitFactor) statProfitFactor.textContent = '0.00';
             return;
         }
 
@@ -321,7 +319,6 @@ function initJournal() {
 
         // Summary Statistics
         const winRate = ((winCount / state.journalTrades.length) * 100).toFixed(1);
-        const profitFactor = totalLoss > 0 ? (totalGain / totalLoss).toFixed(2) : (totalGain > 0 ? 'MAX' : '0.00');
 
         if (statTotalTrades) statTotalTrades.textContent = state.journalTrades.length.toString();
         if (statTotalPnl) {
@@ -329,7 +326,6 @@ function initJournal() {
             statTotalPnl.style.color = totalPnl >= 0 ? 'var(--success)' : 'var(--danger)';
         }
         if (statWinRate) statWinRate.textContent = `${winRate}%`;
-        if (statProfitFactor) statProfitFactor.textContent = profitFactor;
     }
 
     function getTodayDateString() {
