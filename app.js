@@ -303,10 +303,30 @@ function initJournal() {
         if (statProfitFactor) statProfitFactor.textContent = profitFactor;
     }
 
+    function getTodayDateString() {
+        const now = new Date();
+        const yyyy = now.getFullYear();
+        const mm = String(now.getMonth() + 1).padStart(2, '0');
+        const dd = String(now.getDate()).padStart(2, '0');
+        return `${yyyy}-${mm}-${dd}`;
+    }
+
+    function setTradeModalDateToday() {
+        const dateInp = document.getElementById('j-date');
+        if (dateInp) {
+            dateInp.value = getTodayDateString();
+        }
+    }
+
+    // Auto-fill today's current date immediately
+    setTradeModalDateToday();
+
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const date = document.getElementById('j-date').value;
+            const todayStr = getTodayDateString();
+            const dateInput = document.getElementById('j-date');
+            const date = (dateInput && dateInput.value) ? dateInput.value : todayStr;
             const ticker = document.getElementById('j-ticker').value.trim().toUpperCase();
             const direction = document.getElementById('j-direction').value;
             const entry = parseFloat(document.getElementById('j-entry').value) || 0;
@@ -331,7 +351,12 @@ function initJournal() {
             const modal = document.getElementById('modal-add-trade');
             if (modal) modal.classList.remove('active');
             form.reset();
+            setTradeModalDateToday();
             updateLivePnlPreview();
+        });
+
+        form.addEventListener('reset', () => {
+            setTimeout(setTradeModalDateToday, 0);
         });
     }
 
@@ -417,10 +442,14 @@ function initModals() {
             const target = document.getElementById(modalId);
             if (target) {
                 target.classList.add('active');
-                // Auto-fill today's date if date input exists
+                // Auto-fill today's current date when opening modal
                 const dateInp = target.querySelector('input[type="date"]');
-                if (dateInp && !dateInp.value) {
-                    dateInp.value = new Date().toISOString().split('T')[0];
+                if (dateInp) {
+                    const now = new Date();
+                    const yyyy = now.getFullYear();
+                    const mm = String(now.getMonth() + 1).padStart(2, '0');
+                    const dd = String(now.getDate()).padStart(2, '0');
+                    dateInp.value = `${yyyy}-${mm}-${dd}`;
                 }
             }
         });

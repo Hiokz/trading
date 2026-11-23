@@ -1105,7 +1105,7 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
 
 .number-stepper-wrap .stepper-input {
     width: 100%;
-    padding-right: 24px;
+    padding-right: 32px;
     font-family: var(--font-mono);
     font-weight: 600;
     font-size: 0.95rem;
@@ -1139,7 +1139,7 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
 
 .stepper-controls {
     position: absolute;
-    right: 4px;
+    right: 9px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
