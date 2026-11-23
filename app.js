@@ -7,7 +7,6 @@
 const state = {
     activeSection: 'technical',
     journalTrades: [],
-    backtestRuns: [],
     customNotes: []
 };
 
@@ -15,8 +14,6 @@ const state = {
 const SECTIONS = [
     { id: 'technical', name: 'Technical Analysis', icon: 'fa-chart-line', group: 'Analysis & Models' },
     { id: 'fundamental', name: 'Fundamental Analysis', icon: 'fa-landmark', group: 'Analysis & Models' },
-    { id: 'quant', name: 'Quantitative Trading', icon: 'fa-code', group: 'Analysis & Models' },
-    { id: 'backtest', name: 'Backtesting Laboratory', icon: 'fa-flask-vial', group: 'Analysis & Models' },
     { id: 'news', name: 'Market News', icon: 'fa-newspaper', group: 'Market Pulse' },
     { id: 'journal', name: 'Trading Journal', icon: 'fa-book-bookmark', group: 'Execution & Risk' },
     { id: 'risk', name: 'Risk Management', icon: 'fa-shield-halved', group: 'Execution & Risk' }
@@ -30,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initLiveClocks();
     initRiskCalculator();
     initJournal();
-    initBacktestLab();
     initModals();
 
     // Check URL Hash for initial navigation
@@ -409,70 +405,6 @@ function initJournal() {
 }
 
 /* -------------------------------------------------------------
- * Backtest Laboratory
- * ------------------------------------------------------------- */
-function initBacktestLab() {
-    const form = document.getElementById('backtest-form');
-    const tableBody = document.getElementById('backtest-table-body');
-
-    function renderBacktests() {
-        if (!tableBody) return;
-        tableBody.innerHTML = '';
-
-        if (state.backtestRuns.length === 0) {
-            tableBody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding: 24px; color:var(--text-muted);">No backtests recorded yet. Log your first optimization run!</td></tr>`;
-            return;
-        }
-
-        state.backtestRuns.forEach((bt, index) => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td><strong>${escapeHTML(bt.name)}</strong></td>
-                <td><span class="tag-badge red">${escapeHTML(bt.asset)}</span></td>
-                <td>${escapeHTML(bt.timeframe)}</td>
-                <td>${escapeHTML(bt.tradesCount)}</td>
-                <td><span class="pill win">${escapeHTML(bt.winRate)}%</span></td>
-                <td class="font-bold text-success">${escapeHTML(bt.profitFactor)}</td>
-                <td>
-                    <button class="btn btn-icon btn-danger" style="width:28px; height:28px;" onclick="deleteBacktestRun(${index})">
-                        <i class="fa-solid fa-trash" style="font-size: 0.75rem;"></i>
-                    </button>
-                </td>
-            `;
-            tableBody.appendChild(tr);
-        });
-    }
-
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('bt-name').value.trim();
-            const asset = document.getElementById('bt-asset').value.trim().toUpperCase();
-            const timeframe = document.getElementById('bt-tf').value;
-            const tradesCount = document.getElementById('bt-trades').value;
-            const winRate = document.getElementById('bt-winrate').value;
-            const profitFactor = document.getElementById('bt-pf').value;
-
-            state.backtestRuns.unshift({ name, asset, timeframe, tradesCount, winRate, profitFactor });
-            saveStoredData();
-            renderBacktests();
-
-            const modal = document.getElementById('modal-add-backtest');
-            if (modal) modal.classList.remove('active');
-            form.reset();
-        });
-    }
-
-    window.deleteBacktestRun = function(index) {
-        state.backtestRuns.splice(index, 1);
-        saveStoredData();
-        renderBacktests();
-    };
-
-    renderBacktests();
-}
-
-/* -------------------------------------------------------------
  * General Modals Management
  * ------------------------------------------------------------- */
 function initModals() {
@@ -505,8 +437,7 @@ function initModals() {
             const backupData = {
                 exportedAt: new Date().toISOString(),
                 version: '1.0',
-                journalTrades: state.journalTrades,
-                backtestRuns: state.backtestRuns
+                journalTrades: state.journalTrades
             };
             const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
@@ -534,9 +465,6 @@ function initModals() {
                     if (parsed.journalTrades && Array.isArray(parsed.journalTrades)) {
                         state.journalTrades = parsed.journalTrades;
                     }
-                    if (parsed.backtestRuns && Array.isArray(parsed.backtestRuns)) {
-                        state.backtestRuns = parsed.backtestRuns;
-                    }
                     saveStoredData();
                     location.reload();
                 } catch (err) {
@@ -555,9 +483,6 @@ function loadStoredData() {
     try {
         const storedJournal = localStorage.getItem('th_journal_trades');
         if (storedJournal) state.journalTrades = JSON.parse(storedJournal);
-
-        const storedBt = localStorage.getItem('th_backtest_runs');
-        if (storedBt) state.backtestRuns = JSON.parse(storedBt);
     } catch (e) {
         console.warn('LocalStorage error:', e);
     }
@@ -566,7 +491,6 @@ function loadStoredData() {
 function saveStoredData() {
     try {
         localStorage.setItem('th_journal_trades', JSON.stringify(state.journalTrades));
-        localStorage.setItem('th_backtest_runs', JSON.stringify(state.backtestRuns));
     } catch (e) {
         console.warn('LocalStorage save error:', e);
     }
