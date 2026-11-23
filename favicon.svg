@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="96" fill="#09090b"/>
+  <!-- Subtle glowing background gradient -->
+  <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.25"/>
+    <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
+  </radialGradient>
+  <circle cx="256" cy="256" r="220" fill="url(#hubGlow)"/>
+  
+  <!-- Candlesticks and Trend Line Vector -->
+  <g transform="translate(48, 48) scale(0.8125)">
+    <!-- Candle 1: Bullish -->
+    <line x1="120" y1="140" x2="120" y2="380" stroke="#3b82f6" stroke-width="8" stroke-linecap="round"/>
+    <rect x="96" y="200" width="48" height="130" rx="8" fill="#3b82f6"/>
+
+    <!-- Candle 2: Bearish accent -->
+    <line x1="220" y1="120" x2="220" y2="350" stroke="#71717a" stroke-width="8" stroke-linecap="round"/>
+    <rect x="196" y="170" width="48" height="110" rx="8" fill="#27272a" stroke="#71717a" stroke-width="4"/>
+
+    <!-- Candle 3: Big Bullish Breakout -->
+    <line x1="320" y1="80" x2="320" y2="310" stroke="#10b981" stroke-width="8" stroke-linecap="round"/>
+    <rect x="296" y="110" width="48" height="150" rx="8" fill="#10b981"/>
+
+    <!-- Upward Trend Line with dot -->
+    <path d="M70 360 L 190 270 L 290 190 L 410 90" fill="none" stroke="#60a5fa" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="410" cy="90" r="16" fill="#ffffff" stroke="#3b82f6" stroke-width="6"/>
+  </g>
+</svg>
