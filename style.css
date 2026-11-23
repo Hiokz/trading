@@ -343,27 +343,10 @@ body {
 .market-sessions-bar {
     display: flex;
     align-items: center;
-    gap: 18px;
     background: rgba(0, 0, 0, 0.45);
     padding: 8px 18px;
     border-radius: var(--radius-md);
     border: 1px solid var(--border-color);
-}
-
-.clock-date-chip {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--text-main);
-    font-weight: 600;
-    font-size: 0.85rem;
-    white-space: nowrap;
-}
-
-.clock-divider {
-    width: 1px;
-    height: 48px;
-    background: var(--border-color);
 }
 
 .clocks-vertical-list {
@@ -375,24 +358,37 @@ body {
 .session-chip {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-size: 0.775rem;
     color: var(--text-muted);
     white-space: nowrap;
 }
 
 .session-chip .clock-city {
-    min-width: 92px;
+    min-width: 95px;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.session-chip .clock-date {
     color: var(--text-muted);
-    font-weight: 500;
+    font-size: 0.775rem;
+    min-width: 175px;
+}
+
+.session-chip .clock-sep {
+    color: var(--text-subtle);
+    font-size: 0.75rem;
 }
 
 .session-chip .clock-time {
     font-family: var(--font-mono);
-    color: var(--text-main);
+    color: #f87171;
     font-weight: 600;
-    font-size: 0.82rem;
+    font-size: 0.825rem;
     letter-spacing: 0.5px;
+    min-width: 65px;
 }
 
 .status-dot {

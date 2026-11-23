@@ -186,52 +186,41 @@ function initCommandPalette() {
  * Live Real-Time Date & Country Clocks
  * ------------------------------------------------------------- */
 function initLiveClocks() {
-    const dateEl = document.getElementById('live-date-display');
-    const clockSgEl = document.getElementById('clock-sg');
-    const clockIdEl = document.getElementById('clock-id');
-    const clockNyEl = document.getElementById('clock-ny');
+    const sgDateEl = document.getElementById('date-sg');
+    const sgTimeEl = document.getElementById('clock-sg');
+    const idDateEl = document.getElementById('date-id');
+    const idTimeEl = document.getElementById('clock-id');
+    const nyDateEl = document.getElementById('date-ny');
+    const nyTimeEl = document.getElementById('clock-ny');
 
     function update() {
         const now = new Date();
 
-        if (dateEl) {
-            dateEl.textContent = now.toLocaleDateString('en-US', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-        }
+        const dateOptions = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
 
-        if (clockSgEl) {
-            clockSgEl.textContent = now.toLocaleTimeString('en-US', {
-                timeZone: 'Asia/Singapore',
-                hour12: false,
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            });
-        }
+        const timeOptions = {
+            hour12: false,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        };
 
-        if (clockIdEl) {
-            clockIdEl.textContent = now.toLocaleTimeString('en-US', {
-                timeZone: 'Asia/Jakarta',
-                hour12: false,
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            });
-        }
+        // Singapore (Asia/Singapore, UTC+8)
+        if (sgDateEl) sgDateEl.textContent = now.toLocaleDateString('en-US', { ...dateOptions, timeZone: 'Asia/Singapore' });
+        if (sgTimeEl) sgTimeEl.textContent = now.toLocaleTimeString('en-US', { ...timeOptions, timeZone: 'Asia/Singapore' });
 
-        if (clockNyEl) {
-            clockNyEl.textContent = now.toLocaleTimeString('en-US', {
-                timeZone: 'America/New_York',
-                hour12: false,
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            });
-        }
+        // Indonesia (Asia/Jakarta, UTC+7)
+        if (idDateEl) idDateEl.textContent = now.toLocaleDateString('en-US', { ...dateOptions, timeZone: 'Asia/Jakarta' });
+        if (idTimeEl) idTimeEl.textContent = now.toLocaleTimeString('en-US', { ...timeOptions, timeZone: 'Asia/Jakarta' });
+
+        // US New York (America/New_York, UTC-5)
+        if (nyDateEl) nyDateEl.textContent = now.toLocaleDateString('en-US', { ...dateOptions, timeZone: 'America/New_York' });
+        if (nyTimeEl) nyTimeEl.textContent = now.toLocaleTimeString('en-US', { ...timeOptions, timeZone: 'America/New_York' });
     }
 
     update();
