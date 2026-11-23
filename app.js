@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCustomSelects();
     initNumberSteppers();
     initModals();
+    initAuth();
 
     // Check URL Hash for initial navigation
     const initialHash = window.location.hash.replace('#', '');
@@ -707,3 +708,113 @@ function initNumberSteppers() {
         });
     });
 }
+
+/* -------------------------------------------------------------
+ * Authentication Management (FinTracks Architecture)
+ * ------------------------------------------------------------- */
+function initAuth() {
+    const authProfile = document.getElementById('auth-user-profile');
+    const userDisplayEmail = document.getElementById('user-display-email');
+    const userDisplayStatus = document.getElementById('user-display-status');
+    const btnLogout = document.getElementById('btn-logout');
+    const btnOpenLogin = document.getElementById('btn-open-login');
+    const loginOverlay = document.getElementById('login-overlay');
+    const btnCloseLogin = document.getElementById('btn-close-login');
+    const loginForm = document.getElementById('login-form');
+    const loginUsername = document.getElementById('login-username');
+    const loginPassword = document.getElementById('login-password');
+    const loginError = document.getElementById('login-error');
+    const authSubmitBtn = document.getElementById('auth-submit-btn');
+
+    function updateAuthUI() {
+        const currentUser = sessionStorage.getItem('th_auth_user');
+        if (currentUser) {
+            if (authProfile) authProfile.style.display = 'flex';
+            if (btnLogout) btnLogout.style.display = 'inline-flex';
+            if (btnOpenLogin) btnOpenLogin.style.display = 'none';
+            if (userDisplayEmail) userDisplayEmail.textContent = `Welcome! ${currentUser}`;
+            if (userDisplayStatus) userDisplayStatus.textContent = 'PRO Access';
+        } else {
+            if (authProfile) authProfile.style.display = 'none';
+            if (btnLogout) btnLogout.style.display = 'none';
+            if (btnOpenLogin) btnOpenLogin.style.display = 'inline-flex';
+        }
+    }
+
+    function openLogin() {
+        if (!loginOverlay) return;
+        loginOverlay.style.display = 'flex';
+        setTimeout(() => loginOverlay.classList.add('active'), 10);
+        if (loginError) loginError.style.display = 'none';
+        if (loginUsername) loginUsername.focus();
+    }
+
+    function closeLogin() {
+        if (!loginOverlay) return;
+        loginOverlay.classList.remove('active');
+        setTimeout(() => {
+            loginOverlay.style.display = 'none';
+            if (loginForm) loginForm.reset();
+        }, 250);
+    }
+
+    if (btnOpenLogin) btnOpenLogin.addEventListener('click', openLogin);
+    if (btnCloseLogin) btnCloseLogin.addEventListener('click', closeLogin);
+    if (loginOverlay) {
+        loginOverlay.addEventListener('click', (e) => {
+            if (e.target === loginOverlay) closeLogin();
+        });
+    }
+
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = loginUsername ? loginUsername.value.trim() : '';
+            const password = loginPassword ? loginPassword.value : '';
+
+            if (!username || !password) {
+                if (loginError) {
+                    loginError.textContent = 'Please enter both username and password.';
+                    loginError.style.display = 'block';
+                }
+                return;
+            }
+
+            if (authSubmitBtn) {
+                authSubmitBtn.disabled = true;
+                authSubmitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Signing in...';
+            }
+
+            setTimeout(() => {
+                let displayName = username.includes('@') ? username.split('@')[0] : username;
+                displayName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
+
+                sessionStorage.setItem('th_auth_user', displayName);
+                sessionStorage.removeItem('th_auth_signed_out');
+                updateAuthUI();
+                closeLogin();
+
+                if (authSubmitBtn) {
+                    authSubmitBtn.disabled = false;
+                    authSubmitBtn.textContent = 'Sign In';
+                }
+            }, 300);
+        });
+    }
+
+    if (btnLogout) {
+        btnLogout.addEventListener('click', () => {
+            sessionStorage.removeItem('th_auth_user');
+            sessionStorage.setItem('th_auth_signed_out', 'true');
+            updateAuthUI();
+        });
+    }
+
+    // Default to 'Trader' unless user explicitly signed out
+    if (!sessionStorage.getItem('th_auth_user') && !sessionStorage.getItem('th_auth_signed_out')) {
+        sessionStorage.setItem('th_auth_user', 'Trader');
+    }
+
+    updateAuthUI();
+}
+

@@ -82,19 +82,27 @@
                 </div>
             </div>
 
-            <!-- Sidebar User Profile Footer -->
-            <div class="sidebar-footer">
-                <div class="user-snippet">
-                    <div class="user-avatar">
+            <!-- Sidebar User Profile Footer (FinTracks Architecture) -->
+            <div class="sidebar-footer" id="sidebar-auth-footer">
+                <!-- Logged In Profile View -->
+                <div class="user-snippet" id="auth-user-profile">
+                    <div class="user-avatar" id="auth-user-avatar">
                         <i class="fa-solid fa-user-astronaut"></i>
                     </div>
                     <div class="user-info">
-                        <p>Personal Workspace</p>
-                        <span>Local Offline Mode</span>
+                        <p id="user-display-email" class="user-name">Welcome! Trader</p>
+                        <span id="user-display-status">PRO Access</span>
                     </div>
                 </div>
-                <button class="btn-icon" data-open-modal="modal-export" title="Backup &amp; Export Data">
-                    <i class="fa-solid fa-cloud-arrow-down"></i>
+
+                <!-- Sign Out Button -->
+                <button id="btn-logout" class="btn-icon text-danger" title="Sign Out" style="color:var(--danger); flex-shrink:0;">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+
+                <!-- Logged Out View (Sign In Button) -->
+                <button id="btn-open-login" class="btn btn-primary btn-block" style="display:none; width:100%; justify-content:center;">
+                    <i class="fa-solid fa-right-to-bracket"></i> Sign In
                 </button>
             </div>
         </aside>
@@ -1086,6 +1094,30 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary modal-close">Close</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Login Screen (FinTracks Architecture) -->
+    <div id="login-overlay" class="login-overlay" style="display: none;">
+        <div class="login-container">
+            <button class="modal-close" id="btn-close-login" style="position: absolute; top: 16px; right: 16px;">&times;</button>
+            <div class="login-logo-wrap">
+                <i class="fa-solid fa-shield-halved text-primary" style="font-size: 2.2rem; margin-bottom: 12px; display: inline-block;"></i>
+                <h2 id="auth-title" style="font-size: 1.4rem; font-weight: 700; margin-bottom: 6px;">Terminal Access</h2>
+            </div>
+            <p class="login-subtext" id="auth-subtitle" style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 22px;">Sign in to sync and protect your trading records.</p>
+            <form id="login-form">
+                <div class="form-group" style="text-align: left; margin-bottom: 14px;">
+                    <label for="login-username" style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 6px;">Username or Email</label>
+                    <input type="text" id="login-username" class="form-control" placeholder="Enter username or email" required>
+                </div>
+                <div class="form-group" style="text-align: left; margin-bottom: 18px;">
+                    <label for="login-password" style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 6px;">Password</label>
+                    <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+                </div>
+                <div id="login-error" class="text-danger" style="display: none; font-size: 0.825rem; margin-bottom: 14px; text-align: left;"></div>
+                <button type="submit" id="auth-submit-btn" class="btn btn-primary btn-block" style="width: 100%; justify-content: center; padding: 11px;">Sign In</button>
+            </form>
         </div>
     </div>
 
