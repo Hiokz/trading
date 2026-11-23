@@ -302,14 +302,15 @@ body {
 
 /* Top App Header */
 .top-navbar {
-    height: var(--header-height);
+    min-height: var(--header-height);
+    height: auto;
     background: var(--bg-panel);
     border-bottom: 1px solid var(--border-color);
     backdrop-filter: blur(16px);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 32px;
+    padding: 10px 32px;
     flex-shrink: 0;
     z-index: 50;
 }
@@ -342,36 +343,48 @@ body {
 .market-sessions-bar {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 18px;
     background: rgba(0, 0, 0, 0.45);
-    padding: 6px 16px;
-    border-radius: 20px;
+    padding: 8px 18px;
+    border-radius: var(--radius-md);
     border: 1px solid var(--border-color);
 }
 
 .clock-date-chip {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     color: var(--text-main);
     font-weight: 600;
-    font-size: 0.825rem;
+    font-size: 0.85rem;
     white-space: nowrap;
 }
 
 .clock-divider {
     width: 1px;
-    height: 14px;
+    height: 48px;
     background: var(--border-color);
+}
+
+.clocks-vertical-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .session-chip {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 0.8rem;
+    gap: 8px;
+    font-size: 0.775rem;
     color: var(--text-muted);
     white-space: nowrap;
+}
+
+.session-chip .clock-city {
+    min-width: 92px;
+    color: var(--text-muted);
+    font-weight: 500;
 }
 
 .session-chip .clock-time {
@@ -379,6 +392,7 @@ body {
     color: var(--text-main);
     font-weight: 600;
     font-size: 0.82rem;
+    letter-spacing: 0.5px;
 }
 
 .status-dot {
