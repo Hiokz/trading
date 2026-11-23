@@ -168,97 +168,216 @@
                         </div>
                     </div>
 
-                    <!-- Indicator Cheatsheet -->
-                    <div class="grid-3">
+                    <!-- Category 1: Trend Indicators -->
+                    <div class="indicator-category-title">
+                        <div class="title-left">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            <span>Trend Following &amp; Direction</span>
+                        </div>
+                        <span class="tag-badge red">4 Indicators</span>
+                    </div>
+
+                    <div class="grid-2">
+                        <!-- SMA -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-water"></i> <span>VWAP &amp; Bands</span></div>
-                                <span class="tag-badge red">Intraday</span>
+                                <div class="card-title"><i class="fa-solid fa-chart-line"></i> <span>Simple Moving Average (SMA)</span></div>
+                                <span class="tag-badge red">Trend Baseline</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Volume-Weighted Average Price serves as benchmark for institutional execution. &plusmn;1 and &plusmn;2 standard deviation bands act as statistical overbought/oversold boundaries.
+                                Calculates the arithmetic mean price over a specified lookback window. Filters out market noise to reveal underlying directional trends and serves as institutional dynamic support and resistance.
                             </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Setups:</strong> 20 SMA (Short-term), 50 SMA (Medium-term), 200 SMA (Macro baseline / Golden &amp; Death Cross).</span>
+                            </div>
                         </div>
 
+                        <!-- EMA -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-gauge-high"></i> <span>RSI &amp; Divergences</span></div>
+                                <div class="card-title"><i class="fa-solid fa-bolt"></i> <span>Exponential Moving Average (EMA)</span></div>
+                                <span class="tag-badge red">Fast Trend</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Applies an exponential weighting multiplier to recent prices, reducing lag relative to the SMA. Enables faster identification of trend transitions, dynamic pullback retests, and moving average cross systems.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Setups:</strong> 9 &amp; 21 EMA (Momentum cross triggers), 50 &amp; 200 EMA (Structural trend bias), Moving Average Ribbons.</span>
+                            </div>
+                        </div>
+
+                        <!-- Supertrend -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-compass"></i> <span>Supertrend</span></div>
+                                <span class="tag-badge red">Trend &amp; Trailing Stop</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                A hybrid trend-following overlay built from the median price $(H+L)/2$ combined with an ATR volatility band. Color transitions delineate bullish (green) vs. bearish (red) regimes and provide an objective trailing stop.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Setups:</strong> ATR Length: 10, Multiplier: 3.0 (Equities/Forex); 7 / 3.0 (High-volatility / Crypto).</span>
+                            </div>
+                        </div>
+
+                        <!-- ADX -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-gauge"></i> <span>Average Directional Index (ADX)</span></div>
+                                <span class="tag-badge red">Trend Strength</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Quantifies the strength of an ongoing trend on a 0–100 scale regardless of price direction. Derived from smoothed $+DI$ and $-DI$ vectors. Distinguishes high-probability trending moves from choppy sideways consolidations.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Levels:</strong> &gt; 25 (Strong trend confirmed), &gt; 40 (Climax trend / exhaustion risk), &lt; 20 (Ranging / chop regime).</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Momentum & Oscillators -->
+                    <div class="indicator-category-title">
+                        <div class="title-left">
+                            <i class="fa-solid fa-gauge-high"></i>
+                            <span>Momentum &amp; Oscillators</span>
+                        </div>
+                        <span class="tag-badge green">3 Indicators</span>
+                    </div>
+
+                    <div class="grid-3">
+                        <!-- RSI -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-wave-square"></i> <span>Relative Strength Index (RSI)</span></div>
                                 <span class="tag-badge green">Momentum</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Relative Strength Index (14). Regular divergence signals potential trend exhaustion. Hidden divergence signals strong trend continuation.
+                                Measures the velocity and magnitude of directional price movements on a 0–100 scale. Flags overbought and oversold extremes and highlights trend fatigue or continuation through regular and hidden divergences.
                             </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Levels:</strong> Length: 14 | &gt;70 Overbought, &lt;30 Oversold, 50 Midline regime filter.</span>
+                            </div>
                         </div>
 
+                        <!-- Stochastic RSI -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-arrows-split-up-and-left"></i> <span>Stochastic RSI</span></div>
+                                <span class="tag-badge green">Fast Oscillator</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Applies the Stochastic oscillator formula to RSI values rather than raw price bars. Produces a sensitive indicator designed to detect micro-cycle turning points, momentum shifts, and short-term swing reversals.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Levels:</strong> %K: 3, %D: 3, RSI Length: 14, Stoch Length: 14 | &gt;80 Overbought, &lt;20 Oversold.</span>
+                            </div>
+                        </div>
+
+                        <!-- MACD -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-chart-column"></i> <span>MACD</span></div>
+                                <span class="tag-badge green">Trend &amp; Momentum</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Plots the spread between the 12 EMA and 26 EMA alongside a 9-period signal line and histogram. Histogram expansion signals accelerating momentum; signal line crossovers and zero-line crosses confirm structural trend shifts.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Setups:</strong> Fast: 12, Slow: 26, Signal: 9 | Signal line cross, Zero-line cross, Histogram divergence.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Volatility & Price Channels -->
+                    <div class="indicator-category-title">
+                        <div class="title-left">
+                            <i class="fa-solid fa-arrows-left-right-to-line"></i>
+                            <span>Volatility &amp; Price Channels</span>
+                        </div>
+                        <span class="tag-badge amber">3 Indicators</span>
+                    </div>
+
+                    <div class="grid-3">
+                        <!-- Average True Range (ATR) -->
                         <div class="card">
                             <div class="card-header">
                                 <div class="card-title"><i class="fa-solid fa-ruler-combined"></i> <span>Average True Range (ATR)</span></div>
                                 <span class="tag-badge amber">Volatility</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Measures market volatility in absolute points/currency. Used for objective stop-loss placement (e.g. 1.5x ATR) and dynamic position sizing.
+                                Measures market volatility in absolute currency points by calculating the true range across bars, accounting for overnight gaps. Provides an objective basis for dynamic stop-loss sizing and risk allocation.
                             </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Setups:</strong> Length: 14 | Dynamic stop placement (e.g. 1.5x–2.5x ATR), Volatility breakout filters.</span>
+                            </div>
+                        </div>
+
+                        <!-- Bollinger Bands -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-layer-group"></i> <span>Bollinger Bands</span></div>
+                                <span class="tag-badge amber">Statistical Bands</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Envelopes price with a 20 SMA middle line and upper/lower bands placed 2 standard deviations away. Identifies volatility contractions ("The Squeeze") preceding powerful expansions and flags mean-reversion exhaustion zones.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Setups:</strong> Basis: 20 SMA, Multiplier: 2.0σ | Band Squeeze breakouts, Band Walking, Mean reversion.</span>
+                            </div>
+                        </div>
+
+                        <!-- Donchian Channels -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-cubes"></i> <span>Donchian Channels</span></div>
+                                <span class="tag-badge amber">Range &amp; Breakout</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Plots the highest high and lowest low over an $N$-period lookback window, with a median midpoint line. Forms the cornerstone of systematic trend breakout strategies, historically proven by the legendary Turtle Traders.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Setups:</strong> 20 Periods (Classic Turtle entry), 10 Periods (Exit trailing stop), 55 Periods (Long-term trend).</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Quick External Charting Platforms -->
-                    <h3 style="margin: 28px 0 16px; font-size: 1.2rem;">Technical Tool Shortcuts</h3>
-                    <div class="grid-4">
-                        <a href="https://www.tradingview.com" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-chart-line"></i></div>
-                                <div class="resource-meta">
-                                    <h3>TradingView</h3>
-                                    <p>Industry-standard HTML5 charting, PineScript indicators, and community scripts.</p>
-                                </div>
-                            </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Charting</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
-                            </div>
-                        </a>
+                    <!-- Category 4: Volume & Liquidity -->
+                    <div class="indicator-category-title">
+                        <div class="title-left">
+                            <i class="fa-solid fa-chart-column"></i>
+                            <span>Volume &amp; Liquidity</span>
+                        </div>
+                        <span class="tag-badge purple">2 Indicators</span>
+                    </div>
 
-                        <a href="https://finviz.com/map.ashx" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-border-all"></i></div>
-                                <div class="resource-meta">
-                                    <h3>Finviz Heatmap</h3>
-                                    <p>Sector and industry breadth map showing institutional money flow.</p>
-                                </div>
+                    <div class="grid-2">
+                        <!-- Volume -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-chart-simple"></i> <span>Volume</span></div>
+                                <span class="tag-badge purple">Market Fuel</span>
                             </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Market Map</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Displays the total shares or contracts traded during each interval. Serves as the ultimate truth detector for price action: genuine institutional moves expand volume, while low-volume breakouts warn of weak conviction and bull/bear traps.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Setups:</strong> 20-period Volume SMA overlay | Volume Breakout expansion, Climax exhaustion, Dry-up pullbacks.</span>
                             </div>
-                        </a>
+                        </div>
 
-                        <a href="https://stockcharts.com" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-chart-pie"></i></div>
-                                <div class="resource-meta">
-                                    <h3>StockCharts RRG</h3>
-                                    <p>Relative Rotation Graphs to find leading vs. lagging market sectors.</p>
-                                </div>
+                        <!-- VWAP -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-water"></i> <span>VWAP</span></div>
+                                <span class="tag-badge purple">Institutional Anchor</span>
                             </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Relative Strength</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Volume-Weighted Average Price calculates the cumulative dollar value divided by volume traded from session open. Benchmark for institutional execution algorithms and market makers. Standard deviation bands act as dynamic support/resistance.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Setups:</strong> Session Anchored (Daily / Weekly / Monthly) | Intraday bias (Above = Bullish, Below = Bearish), ±1σ &amp; ±2σ Bands.</span>
                             </div>
-                        </a>
-
-                        <a href="https://trendspider.com" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                                <div class="resource-meta">
-                                    <h3>TrendSpider</h3>
-                                    <p>Automated trendline detection, anchored VWAP, and multi-timeframe analysis.</p>
-                                </div>
-                            </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Automation</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
-                            </div>
-                        </a>
+                        </div>
                     </div>
                 </section>
 

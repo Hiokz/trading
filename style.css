@@ -588,6 +588,8 @@ body {
     padding: 24px;
     transition: var(--transition);
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
@@ -611,6 +613,50 @@ body {
 
 .card-title i {
     color: var(--primary);
+}
+
+/* Indicator Category Header & Card Footer */
+.indicator-category-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 32px 0 16px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.indicator-category-title:first-of-type {
+    margin-top: 8px;
+}
+
+.indicator-category-title .title-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.indicator-category-title .title-left i {
+    color: var(--primary);
+}
+
+.card-footer-params {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.775rem;
+    color: var(--text-subtle);
+    line-height: 1.4;
+}
+
+.card-footer-params strong {
+    color: var(--text-muted);
 }
 
 /* Shortcut Resource Card */
