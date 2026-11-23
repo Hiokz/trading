@@ -329,7 +329,63 @@ function initJournal() {
             const modal = document.getElementById('modal-add-trade');
             if (modal) modal.classList.remove('active');
             form.reset();
+            updateLivePnlPreview();
         });
+    }
+
+    // Interactive inputs live calculation & styling
+    const inputSize = document.getElementById('j-size');
+    const inputEntry = document.getElementById('j-entry');
+    const inputExit = document.getElementById('j-exit');
+    const inputDirection = document.getElementById('j-direction');
+    const pnlPreview = document.getElementById('modal-trade-pnl-preview');
+    const pnlVal = document.getElementById('modal-pnl-val');
+
+    function updateLivePnlPreview() {
+        const size = parseFloat(inputSize ? inputSize.value : 0) || 0;
+        const entry = parseFloat(inputEntry ? inputEntry.value : 0) || 0;
+        const exit = parseFloat(inputExit ? inputExit.value : 0) || 0;
+        const dir = inputDirection ? inputDirection.value : 'long';
+
+        if (inputDirection) {
+            if (dir === 'long') {
+                inputDirection.classList.add('is-long');
+                inputDirection.classList.remove('is-short');
+            } else {
+                inputDirection.classList.add('is-short');
+                inputDirection.classList.remove('is-long');
+            }
+        }
+
+        if (pnlPreview && pnlVal) {
+            if (size > 0 && entry > 0 && exit > 0) {
+                let pnl = 0;
+                let pct = 0;
+                if (dir === 'long') {
+                    pnl = (exit - entry) * size;
+                    pct = ((exit - entry) / entry) * 100;
+                } else {
+                    pnl = (entry - exit) * size;
+                    pct = ((entry - exit) / entry) * 100;
+                }
+                const isWin = pnl >= 0;
+                pnlVal.textContent = `${isWin ? '+' : ''}${formatUSD(pnl)} (${isWin ? '+' : ''}${pct.toFixed(2)}%)`;
+                pnlVal.style.color = isWin ? 'var(--success)' : 'var(--danger)';
+                pnlPreview.style.borderColor = isWin ? 'rgba(16, 185, 129, 0.35)' : 'rgba(239, 68, 68, 0.35)';
+                pnlPreview.style.background = isWin ? 'rgba(16, 185, 129, 0.08)' : 'rgba(239, 68, 68, 0.08)';
+                pnlPreview.classList.add('active');
+            } else {
+                pnlPreview.classList.remove('active');
+            }
+        }
+    }
+
+    [inputSize, inputEntry, inputExit].forEach(inp => {
+        if (inp) inp.addEventListener('input', updateLivePnlPreview);
+    });
+    if (inputDirection) {
+        inputDirection.addEventListener('change', updateLivePnlPreview);
+        updateLivePnlPreview();
     }
 
     window.deleteJournalTrade = function(index) {

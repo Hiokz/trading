@@ -937,7 +937,7 @@
     <div class="modal-overlay" id="modal-add-trade">
         <div class="modal-box">
             <div class="modal-header">
-                <h3><i class="fa-solid fa-plus text-primary"></i> Log New Trade Execution</h3>
+                <h3><i class="fa-solid fa-pen-to-square text-primary"></i> Log New Trade Execution</h3>
                 <button class="modal-close">&times;</button>
             </div>
             <div class="modal-body">
@@ -980,6 +980,12 @@
                             <input type="number" id="j-exit" class="form-control" placeholder="155.00" step="any"
                                 required>
                         </div>
+                    </div>
+
+                    <!-- Live PnL Preview Badge -->
+                    <div class="trade-pnl-preview" id="modal-trade-pnl-preview">
+                        <span style="color:var(--text-muted);"><i class="fa-solid fa-calculator"></i> Estimated P&amp;L:</span>
+                        <strong id="modal-pnl-val" style="font-family:var(--font-mono); font-size:0.95rem;">+$0.00 (0.00%)</strong>
                     </div>
 
                     <div class="form-group">
