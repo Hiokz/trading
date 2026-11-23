@@ -33,7 +33,7 @@
                         <span>TH</span>
                     </div>
                     <div class="brand-text">
-                        <h2>TradingHub <span>PRO</span></h2>
+                        <h2>TradingHub</h2>
                     </div>
                 </a>
             </div>
@@ -50,7 +50,7 @@
                 <div class="nav-group">
                     <div class="nav-group-title">Analysis &amp; Models</div>
                     <a href="#technical" class="nav-item active" data-target="technical">
-                        <i class="fa-solid fa-chart-candlestick"></i>
+                        <i class="fa-solid fa-chart-line"></i>
                         <span>Technical Analysis</span>
                     </a>
                     <a href="#fundamental" class="nav-item" data-target="fundamental">
@@ -73,10 +73,6 @@
                     <a href="#news" class="nav-item" data-target="news">
                         <i class="fa-solid fa-newspaper"></i>
                         <span>Market News</span>
-                    </a>
-                    <a href="#market-data" class="nav-item" data-target="market-data">
-                        <i class="fa-solid fa-chart-line"></i>
-                        <span>Market Data</span>
                     </a>
                 </div>
 
@@ -127,31 +123,39 @@
                     </div>
                 </div>
 
-                <!-- Live Market Hours Ticker -->
+                <!-- Live Real-Time Date & Country Clocks Ticker -->
                 <div class="market-sessions-bar">
-                    <div class="session-chip" title="New York Session (14:30 - 21:00 UTC)">
-                        <span class="status-dot" id="status-ny"></span>
-                        <span>NY (US)</span>
+                    <div class="clock-date-chip">
+                        <i class="fa-solid fa-calendar-days text-primary"></i>
+                        <span id="live-date-display">Monday, November 23, 2026</span>
                     </div>
-                    <div class="session-chip" title="London Session (08:00 - 16:30 UTC)">
-                        <span class="status-dot" id="status-london"></span>
-                        <span>London</span>
+                    <div class="clock-divider"></div>
+                    <div class="session-chip" title="Singapore (SGT / UTC+8)">
+                        <span class="status-dot active"></span>
+                        <span>Singapore:</span>
+                        <span class="clock-time" id="clock-sg">--:--:--</span>
                     </div>
-                    <div class="session-chip" title="Tokyo Session (00:00 - 06:00 UTC)">
-                        <span class="status-dot" id="status-tokyo"></span>
-                        <span>Tokyo</span>
+                    <div class="session-chip" title="Indonesia (WIB / UTC+7)">
+                        <span class="status-dot active"></span>
+                        <span>Indonesia:</span>
+                        <span class="clock-time" id="clock-id">--:--:--</span>
+                    </div>
+                    <div class="session-chip" title="US (New York) (EST / UTC-5)">
+                        <span class="status-dot active"></span>
+                        <span>US (New York):</span>
+                        <span class="clock-time" id="clock-ny">--:--:--</span>
                     </div>
                 </div>
 
                 <div class="header-right">
-                    <button class="btn btn-secondary btn-open-cmd">
+                    <button class="btn btn-secondary btn-open-cmd" title="Quick Search & Navigation (Ctrl+K)">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <span>Search (Ctrl+K)</span>
                     </button>
-                    <button class="btn btn-primary" data-open-modal="modal-add-trade">
-                        <i class="fa-solid fa-plus"></i>
-                        <span>Log Trade</span>
-                    </button>
+                    <a href="https://www.tradingview.com/chart/" target="_blank" class="btn btn-primary" title="Open TradingView Chart">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>TradingView</span>
+                    </a>
                 </div>
             </header>
 
@@ -163,7 +167,7 @@
                 <section id="sec-technical" class="hub-section active">
                     <div class="section-banner">
                         <div class="banner-content">
-                            <h1><i class="fa-solid fa-chart-candlestick text-primary"></i> Technical Analysis</h1>
+                            <h1><i class="fa-solid fa-chart-line text-primary"></i> Technical Analysis</h1>
                             <p>Visual price action, momentum indicators, chart geometry, and volume-weighted market profiles.</p>
                         </div>
                         <div class="banner-actions">
@@ -603,77 +607,7 @@
                 </section>
 
                 <!-- =========================================================
-                     Section 6: Market Data
-                     ========================================================= -->
-                <section id="sec-market-data" class="hub-section">
-                    <div class="section-banner">
-                        <div class="banner-content">
-                            <h1><i class="fa-solid fa-chart-line text-primary"></i> Market Data &amp; Order Flow</h1>
-                            <p>Real-time pricing feeds, Level 2 depth of market, volume profile footprint, and futures open interest.</p>
-                        </div>
-                    </div>
-
-                    <div class="grid-4">
-                        <a href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-                                <div class="resource-meta">
-                                    <h3>CME FedWatch</h3>
-                                    <p>Fed funds futures implied probabilities for upcoming FOMC rate decisions.</p>
-                                </div>
-                            </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Rates Probabilities</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
-                            </div>
-                        </a>
-
-                        <a href="https://finance.yahoo.com" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-                                <div class="resource-meta">
-                                    <h3>Yahoo Finance</h3>
-                                    <p>Quotes, historical CSV downloads, balance sheet data, and key company statistics.</p>
-                                </div>
-                            </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Quotes</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
-                            </div>
-                        </a>
-
-                        <a href="https://www.coinglass.com" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
-                                <div class="resource-meta">
-                                    <h3>Coinglass Heatmap</h3>
-                                    <p>Liquidation heatmaps, funding rates, open interest, and long/short ratios.</p>
-                                </div>
-                            </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Crypto / Liquidations</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
-                            </div>
-                        </a>
-
-                        <a href="https://bookmap.com" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-layer-group"></i></div>
-                                <div class="resource-meta">
-                                    <h3>Bookmap Order Flow</h3>
-                                    <p>Visualization of limit order book liquidity, spoofing, and icebergs.</p>
-                                </div>
-                            </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Microstructure</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
-                            </div>
-                        </a>
-                    </div>
-                </section>
-
-                <!-- =========================================================
-                     Section 7: Trading Journal
+                     Section 6: Trading Journal
                      ========================================================= -->
                 <section id="sec-journal" class="hub-section">
                     <div class="section-banner">
@@ -744,7 +678,7 @@
                 </section>
 
                 <!-- =========================================================
-                     Section 8: Risk Management & Calculator
+                     Section 7: Risk Management & Calculator
                      ========================================================= -->
                 <section id="sec-risk" class="hub-section">
                     <div class="section-banner">

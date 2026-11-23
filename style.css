@@ -338,15 +338,31 @@ body {
     font-weight: 600;
 }
 
-/* Live Market Sessions Ticker */
+/* Live Real-Time Date & Country Clocks Bar */
 .market-sessions-bar {
     display: flex;
     align-items: center;
-    gap: 16px;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 6px 14px;
+    gap: 14px;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 6px 16px;
     border-radius: 20px;
     border: 1px solid var(--border-color);
+}
+
+.clock-date-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.825rem;
+    white-space: nowrap;
+}
+
+.clock-divider {
+    width: 1px;
+    height: 14px;
+    background: var(--border-color);
 }
 
 .session-chip {
@@ -355,6 +371,14 @@ body {
     gap: 6px;
     font-size: 0.8rem;
     color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.session-chip .clock-time {
+    font-family: var(--font-mono);
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.82rem;
 }
 
 .status-dot {

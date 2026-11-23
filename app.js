@@ -13,12 +13,11 @@ const state = {
 
 // Section Metadata Registry
 const SECTIONS = [
-    { id: 'technical', name: 'Technical Analysis', icon: 'fa-chart-candlestick', group: 'Analysis & Models' },
+    { id: 'technical', name: 'Technical Analysis', icon: 'fa-chart-line', group: 'Analysis & Models' },
     { id: 'fundamental', name: 'Fundamental Analysis', icon: 'fa-landmark', group: 'Analysis & Models' },
     { id: 'quant', name: 'Quantitative Trading', icon: 'fa-code', group: 'Analysis & Models' },
     { id: 'backtest', name: 'Backtesting Laboratory', icon: 'fa-flask-vial', group: 'Analysis & Models' },
     { id: 'news', name: 'Market News', icon: 'fa-newspaper', group: 'Market Pulse' },
-    { id: 'market-data', name: 'Market Data', icon: 'fa-chart-line', group: 'Market Pulse' },
     { id: 'journal', name: 'Trading Journal', icon: 'fa-book-bookmark', group: 'Execution & Risk' },
     { id: 'risk', name: 'Risk Management', icon: 'fa-shield-halved', group: 'Execution & Risk' }
 ];
@@ -28,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadStoredData();
     initNavigation();
     initCommandPalette();
-    initMarketSessions();
+    initLiveClocks();
     initRiskCalculator();
     initJournal();
     initBacktestLab();
@@ -184,43 +183,59 @@ function initCommandPalette() {
 }
 
 /* -------------------------------------------------------------
- * Market Sessions Clocks & Status
+ * Live Real-Time Date & Country Clocks
  * ------------------------------------------------------------- */
-function initMarketSessions() {
-    function updateSessions() {
+function initLiveClocks() {
+    const dateEl = document.getElementById('live-date-display');
+    const clockSgEl = document.getElementById('clock-sg');
+    const clockIdEl = document.getElementById('clock-id');
+    const clockNyEl = document.getElementById('clock-ny');
+
+    function update() {
         const now = new Date();
-        const utcHours = now.getUTCHours();
-        const utcMinutes = now.getUTCMinutes();
-        const utcDecimal = utcHours + utcMinutes / 60;
 
-        // Market UTC hours approximate:
-        // Tokyo: 00:00 - 06:00 UTC
-        // London: 08:00 - 16:30 UTC
-        // New York: 14:30 - 21:00 UTC
-        // Sydney: 22:00 - 07:00 UTC
+        if (dateEl) {
+            dateEl.textContent = now.toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
 
-        const nyOpen = utcDecimal >= 14.5 && utcDecimal < 21.0;
-        const londonOpen = utcDecimal >= 8.0 && utcDecimal < 16.5;
-        const tokyoOpen = utcDecimal >= 0.0 && utcDecimal < 6.0;
+        if (clockSgEl) {
+            clockSgEl.textContent = now.toLocaleTimeString('en-US', {
+                timeZone: 'Asia/Singapore',
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+        }
 
-        setSessionStatus('status-ny', nyOpen);
-        setSessionStatus('status-london', londonOpen);
-        setSessionStatus('status-tokyo', tokyoOpen);
-    }
+        if (clockIdEl) {
+            clockIdEl.textContent = now.toLocaleTimeString('en-US', {
+                timeZone: 'Asia/Jakarta',
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+        }
 
-    function setSessionStatus(id, isOpen) {
-        const dot = document.getElementById(id);
-        if (dot) {
-            if (isOpen) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
+        if (clockNyEl) {
+            clockNyEl.textContent = now.toLocaleTimeString('en-US', {
+                timeZone: 'America/New_York',
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
         }
     }
 
-    updateSessions();
-    setInterval(updateSessions, 60000);
+    update();
+    setInterval(update, 1000);
 }
 
 /* -------------------------------------------------------------
