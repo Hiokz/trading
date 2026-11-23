@@ -383,104 +383,285 @@
                     <div class="section-banner">
                         <div class="banner-content">
                             <h1><i class="fa-solid fa-landmark text-primary"></i> Fundamental Analysis</h1>
-                            <p>Macroeconomic metrics, central bank balance sheets, earnings reports, and intrinsic valuation models.</p>
+                            <p>Macroeconomic indicators, central bank monetary policy, corporate financial statements, and intrinsic valuation models.</p>
                         </div>
                         <div class="banner-actions">
-                            <span class="tag-badge green">Macro &amp; Micro</span>
+                            <span class="tag-badge green">Macro &amp; Corporate</span>
                         </div>
                     </div>
 
-                    <!-- Macro Indicators Checklist -->
-                    <div class="grid-3">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-building-columns"></i> <span>Federal Funds Rate</span></div>
-                                <span class="tag-badge red">Monetary Policy</span>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                The base risk-free rate dictating discount rates for all financial assets. Higher rates compress equity P/E multiples and strengthen the US Dollar.
-                            </p>
+                    <!-- Category 1: Macroeconomic Analysis -->
+                    <div class="indicator-category-title">
+                        <div class="title-left">
+                            <i class="fa-solid fa-globe"></i>
+                            <span>Macroeconomic Analysis</span>
                         </div>
+                        <span class="tag-badge red">10 Macro Indicators</span>
+                    </div>
 
+                    <div class="grid-2">
+                        <!-- CPI -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-percent"></i> <span>10Y - 2Y Yield Spread</span></div>
-                                <span class="tag-badge amber">Recession Model</span>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Treasury yield curve inversions historically precede economic recessions by 6 to 18 months. Watch the un-inversion phase for steepening risk.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-fire"></i> <span>CPI &amp; Core PCE</span></div>
+                                <div class="card-title"><i class="fa-solid fa-receipt"></i> <span>Consumer Price Index (CPI)</span></div>
                                 <span class="tag-badge red">Inflation</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Consumer Price Index tracks retail price pressures. Core PCE is the Federal Reserve's preferred inflation gauge with a target of 2.0%.
+                                Measures the average change over time in prices paid by consumers for a basket of goods and services. Headline CPI tracks broad cost pressures, while Core CPI excludes volatile food and energy to reflect sticky underlying inflation.
                             </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Metrics:</strong> Headline vs. Core CPI (MoM &amp; YoY), 2.0% Fed Target, Shelter &amp; Supercore services.</span>
+                            </div>
+                        </div>
+
+                        <!-- Interest Rates -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-building-columns"></i> <span>Interest Rates &amp; Policy Rates</span></div>
+                                <span class="tag-badge amber">Monetary Policy</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                The benchmark risk-free overnight lending rate established by central banks (e.g. Federal Funds Rate, ECB Deposit Rate). Serves as the fundamental discount rate for all financial assets; higher rates tighten financial conditions and compress equity valuation multiples.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Drivers:</strong> Effective Fed Funds Rate (EFFR), Discount Window, Terminal Rate pricing.</span>
+                            </div>
+                        </div>
+
+                        <!-- GDP -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-chart-line"></i> <span>Gross Domestic Product (GDP)</span></div>
+                                <span class="tag-badge green">Economic Output</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                The total monetary value of all finished goods and services produced within a nation over a quarterly period. Real GDP adjusts for inflation to measure genuine economic growth; two consecutive quarters of contraction signal a technical recession.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Releases:</strong> Advance, Second, Final QoQ annualized prints, Consumer Spending (PCE).</span>
+                            </div>
+                        </div>
+
+                        <!-- Employment -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-user-check"></i> <span>Employment &amp; Labor Capacity</span></div>
+                                <span class="tag-badge green">Labor Market</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Assesses the aggregate health of the domestic labor force through the headline U-3 unemployment rate, labor force participation, and JOLTS job openings. Strong labor markets underpin consumer resilience but can trigger wage-push inflationary spirals.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Gauges:</strong> U-3 Unemployment Rate, Participation Rate, JOLTS Job Openings-to-Unemployed ratio.</span>
+                            </div>
+                        </div>
+
+                        <!-- Inflation & Core PCE -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-fire"></i> <span>Inflation &amp; Core PCE</span></div>
+                                <span class="tag-badge red">Fed Preferred Gauge</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                The Personal Consumption Expenditures (PCE) price index tracks price changes across consumer purchases with dynamic basket weighting. Core PCE is the Federal Reserve's primary metric for assessing compliance with its 2.0% inflation mandate.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Target:</strong> 2.0% Annualized Target | Supercore PCE (services ex-housing &amp; energy).</span>
+                            </div>
+                        </div>
+
+                        <!-- Monetary Policy -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-scale-balanced"></i> <span>Monetary Policy &amp; Balance Sheet (QE/QT)</span></div>
+                                <span class="tag-badge amber">Liquidity Flows</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                The direct expansion or contraction of central bank assets. Quantitative Easing (QE) purchases bonds to inject cash reserves and depress long-term yields. Quantitative Tightening (QT) allows bond maturities to roll off, absorbing excess market liquidity.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Liquidity Levers:</strong> Fed Total Assets (WALCL), Reverse Repo (RRP), Treasury General Account (TGA).</span>
+                            </div>
+                        </div>
+
+                        <!-- PPI -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-industry"></i> <span>Producer Price Index (PPI)</span></div>
+                                <span class="tag-badge red">Wholesale Inflation</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Evaluates price changes from the perspective of domestic producers and manufacturers. Because raw material and intermediate processing cost increases are passed down to end consumers, PPI acts as a premier leading indicator for consumer inflation.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Leading Signals:</strong> Final Demand PPI, Core PPI (ex-food &amp; energy), Pipeline Goods Inflation.</span>
+                            </div>
+                        </div>
+
+                        <!-- FOMC -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-users"></i> <span>FOMC &amp; Fed Rate Decisions</span></div>
+                                <span class="tag-badge amber">Central Bank Policy</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                The Federal Open Market Committee holds 8 scheduled annual meetings to determine interest rate targets. Traders closely dissect the policy statement, Summary of Economic Projections (Dot Plot), and the Fed Chair's post-meeting press conference.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Catalysts:</strong> Fed Rate Decision, Dot Plot median expectations, FOMC Meeting Minutes.</span>
+                            </div>
+                        </div>
+
+                        <!-- NFP -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-briefcase"></i> <span>Non-Farm Payrolls (NFP)</span></div>
+                                <span class="tag-badge red">Jobs Catalyst</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Released on the first Friday of every month by the Bureau of Labor Statistics (BLS). Measures net monthly job creation across non-agricultural businesses. Generates significant instant volatility across the US Dollar, bond yields, and stock indices.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Market Movers:</strong> Net Payroll Additions (+/- 150k baseline), Prior Month Revisions, Average Hourly Earnings.</span>
+                            </div>
+                        </div>
+
+                        <!-- Treasury Yield -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-arrow-trend-up"></i> <span>Treasury Yields &amp; Curve Inversions</span></div>
+                                <span class="tag-badge amber">Recession Model</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Sovereign bond yields across 2Y, 10Y, and 30Y tenors. The 10Y - 2Y yield curve spread is Wall Street's premier recession indicator: yield inversions (short rates exceeding long rates) have accurately preceded every US recession since 1955.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Curve Spreads:</strong> 10Y - 2Y Spread (Inversion vs. Steepening), 10Y - 3M Spread, 10Y Benchmark discount rate.</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- External Research Links -->
-                    <h3 style="margin: 28px 0 16px; font-size: 1.2rem;">Fundamental Intelligence Portals</h3>
-                    <div class="grid-4">
-                        <a href="https://fred.stlouisfed.org" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-database"></i></div>
-                                <div class="resource-meta">
-                                    <h3>FRED Federal Reserve</h3>
-                                    <p>Over 800,000 macroeconomic time-series directly from St. Louis Fed.</p>
-                                </div>
-                            </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Economic Data</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
-                            </div>
-                        </a>
+                    <!-- Category 2: Company Fundamental Analysis -->
+                    <div class="indicator-category-title">
+                        <div class="title-left">
+                            <i class="fa-solid fa-building"></i>
+                            <span>Company Fundamental Analysis</span>
+                        </div>
+                        <span class="tag-badge green">8 Corporate Pillars</span>
+                    </div>
 
-                        <a href="https://www.sec.gov/edgar/searchedgar/companysearch" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-file-contract"></i></div>
-                                <div class="resource-meta">
-                                    <h3>SEC EDGAR Filings</h3>
-                                    <p>Primary source 10-K, 10-Q quarterly reports, and insider Form 4 trades.</p>
-                                </div>
+                    <div class="grid-2">
+                        <!-- Revenue -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-chart-simple"></i> <span>Revenue &amp; Top-Line Growth</span></div>
+                                <span class="tag-badge green">Top-Line</span>
                             </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Filings</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Gross dollar receipts generated from business operations before deducting operating costs. Evaluates commercial adoption, sector market share gains, and sales momentum across quarterly (QoQ) and annual (YoY) reporting cycles.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Metrics:</strong> Revenue Growth YoY %, Organic vs. Acquisition Growth, Annual Recurring Revenue (ARR).</span>
                             </div>
-                        </a>
+                        </div>
 
-                        <a href="https://tradingeconomics.com" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-globe"></i></div>
-                                <div class="resource-meta">
-                                    <h3>Trading Economics</h3>
-                                    <p>Historical economic calendars, global GDP forecasts, and commodity balance sheets.</p>
-                                </div>
+                        <!-- Earnings -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-hand-holding-dollar"></i> <span>Earnings &amp; Profit Margins</span></div>
+                                <span class="tag-badge green">Bottom-Line</span>
                             </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Global Macro</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Net income remaining after all cost of goods sold (COGS), operating expenses, interest, depreciation, and corporate taxes. Margin trends demonstrate corporate pricing power, cost discipline, and defensive economic moat durability.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Margins:</strong> Gross Margin (Pricing power), Operating Margin (EBIT), Net Profit Margin (Final conversion).</span>
                             </div>
-                        </a>
+                        </div>
 
-                        <a href="https://quickfs.net" target="_blank" class="resource-card">
-                            <div class="resource-top">
-                                <div class="resource-icon"><i class="fa-solid fa-table"></i></div>
-                                <div class="resource-meta">
-                                    <h3>QuickFS</h3>
-                                    <p>10 years of standardized corporate balance sheets, FCF, and ROIC data.</p>
-                                </div>
+                        <!-- EPS -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-coins"></i> <span>Earnings Per Share (EPS)</span></div>
+                                <span class="tag-badge green">Per-Share Metric</span>
                             </div>
-                            <div class="resource-bottom">
-                                <span class="tag-badge">Financials</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square external-link-arrow"></i>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Net profit allocated to each individual share of outstanding common stock. Wall Street's primary benchmark for quarterly earnings beats and misses; unexpected beats and forward guidance upgrades drive immediate equity re-ratings.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Metrics:</strong> GAAP EPS, Normalized Non-GAAP EPS, Diluted EPS (accounting for options &amp; convertibles).</span>
                             </div>
-                        </a>
+                        </div>
+
+                        <!-- P/E Ratio -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-magnifying-glass-chart"></i> <span>Price-to-Earnings (P/E) &amp; Multiples</span></div>
+                                <span class="tag-badge red">Valuation Multiple</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Compares current share price against annual per-share earnings, measuring how much capital the market pays per dollar of profit. Trailing P/E assesses historical results, Forward P/E prices future growth, and PEG incorporates projected growth rates.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Ratios:</strong> Trailing P/E (TTM), Forward P/E (NTM), PEG Ratio (P/E / Annual EPS Growth; &lt; 1.0 undervalued).</span>
+                            </div>
+                        </div>
+
+                        <!-- Cash Flow -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-money-bill-transfer"></i> <span>Cash Flow &amp; Free Cash Flow (FCF)</span></div>
+                                <span class="tag-badge amber">Liquidity Truth</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                While accounting net income is subject to non-cash accruals, Free Cash Flow represents actual cash generated from operations minus Capital Expenditures (CapEx). FCF funds dividends, share buybacks, acquisitions, and debt paydown.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Formulas:</strong> FCF = Operating Cash Flow - CapEx | FCF Conversion Rate (FCF / Net Income), FCF Yield %.</span>
+                            </div>
+                        </div>
+
+                        <!-- Debt -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-shield-halved"></i> <span>Debt &amp; Financial Solvency</span></div>
+                                <span class="tag-badge red">Balance Sheet Risk</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Evaluates corporate debt obligations, liquidity reserves, and balance sheet solvency. While modest leverage amplifies returns during economic expansions, excessive debt loads trigger severe insolvency risk when interest rates climb.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Solvency Checks:</strong> Debt-to-Equity (D/E), Net Debt / EBITDA (&lt; 2.5x safe), Interest Coverage Ratio (EBIT / Interest).</span>
+                            </div>
+                        </div>
+
+                        <!-- Valuation -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-calculator"></i> <span>Intrinsic Valuation &amp; DCF Models</span></div>
+                                <span class="tag-badge purple">Fair Value</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Calculates a business's true intrinsic worth independent of market volatility. Discounted Cash Flow (DCF) models project 5–10 years of future cash flows discounted to present value using WACC, establishing an objective Margin of Safety.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Methodologies:</strong> Discounted Cash Flow (DCF), Enterprise Value (EV/EBITDA, EV/Sales), Margin of Safety (&gt; 25%).</span>
+                            </div>
+                        </div>
+
+                        <!-- Return on Capital -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-trophy"></i> <span>Capital Efficiency (ROIC &amp; ROE)</span></div>
+                                <span class="tag-badge green">Moat Strength</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Measures management's ability to efficiently reinvest capital into high-return projects. Companies with Return on Invested Capital (ROIC) consistently exceeding their Weighted Average Cost of Capital (WACC) compound wealth and possess wide moats.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Benchmarks:</strong> ROIC (Return on Invested Capital), ROE (Return on Equity), Economic Value Added (ROIC - WACC).</span>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
