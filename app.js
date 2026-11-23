@@ -1,7 +1,35 @@
 /**
  * Trading Command Center & Research Hub - Main Application Script
- * Modular Single-Page Architecture with LocalStorage Persistence
+ * Modular Single-Page Architecture with LocalStorage & Supabase Cloud Sync
  */
+
+// Supabase Cloud Configuration (FinTracks Architecture)
+const SUPABASE_URL = 'https://ljlzgbrnqxdbmcqrburk.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxqbHpnYnJucXhkYm1jcXJidXJrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTU0NTgzNTAsImV4cCI6MjExMTAzNDM1MH0.G3ZdSPoG2wXwRRaLl-2Z1mGez7A6NR3_iakTvudQ1WI';
+
+// Clear legacy persistent tokens if any
+try {
+    for (let i = localStorage.length - 1; i >= 0; i--) {
+        const k = localStorage.key(i);
+        if (k && (k.startsWith('sb-') || k.includes('-auth-token'))) {
+            localStorage.removeItem(k);
+        }
+    }
+} catch (e) {}
+
+// Supabase client using sessionStorage
+const supabaseClient = (typeof supabase !== 'undefined' && supabase.createClient)
+    ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+        auth: {
+            storage: window.sessionStorage,
+            storageKey: 'tradinghub-session-auth',
+            persistSession: true,
+            autoRefreshToken: true
+        }
+    })
+    : null;
+
+let currentAuthUser = null;
 
 // Application State
 const state = {
@@ -350,6 +378,30 @@ function initJournal() {
             saveStoredData();
             renderJournal();
 
+            // Cloud Sync if authenticated with Supabase
+            if (supabaseClient && currentAuthUser) {
+                const payload = {
+                    user_id: currentAuthUser.id,
+                    date: newTrade.date,
+                    pair: newTrade.ticker,
+                    direction: newTrade.direction,
+                    size: newTrade.size,
+                    entry: newTrade.entry,
+                    exit: newTrade.exit,
+                    pnl: newTrade.pnl,
+                    roi: parseFloat((((newTrade.exit - newTrade.entry) / (newTrade.entry || 1)) * 100).toFixed(2)),
+                    notes: newTrade.notes || (newTrade.strategy ? `[${newTrade.strategy}]` : '')
+                };
+                supabaseClient.from('trading_journal').insert([payload]).select().then(({ data, error }) => {
+                    if (!error && data && data[0]) {
+                        newTrade.id = data[0].id;
+                        saveStoredData();
+                    } else if (error) {
+                        console.error('Failed to sync trade to Supabase:', error);
+                    }
+                });
+            }
+
             // Close modal & reset
             const modal = document.getElementById('modal-add-trade');
             if (modal) modal.classList.remove('active');
@@ -426,14 +478,26 @@ function initJournal() {
         updateLivePnlPreview();
     }
 
-    window.deleteJournalTrade = function(index) {
+    window.deleteJournalTrade = async function(index) {
         if (confirm('Delete this trade record?')) {
+            const tradeToDelete = state.journalTrades[index];
             state.journalTrades.splice(index, 1);
             saveStoredData();
             renderJournal();
+
+            if (supabaseClient && currentAuthUser && tradeToDelete && tradeToDelete.id) {
+                const { error } = await supabaseClient
+                    .from('trading_journal')
+                    .delete()
+                    .eq('id', tradeToDelete.id);
+                if (error) {
+                    console.error('Failed to delete trade from Supabase:', error);
+                }
+            }
         }
     };
 
+    window.renderJournal = renderJournal;
     renderJournal();
 }
 
@@ -710,7 +774,7 @@ function initNumberSteppers() {
 }
 
 /* -------------------------------------------------------------
- * Authentication Management (FinTracks Architecture)
+ * Authentication Management (FinTracks Architecture + Supabase)
  * ------------------------------------------------------------- */
 function initAuth() {
     const authProfile = document.getElementById('auth-user-profile');
@@ -725,16 +789,44 @@ function initAuth() {
     const loginPassword = document.getElementById('login-password');
     const loginError = document.getElementById('login-error');
     const authSubmitBtn = document.getElementById('auth-submit-btn');
+    const authTitle = document.getElementById('auth-title');
+    const authSubtitle = document.getElementById('auth-subtitle');
+    const authTogglePrompt = document.getElementById('auth-toggle-prompt');
+    const btnToggleAuthMode = document.getElementById('btn-toggle-auth-mode');
 
-    function updateAuthUI() {
-        const currentUser = sessionStorage.getItem('th_auth_user');
-        if (currentUser) {
+    let isRegisterMode = false;
+
+    function setAuthMode(register) {
+        isRegisterMode = register;
+        if (loginError) loginError.style.display = 'none';
+        if (authTitle) authTitle.textContent = isRegisterMode ? 'Create Account' : 'Terminal Access';
+        if (authSubtitle) authSubtitle.textContent = isRegisterMode ? 'Register a new trader account to sync with Supabase.' : 'Sign in to sync and protect your trading records.';
+        if (authSubmitBtn) authSubmitBtn.textContent = isRegisterMode ? 'Create Account' : 'Sign In';
+        if (authTogglePrompt) authTogglePrompt.textContent = isRegisterMode ? 'Already have an account?' : "Don't have an account?";
+        if (btnToggleAuthMode) btnToggleAuthMode.textContent = isRegisterMode ? 'Sign In' : 'Create one';
+    }
+
+    if (btnToggleAuthMode) {
+        btnToggleAuthMode.addEventListener('click', (e) => {
+            e.preventDefault();
+            setAuthMode(!isRegisterMode);
+        });
+    }
+
+    function updateAuthUI(user) {
+        if (user) {
+            currentAuthUser = user;
+            const email = user.email || '';
+            const rawName = email.includes('@') ? email.split('@')[0] : 'Trader';
+            const displayName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
+
             if (authProfile) authProfile.style.display = 'flex';
             if (btnLogout) btnLogout.style.display = 'inline-flex';
             if (btnOpenLogin) btnOpenLogin.style.display = 'none';
-            if (userDisplayEmail) userDisplayEmail.textContent = `Welcome! ${currentUser}`;
-            if (userDisplayStatus) userDisplayStatus.textContent = 'PRO Access';
+            if (userDisplayEmail) userDisplayEmail.textContent = `Welcome! ${displayName}`;
+            if (userDisplayStatus) userDisplayStatus.textContent = 'Cloud Synced';
         } else {
+            currentAuthUser = null;
             if (authProfile) authProfile.style.display = 'none';
             if (btnLogout) btnLogout.style.display = 'none';
             if (btnOpenLogin) btnOpenLogin.style.display = 'inline-flex';
@@ -743,6 +835,7 @@ function initAuth() {
 
     function openLogin() {
         if (!loginOverlay) return;
+        setAuthMode(false);
         loginOverlay.style.display = 'flex';
         setTimeout(() => loginOverlay.classList.add('active'), 10);
         if (loginError) loginError.style.display = 'none';
@@ -766,55 +859,183 @@ function initAuth() {
         });
     }
 
+    // Initialize Supabase Auth Session
+    if (supabaseClient) {
+        supabaseClient.auth.getSession().then(({ data: { session } }) => {
+            if (session && session.user) {
+                updateAuthUI(session.user);
+                loadTradesFromSupabase();
+            } else {
+                updateAuthUI(null);
+            }
+        });
+
+        supabaseClient.auth.onAuthStateChange((event, session) => {
+            if (session && session.user) {
+                updateAuthUI(session.user);
+                loadTradesFromSupabase();
+            } else {
+                updateAuthUI(null);
+            }
+        });
+    } else {
+        updateAuthUI(null);
+    }
+
     if (loginForm) {
-        loginForm.addEventListener('submit', (e) => {
+        loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const username = loginUsername ? loginUsername.value.trim() : '';
+            const rawUser = loginUsername ? loginUsername.value.trim().toLowerCase() : '';
             const password = loginPassword ? loginPassword.value : '';
 
-            if (!username || !password) {
+            if (!rawUser || !password) {
                 if (loginError) {
-                    loginError.textContent = 'Please enter both username and password.';
+                    loginError.textContent = 'Please enter both username/email and password.';
                     loginError.style.display = 'block';
                 }
                 return;
             }
 
+            const email = rawUser.includes('@') ? rawUser : `${rawUser}@tradinghub.local`;
+
             if (authSubmitBtn) {
                 authSubmitBtn.disabled = true;
-                authSubmitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Signing in...';
+                authSubmitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
             }
+            if (loginError) loginError.style.display = 'none';
 
-            setTimeout(() => {
-                let displayName = username.includes('@') ? username.split('@')[0] : username;
-                displayName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
-
-                sessionStorage.setItem('th_auth_user', displayName);
-                sessionStorage.removeItem('th_auth_signed_out');
-                updateAuthUI();
-                closeLogin();
-
+            if (!supabaseClient) {
+                if (loginError) {
+                    loginError.textContent = 'Supabase client is not loaded.';
+                    loginError.style.display = 'block';
+                }
                 if (authSubmitBtn) {
                     authSubmitBtn.disabled = false;
-                    authSubmitBtn.textContent = 'Sign In';
+                    authSubmitBtn.textContent = isRegisterMode ? 'Create Account' : 'Sign In';
                 }
-            }, 300);
+                return;
+            }
+
+            try {
+                if (isRegisterMode) {
+                    // Registration
+                    const { data, error } = await supabaseClient.auth.signUp({ email, password });
+                    if (error) {
+                        loginError.textContent = error.message;
+                        loginError.style.display = 'block';
+                    } else if (data && data.session) {
+                        closeLogin();
+                    } else {
+                        loginError.style.color = 'var(--success)';
+                        loginError.textContent = 'Account created successfully! You can now sign in.';
+                        loginError.style.display = 'block';
+                        setTimeout(() => setAuthMode(false), 1500);
+                    }
+                } else {
+                    // Sign In
+                    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+                    if (error) {
+                        loginError.textContent = error.message;
+                        loginError.style.display = 'block';
+                    } else {
+                        closeLogin();
+                    }
+                }
+            } catch (err) {
+                if (loginError) {
+                    loginError.textContent = err.message || 'An error occurred during authentication.';
+                    loginError.style.display = 'block';
+                }
+            } finally {
+                if (authSubmitBtn) {
+                    authSubmitBtn.disabled = false;
+                    authSubmitBtn.textContent = isRegisterMode ? 'Create Account' : 'Sign In';
+                }
+            }
         });
     }
 
     if (btnLogout) {
-        btnLogout.addEventListener('click', () => {
-            sessionStorage.removeItem('th_auth_user');
-            sessionStorage.setItem('th_auth_signed_out', 'true');
-            updateAuthUI();
+        btnLogout.addEventListener('click', async () => {
+            sessionStorage.removeItem('tradinghub-session-auth');
+            if (supabaseClient) {
+                await supabaseClient.auth.signOut();
+            }
+            updateAuthUI(null);
         });
     }
+}
 
-    // Default to 'Trader' unless user explicitly signed out
-    if (!sessionStorage.getItem('th_auth_user') && !sessionStorage.getItem('th_auth_signed_out')) {
-        sessionStorage.setItem('th_auth_user', 'Trader');
+/* -------------------------------------------------------------
+ * Supabase Cloud Trades Synchronization
+ * ------------------------------------------------------------- */
+async function loadTradesFromSupabase() {
+    if (!supabaseClient || !currentAuthUser) return;
+    try {
+        // 1. Sync any unsynced local trades to cloud
+        const unsynced = state.journalTrades.filter(t => !t.id);
+        if (unsynced.length > 0) {
+            const payloads = unsynced.map(t => ({
+                user_id: currentAuthUser.id,
+                date: t.date || new Date().toISOString().split('T')[0],
+                pair: t.ticker || 'XAUUSD',
+                direction: t.direction || 'long',
+                size: Number(t.size) || 0.01,
+                entry: Number(t.entry) || 0,
+                exit: Number(t.exit) || 0,
+                pnl: Number(t.pnl) || 0,
+                roi: parseFloat((((t.exit - t.entry) / (t.entry || 1)) * 100).toFixed(2)) || 0,
+                notes: t.notes || (t.strategy ? `[${t.strategy}]` : '')
+            }));
+            const { data: insertedData, error: insertError } = await supabaseClient
+                .from('trading_journal')
+                .insert(payloads)
+                .select();
+            if (!insertError && insertedData) {
+                insertedData.forEach((row, i) => {
+                    if (unsynced[i]) unsynced[i].id = row.id;
+                });
+                saveStoredData();
+            }
+        }
+
+        // 2. Fetch all cloud trades for the current authenticated user
+        const { data, error } = await supabaseClient
+            .from('trading_journal')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (!error && data) {
+            state.journalTrades = data.map(row => {
+                let strategy = 'Discretionary';
+                let notes = row.notes || '';
+                const match = notes.match(/^\[(.*?)\]\s*(.*)$/);
+                if (match) {
+                    strategy = match[1];
+                    notes = match[2];
+                }
+                return {
+                    id: row.id,
+                    date: row.date,
+                    ticker: row.pair || 'XAUUSD',
+                    direction: row.direction,
+                    size: parseFloat(row.size),
+                    entry: parseFloat(row.entry),
+                    exit: parseFloat(row.exit),
+                    pnl: parseFloat(row.pnl),
+                    strategy: strategy,
+                    notes: notes
+                };
+            });
+            saveStoredData();
+            if (typeof window.renderJournal === 'function') {
+                window.renderJournal();
+            }
+        } else if (error) {
+            console.warn('Could not load trades from Supabase:', error.message);
+        }
+    } catch (e) {
+        console.error('Error fetching Supabase trades:', e);
     }
-
-    updateAuthUI();
 }
 

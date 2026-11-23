@@ -1117,11 +1117,16 @@
                 </div>
                 <div id="login-error" class="text-danger" style="display: none; font-size: 0.825rem; margin-bottom: 14px; text-align: left;"></div>
                 <button type="submit" id="auth-submit-btn" class="btn btn-primary btn-block" style="width: 100%; justify-content: center; padding: 11px;">Sign In</button>
+                <div style="margin-top: 14px; font-size: 0.8rem; color: var(--text-muted);">
+                    <span id="auth-toggle-prompt">Don't have an account?</span>
+                    <a href="#" id="btn-toggle-auth-mode" style="color: var(--primary); text-decoration: underline; margin-left: 4px;">Create one</a>
+                </div>
             </form>
         </div>
     </div>
 
     <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="app.js"></script>
 </body>
 
