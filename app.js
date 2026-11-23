@@ -996,6 +996,11 @@ function initAuth() {
             if (supabaseClient) {
                 await supabaseClient.auth.signOut();
             }
+            state.journalTrades = [];
+            saveStoredData();
+            if (typeof window.renderJournal === 'function') {
+                window.renderJournal();
+            }
             lockApp();
         });
     }
