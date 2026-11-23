@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trading Hub | Command Center & Research Platform</title>
-    <meta name="description" content="Personal Trading Command Center, Research Hub, Resource Directory, and Trading Journal.">
+    <meta name="description"
+        content="Personal Trading Command Center, Research Hub, Resource Directory, and Trading Journal.">
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
     <link rel="icon" type="image/png" href="favicon.png?v=2">
@@ -13,7 +14,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -68,18 +71,13 @@
                     </a>
                 </div>
 
-                <!-- Group 3: Execution & Risk -->
+                <!-- Group 3: Execution & Journal -->
                 <div class="nav-group">
-                    <div class="nav-group-title">Execution &amp; Management</div>
+                    <div class="nav-group-title">Execution &amp; Journal</div>
                     <a href="#journal" class="nav-item" data-target="journal">
                         <i class="fa-solid fa-book-bookmark"></i>
                         <span>Trading Journal</span>
                         <span class="nav-badge">Log</span>
-                    </a>
-                    <a href="#risk" class="nav-item" data-target="risk">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <span>Risk Management</span>
-                        <span class="nav-badge" style="background:rgba(239,68,68,0.15); color:#f87171;">Calc</span>
                     </a>
                 </div>
             </div>
@@ -143,7 +141,8 @@
                 </div>
 
                 <div class="header-right">
-                    <a href="https://www.tradingview.com/chart/" target="_blank" class="btn btn-primary" title="Open TradingView Chart">
+                    <a href="https://www.tradingview.com/chart/" target="_blank" class="btn btn-primary"
+                        title="Open TradingView Chart">
                         <i class="fa-solid fa-chart-line"></i>
                         <span>TradingView</span>
                     </a>
@@ -159,7 +158,8 @@
                     <div class="section-banner">
                         <div class="banner-content">
                             <h1><i class="fa-solid fa-chart-line text-primary"></i> Technical Analysis</h1>
-                            <p>Visual price action, momentum indicators, chart geometry, and volume-weighted market profiles.</p>
+                            <p>Visual price action, momentum indicators, chart geometry, and volume-weighted market
+                                profiles.</p>
                         </div>
                     </div>
 
@@ -176,56 +176,72 @@
                         <!-- SMA -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-chart-line"></i> <span>Simple Moving Average (SMA)</span></div>
+                                <div class="card-title"><i class="fa-solid fa-chart-line"></i> <span>Simple Moving
+                                        Average (SMA)</span></div>
                                 <span class="tag-badge red">Trend Baseline</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Calculates the arithmetic mean price over a specified lookback window. Filters out market noise to reveal underlying directional trends and serves as institutional dynamic support and resistance.
+                                Calculates the arithmetic mean price over a specified lookback window. Filters out
+                                market noise to reveal underlying directional trends and serves as institutional dynamic
+                                support and resistance.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Setups:</strong> 20 SMA (Short-term), 50 SMA (Medium-term), 200 SMA (Macro baseline / Golden &amp; Death Cross).</span>
+                                <span><strong>Key Setups:</strong> 20 SMA (Short-term), 50 SMA (Medium-term), 200 SMA
+                                    (Macro baseline / Golden &amp; Death Cross).</span>
                             </div>
                         </div>
 
                         <!-- EMA -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-bolt"></i> <span>Exponential Moving Average (EMA)</span></div>
+                                <div class="card-title"><i class="fa-solid fa-bolt"></i> <span>Exponential Moving
+                                        Average (EMA)</span></div>
                                 <span class="tag-badge red">Fast Trend</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Applies an exponential weighting multiplier to recent prices, reducing lag relative to the SMA. Enables faster identification of trend transitions, dynamic pullback retests, and moving average cross systems.
+                                Applies an exponential weighting multiplier to recent prices, reducing lag relative to
+                                the SMA. Enables faster identification of trend transitions, dynamic pullback retests,
+                                and moving average cross systems.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Setups:</strong> 9 &amp; 21 EMA (Momentum cross triggers), 50 &amp; 200 EMA (Structural trend bias), Moving Average Ribbons.</span>
+                                <span><strong>Key Setups:</strong> 9 &amp; 21 EMA (Momentum cross triggers), 50 &amp;
+                                    200 EMA (Structural trend bias), Moving Average Ribbons.</span>
                             </div>
                         </div>
 
                         <!-- Supertrend -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-compass"></i> <span>Supertrend</span></div>
+                                <div class="card-title"><i class="fa-solid fa-compass"></i> <span>Supertrend</span>
+                                </div>
                                 <span class="tag-badge red">Trend &amp; Trailing Stop</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                A hybrid trend-following overlay built from the median price $(H+L)/2$ combined with an ATR volatility band. Color transitions delineate bullish (green) vs. bearish (red) regimes and provide an objective trailing stop.
+                                A hybrid trend-following overlay built from the median price $(H+L)/2$ combined with an
+                                ATR volatility band. Color transitions delineate bullish (green) vs. bearish (red)
+                                regimes and provide an objective trailing stop.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Setups:</strong> ATR Length: 10, Multiplier: 3.0 (Equities/Forex); 7 / 3.0 (High-volatility / Crypto).</span>
+                                <span><strong>Key Setups:</strong> ATR Length: 10, Multiplier: 3.0 (Equities/Forex); 7 /
+                                    3.0 (High-volatility / Crypto).</span>
                             </div>
                         </div>
 
                         <!-- ADX -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-gauge"></i> <span>Average Directional Index (ADX)</span></div>
+                                <div class="card-title"><i class="fa-solid fa-gauge"></i> <span>Average Directional
+                                        Index (ADX)</span></div>
                                 <span class="tag-badge red">Trend Strength</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Quantifies the strength of an ongoing trend on a 0–100 scale regardless of price direction. Derived from smoothed $+DI$ and $-DI$ vectors. Distinguishes high-probability trending moves from choppy sideways consolidations.
+                                Quantifies the strength of an ongoing trend on a 0–100 scale regardless of price
+                                direction. Derived from smoothed $+DI$ and $-DI$ vectors. Distinguishes high-probability
+                                trending moves from choppy sideways consolidations.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Levels:</strong> &gt; 25 (Strong trend confirmed), &gt; 40 (Climax trend / exhaustion risk), &lt; 20 (Ranging / chop regime).</span>
+                                <span><strong>Key Levels:</strong> &gt; 25 (Strong trend confirmed), &gt; 40 (Climax
+                                    trend / exhaustion risk), &lt; 20 (Ranging / chop regime).</span>
                             </div>
                         </div>
                     </div>
@@ -243,28 +259,37 @@
                         <!-- RSI -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-wave-square"></i> <span>Relative Strength Index (RSI)</span></div>
+                                <div class="card-title"><i class="fa-solid fa-wave-square"></i> <span>Relative Strength
+                                        Index (RSI)</span></div>
                                 <span class="tag-badge green">Momentum</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Measures the velocity and magnitude of directional price movements on a 0–100 scale. Flags overbought and oversold extremes and highlights trend fatigue or continuation through regular and hidden divergences.
+                                Measures the velocity and magnitude of directional price movements on a 0–100 scale.
+                                Flags overbought and oversold extremes and highlights trend fatigue or continuation
+                                through regular and hidden divergences.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Levels:</strong> Length: 14 | &gt;70 Overbought, &lt;30 Oversold, 50 Midline regime filter.</span>
+                                <span><strong>Key Levels:</strong> Length: 14 | &gt;70 Overbought, &lt;30 Oversold, 50
+                                    Midline regime filter.</span>
                             </div>
                         </div>
 
                         <!-- Stochastic RSI -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-arrows-split-up-and-left"></i> <span>Stochastic RSI</span></div>
+                                <div class="card-title"><i class="fa-solid fa-arrows-split-up-and-left"></i>
+                                    <span>Stochastic RSI</span>
+                                </div>
                                 <span class="tag-badge green">Fast Oscillator</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Applies the Stochastic oscillator formula to RSI values rather than raw price bars. Produces a sensitive indicator designed to detect micro-cycle turning points, momentum shifts, and short-term swing reversals.
+                                Applies the Stochastic oscillator formula to RSI values rather than raw price bars.
+                                Produces a sensitive indicator designed to detect micro-cycle turning points, momentum
+                                shifts, and short-term swing reversals.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Levels:</strong> %K: 3, %D: 3, RSI Length: 14, Stoch Length: 14 | &gt;80 Overbought, &lt;20 Oversold.</span>
+                                <span><strong>Key Levels:</strong> %K: 3, %D: 3, RSI Length: 14, Stoch Length: 14 |
+                                    &gt;80 Overbought, &lt;20 Oversold.</span>
                             </div>
                         </div>
 
@@ -275,10 +300,13 @@
                                 <span class="tag-badge green">Trend &amp; Momentum</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Plots the spread between the 12 EMA and 26 EMA alongside a 9-period signal line and histogram. Histogram expansion signals accelerating momentum; signal line crossovers and zero-line crosses confirm structural trend shifts.
+                                Plots the spread between the 12 EMA and 26 EMA alongside a 9-period signal line and
+                                histogram. Histogram expansion signals accelerating momentum; signal line crossovers and
+                                zero-line crosses confirm structural trend shifts.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Setups:</strong> Fast: 12, Slow: 26, Signal: 9 | Signal line cross, Zero-line cross, Histogram divergence.</span>
+                                <span><strong>Key Setups:</strong> Fast: 12, Slow: 26, Signal: 9 | Signal line cross,
+                                    Zero-line cross, Histogram divergence.</span>
                             </div>
                         </div>
                     </div>
@@ -296,42 +324,54 @@
                         <!-- Average True Range (ATR) -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-ruler-combined"></i> <span>Average True Range (ATR)</span></div>
+                                <div class="card-title"><i class="fa-solid fa-ruler-combined"></i> <span>Average True
+                                        Range (ATR)</span></div>
                                 <span class="tag-badge amber">Volatility</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Measures market volatility in absolute currency points by calculating the true range across bars, accounting for overnight gaps. Provides an objective basis for dynamic stop-loss sizing and risk allocation.
+                                Measures market volatility in absolute currency points by calculating the true range
+                                across bars, accounting for overnight gaps. Provides an objective basis for dynamic
+                                stop-loss sizing and risk allocation.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Setups:</strong> Length: 14 | Dynamic stop placement (e.g. 1.5x–2.5x ATR), Volatility breakout filters.</span>
+                                <span><strong>Key Setups:</strong> Length: 14 | Dynamic stop placement (e.g. 1.5x–2.5x
+                                    ATR), Volatility breakout filters.</span>
                             </div>
                         </div>
 
                         <!-- Bollinger Bands -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-layer-group"></i> <span>Bollinger Bands</span></div>
+                                <div class="card-title"><i class="fa-solid fa-layer-group"></i> <span>Bollinger
+                                        Bands</span></div>
                                 <span class="tag-badge amber">Statistical Bands</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Envelopes price with a 20 SMA middle line and upper/lower bands placed 2 standard deviations away. Identifies volatility contractions ("The Squeeze") preceding powerful expansions and flags mean-reversion exhaustion zones.
+                                Envelopes price with a 20 SMA middle line and upper/lower bands placed 2 standard
+                                deviations away. Identifies volatility contractions ("The Squeeze") preceding powerful
+                                expansions and flags mean-reversion exhaustion zones.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Setups:</strong> Basis: 20 SMA, Multiplier: 2.0σ | Band Squeeze breakouts, Band Walking, Mean reversion.</span>
+                                <span><strong>Key Setups:</strong> Basis: 20 SMA, Multiplier: 2.0σ | Band Squeeze
+                                    breakouts, Band Walking, Mean reversion.</span>
                             </div>
                         </div>
 
                         <!-- Donchian Channels -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-cubes"></i> <span>Donchian Channels</span></div>
+                                <div class="card-title"><i class="fa-solid fa-cubes"></i> <span>Donchian Channels</span>
+                                </div>
                                 <span class="tag-badge amber">Range &amp; Breakout</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Plots the highest high and lowest low over an $N$-period lookback window, with a median midpoint line. Forms the cornerstone of systematic trend breakout strategies, historically proven by the legendary Turtle Traders.
+                                Plots the highest high and lowest low over an $N$-period lookback window, with a median
+                                midpoint line. Forms the cornerstone of systematic trend breakout strategies,
+                                historically proven by the legendary Turtle Traders.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Setups:</strong> 20 Periods (Classic Turtle entry), 10 Periods (Exit trailing stop), 55 Periods (Long-term trend).</span>
+                                <span><strong>Key Setups:</strong> 20 Periods (Classic Turtle entry), 10 Periods (Exit
+                                    trailing stop), 55 Periods (Long-term trend).</span>
                             </div>
                         </div>
                     </div>
@@ -349,14 +389,18 @@
                         <!-- Volume -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-chart-simple"></i> <span>Volume</span></div>
+                                <div class="card-title"><i class="fa-solid fa-chart-simple"></i> <span>Volume</span>
+                                </div>
                                 <span class="tag-badge purple">Market Fuel</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Displays the total shares or contracts traded during each interval. Serves as the ultimate truth detector for price action: genuine institutional moves expand volume, while low-volume breakouts warn of weak conviction and bull/bear traps.
+                                Displays the total shares or contracts traded during each interval. Serves as the
+                                ultimate truth detector for price action: genuine institutional moves expand volume,
+                                while low-volume breakouts warn of weak conviction and bull/bear traps.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Setups:</strong> 20-period Volume SMA overlay | Volume Breakout expansion, Climax exhaustion, Dry-up pullbacks.</span>
+                                <span><strong>Key Setups:</strong> 20-period Volume SMA overlay | Volume Breakout
+                                    expansion, Climax exhaustion, Dry-up pullbacks.</span>
                             </div>
                         </div>
 
@@ -367,10 +411,13 @@
                                 <span class="tag-badge purple">Institutional Anchor</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Volume-Weighted Average Price calculates the cumulative dollar value divided by volume traded from session open. Benchmark for institutional execution algorithms and market makers. Standard deviation bands act as dynamic support/resistance.
+                                Volume-Weighted Average Price calculates the cumulative dollar value divided by volume
+                                traded from session open. Benchmark for institutional execution algorithms and market
+                                makers. Standard deviation bands act as dynamic support/resistance.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Setups:</strong> Session Anchored (Daily / Weekly / Monthly) | Intraday bias (Above = Bullish, Below = Bearish), ±1σ &amp; ±2σ Bands.</span>
+                                <span><strong>Key Setups:</strong> Session Anchored (Daily / Weekly / Monthly) |
+                                    Intraday bias (Above = Bullish, Below = Bearish), ±1σ &amp; ±2σ Bands.</span>
                             </div>
                         </div>
                     </div>
@@ -383,7 +430,8 @@
                     <div class="section-banner">
                         <div class="banner-content">
                             <h1><i class="fa-solid fa-landmark text-primary"></i> Fundamental Analysis</h1>
-                            <p>Macroeconomic indicators, central bank monetary policy, corporate financial statements, and intrinsic valuation models.</p>
+                            <p>Macroeconomic indicators, central bank monetary policy, corporate financial statements,
+                                and intrinsic valuation models.</p>
                         </div>
                         <div class="banner-actions">
                             <span class="tag-badge green">Macro &amp; Corporate</span>
@@ -403,140 +451,181 @@
                         <!-- CPI -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-receipt"></i> <span>Consumer Price Index (CPI)</span></div>
+                                <div class="card-title"><i class="fa-solid fa-receipt"></i> <span>Consumer Price Index
+                                        (CPI)</span></div>
                                 <span class="tag-badge red">Inflation</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Measures the average change over time in prices paid by consumers for a basket of goods and services. Headline CPI tracks broad cost pressures, while Core CPI excludes volatile food and energy to reflect sticky underlying inflation.
+                                Measures the average change over time in prices paid by consumers for a basket of goods
+                                and services. Headline CPI tracks broad cost pressures, while Core CPI excludes volatile
+                                food and energy to reflect sticky underlying inflation.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Metrics:</strong> Headline vs. Core CPI (MoM &amp; YoY), 2.0% Fed Target, Shelter &amp; Supercore services.</span>
+                                <span><strong>Key Metrics:</strong> Headline vs. Core CPI (MoM &amp; YoY), 2.0% Fed
+                                    Target, Shelter &amp; Supercore services.</span>
                             </div>
                         </div>
 
                         <!-- Interest Rates -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-building-columns"></i> <span>Interest Rates &amp; Policy Rates</span></div>
+                                <div class="card-title"><i class="fa-solid fa-building-columns"></i> <span>Interest
+                                        Rates &amp; Policy Rates</span></div>
                                 <span class="tag-badge amber">Monetary Policy</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                The benchmark risk-free overnight lending rate established by central banks (e.g. Federal Funds Rate, ECB Deposit Rate). Serves as the fundamental discount rate for all financial assets; higher rates tighten financial conditions and compress equity valuation multiples.
+                                The benchmark risk-free overnight lending rate established by central banks (e.g.
+                                Federal Funds Rate, ECB Deposit Rate). Serves as the fundamental discount rate for all
+                                financial assets; higher rates tighten financial conditions and compress equity
+                                valuation multiples.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Drivers:</strong> Effective Fed Funds Rate (EFFR), Discount Window, Terminal Rate pricing.</span>
+                                <span><strong>Key Drivers:</strong> Effective Fed Funds Rate (EFFR), Discount Window,
+                                    Terminal Rate pricing.</span>
                             </div>
                         </div>
 
                         <!-- GDP -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-chart-line"></i> <span>Gross Domestic Product (GDP)</span></div>
+                                <div class="card-title"><i class="fa-solid fa-chart-line"></i> <span>Gross Domestic
+                                        Product (GDP)</span></div>
                                 <span class="tag-badge green">Economic Output</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                The total monetary value of all finished goods and services produced within a nation over a quarterly period. Real GDP adjusts for inflation to measure genuine economic growth; two consecutive quarters of contraction signal a technical recession.
+                                The total monetary value of all finished goods and services produced within a nation
+                                over a quarterly period. Real GDP adjusts for inflation to measure genuine economic
+                                growth; two consecutive quarters of contraction signal a technical recession.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Releases:</strong> Advance, Second, Final QoQ annualized prints, Consumer Spending (PCE).</span>
+                                <span><strong>Key Releases:</strong> Advance, Second, Final QoQ annualized prints,
+                                    Consumer Spending (PCE).</span>
                             </div>
                         </div>
 
                         <!-- Employment -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-user-check"></i> <span>Employment &amp; Labor Capacity</span></div>
+                                <div class="card-title"><i class="fa-solid fa-user-check"></i> <span>Employment &amp;
+                                        Labor Capacity</span></div>
                                 <span class="tag-badge green">Labor Market</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Assesses the aggregate health of the domestic labor force through the headline U-3 unemployment rate, labor force participation, and JOLTS job openings. Strong labor markets underpin consumer resilience but can trigger wage-push inflationary spirals.
+                                Assesses the aggregate health of the domestic labor force through the headline U-3
+                                unemployment rate, labor force participation, and JOLTS job openings. Strong labor
+                                markets underpin consumer resilience but can trigger wage-push inflationary spirals.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Gauges:</strong> U-3 Unemployment Rate, Participation Rate, JOLTS Job Openings-to-Unemployed ratio.</span>
+                                <span><strong>Key Gauges:</strong> U-3 Unemployment Rate, Participation Rate, JOLTS Job
+                                    Openings-to-Unemployed ratio.</span>
                             </div>
                         </div>
 
                         <!-- Inflation & Core PCE -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-fire"></i> <span>Inflation &amp; Core PCE</span></div>
+                                <div class="card-title"><i class="fa-solid fa-fire"></i> <span>Inflation &amp; Core
+                                        PCE</span></div>
                                 <span class="tag-badge red">Fed Preferred Gauge</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                The Personal Consumption Expenditures (PCE) price index tracks price changes across consumer purchases with dynamic basket weighting. Core PCE is the Federal Reserve's primary metric for assessing compliance with its 2.0% inflation mandate.
+                                The Personal Consumption Expenditures (PCE) price index tracks price changes across
+                                consumer purchases with dynamic basket weighting. Core PCE is the Federal Reserve's
+                                primary metric for assessing compliance with its 2.0% inflation mandate.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Target:</strong> 2.0% Annualized Target | Supercore PCE (services ex-housing &amp; energy).</span>
+                                <span><strong>Key Target:</strong> 2.0% Annualized Target | Supercore PCE (services
+                                    ex-housing &amp; energy).</span>
                             </div>
                         </div>
 
                         <!-- Monetary Policy -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-scale-balanced"></i> <span>Monetary Policy &amp; Balance Sheet (QE/QT)</span></div>
+                                <div class="card-title"><i class="fa-solid fa-scale-balanced"></i> <span>Monetary Policy
+                                        &amp; Balance Sheet (QE/QT)</span></div>
                                 <span class="tag-badge amber">Liquidity Flows</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                The direct expansion or contraction of central bank assets. Quantitative Easing (QE) purchases bonds to inject cash reserves and depress long-term yields. Quantitative Tightening (QT) allows bond maturities to roll off, absorbing excess market liquidity.
+                                The direct expansion or contraction of central bank assets. Quantitative Easing (QE)
+                                purchases bonds to inject cash reserves and depress long-term yields. Quantitative
+                                Tightening (QT) allows bond maturities to roll off, absorbing excess market liquidity.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Liquidity Levers:</strong> Fed Total Assets (WALCL), Reverse Repo (RRP), Treasury General Account (TGA).</span>
+                                <span><strong>Liquidity Levers:</strong> Fed Total Assets (WALCL), Reverse Repo (RRP),
+                                    Treasury General Account (TGA).</span>
                             </div>
                         </div>
 
                         <!-- PPI -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-industry"></i> <span>Producer Price Index (PPI)</span></div>
+                                <div class="card-title"><i class="fa-solid fa-industry"></i> <span>Producer Price Index
+                                        (PPI)</span></div>
                                 <span class="tag-badge red">Wholesale Inflation</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Evaluates price changes from the perspective of domestic producers and manufacturers. Because raw material and intermediate processing cost increases are passed down to end consumers, PPI acts as a premier leading indicator for consumer inflation.
+                                Evaluates price changes from the perspective of domestic producers and manufacturers.
+                                Because raw material and intermediate processing cost increases are passed down to end
+                                consumers, PPI acts as a premier leading indicator for consumer inflation.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Leading Signals:</strong> Final Demand PPI, Core PPI (ex-food &amp; energy), Pipeline Goods Inflation.</span>
+                                <span><strong>Leading Signals:</strong> Final Demand PPI, Core PPI (ex-food &amp;
+                                    energy), Pipeline Goods Inflation.</span>
                             </div>
                         </div>
 
                         <!-- FOMC -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-users"></i> <span>FOMC &amp; Fed Rate Decisions</span></div>
+                                <div class="card-title"><i class="fa-solid fa-users"></i> <span>FOMC &amp; Fed Rate
+                                        Decisions</span></div>
                                 <span class="tag-badge amber">Central Bank Policy</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                The Federal Open Market Committee holds 8 scheduled annual meetings to determine interest rate targets. Traders closely dissect the policy statement, Summary of Economic Projections (Dot Plot), and the Fed Chair's post-meeting press conference.
+                                The Federal Open Market Committee holds 8 scheduled annual meetings to determine
+                                interest rate targets. Traders closely dissect the policy statement, Summary of Economic
+                                Projections (Dot Plot), and the Fed Chair's post-meeting press conference.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Catalysts:</strong> Fed Rate Decision, Dot Plot median expectations, FOMC Meeting Minutes.</span>
+                                <span><strong>Key Catalysts:</strong> Fed Rate Decision, Dot Plot median expectations,
+                                    FOMC Meeting Minutes.</span>
                             </div>
                         </div>
 
                         <!-- NFP -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-briefcase"></i> <span>Non-Farm Payrolls (NFP)</span></div>
+                                <div class="card-title"><i class="fa-solid fa-briefcase"></i> <span>Non-Farm Payrolls
+                                        (NFP)</span></div>
                                 <span class="tag-badge red">Jobs Catalyst</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Released on the first Friday of every month by the Bureau of Labor Statistics (BLS). Measures net monthly job creation across non-agricultural businesses. Generates significant instant volatility across the US Dollar, bond yields, and stock indices.
+                                Released on the first Friday of every month by the Bureau of Labor Statistics (BLS).
+                                Measures net monthly job creation across non-agricultural businesses. Generates
+                                significant instant volatility across the US Dollar, bond yields, and stock indices.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Market Movers:</strong> Net Payroll Additions (+/- 150k baseline), Prior Month Revisions, Average Hourly Earnings.</span>
+                                <span><strong>Market Movers:</strong> Net Payroll Additions (+/- 150k baseline), Prior
+                                    Month Revisions, Average Hourly Earnings.</span>
                             </div>
                         </div>
 
                         <!-- Treasury Yield -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-arrow-trend-up"></i> <span>Treasury Yields &amp; Curve Inversions</span></div>
+                                <div class="card-title"><i class="fa-solid fa-arrow-trend-up"></i> <span>Treasury Yields
+                                        &amp; Curve Inversions</span></div>
                                 <span class="tag-badge amber">Recession Model</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Sovereign bond yields across 2Y, 10Y, and 30Y tenors. The 10Y - 2Y yield curve spread is Wall Street's premier recession indicator: yield inversions (short rates exceeding long rates) have accurately preceded every US recession since 1955.
+                                Sovereign bond yields across 2Y, 10Y, and 30Y tenors. The 10Y - 2Y yield curve spread is
+                                Wall Street's premier recession indicator: yield inversions (short rates exceeding long
+                                rates) have accurately preceded every US recession since 1955.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Curve Spreads:</strong> 10Y - 2Y Spread (Inversion vs. Steepening), 10Y - 3M Spread, 10Y Benchmark discount rate.</span>
+                                <span><strong>Curve Spreads:</strong> 10Y - 2Y Spread (Inversion vs. Steepening), 10Y -
+                                    3M Spread, 10Y Benchmark discount rate.</span>
                             </div>
                         </div>
                     </div>
@@ -554,112 +643,145 @@
                         <!-- Revenue -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-chart-simple"></i> <span>Revenue &amp; Top-Line Growth</span></div>
+                                <div class="card-title"><i class="fa-solid fa-chart-simple"></i> <span>Revenue &amp;
+                                        Top-Line Growth</span></div>
                                 <span class="tag-badge green">Top-Line</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Gross dollar receipts generated from business operations before deducting operating costs. Evaluates commercial adoption, sector market share gains, and sales momentum across quarterly (QoQ) and annual (YoY) reporting cycles.
+                                Gross dollar receipts generated from business operations before deducting operating
+                                costs. Evaluates commercial adoption, sector market share gains, and sales momentum
+                                across quarterly (QoQ) and annual (YoY) reporting cycles.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Metrics:</strong> Revenue Growth YoY %, Organic vs. Acquisition Growth, Annual Recurring Revenue (ARR).</span>
+                                <span><strong>Key Metrics:</strong> Revenue Growth YoY %, Organic vs. Acquisition
+                                    Growth, Annual Recurring Revenue (ARR).</span>
                             </div>
                         </div>
 
                         <!-- Earnings -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-hand-holding-dollar"></i> <span>Earnings &amp; Profit Margins</span></div>
+                                <div class="card-title"><i class="fa-solid fa-hand-holding-dollar"></i> <span>Earnings
+                                        &amp; Profit Margins</span></div>
                                 <span class="tag-badge green">Bottom-Line</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Net income remaining after all cost of goods sold (COGS), operating expenses, interest, depreciation, and corporate taxes. Margin trends demonstrate corporate pricing power, cost discipline, and defensive economic moat durability.
+                                Net income remaining after all cost of goods sold (COGS), operating expenses, interest,
+                                depreciation, and corporate taxes. Margin trends demonstrate corporate pricing power,
+                                cost discipline, and defensive economic moat durability.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Margins:</strong> Gross Margin (Pricing power), Operating Margin (EBIT), Net Profit Margin (Final conversion).</span>
+                                <span><strong>Key Margins:</strong> Gross Margin (Pricing power), Operating Margin
+                                    (EBIT), Net Profit Margin (Final conversion).</span>
                             </div>
                         </div>
 
                         <!-- EPS -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-coins"></i> <span>Earnings Per Share (EPS)</span></div>
+                                <div class="card-title"><i class="fa-solid fa-coins"></i> <span>Earnings Per Share
+                                        (EPS)</span></div>
                                 <span class="tag-badge green">Per-Share Metric</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Net profit allocated to each individual share of outstanding common stock. Wall Street's primary benchmark for quarterly earnings beats and misses; unexpected beats and forward guidance upgrades drive immediate equity re-ratings.
+                                Net profit allocated to each individual share of outstanding common stock. Wall Street's
+                                primary benchmark for quarterly earnings beats and misses; unexpected beats and forward
+                                guidance upgrades drive immediate equity re-ratings.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Metrics:</strong> GAAP EPS, Normalized Non-GAAP EPS, Diluted EPS (accounting for options &amp; convertibles).</span>
+                                <span><strong>Key Metrics:</strong> GAAP EPS, Normalized Non-GAAP EPS, Diluted EPS
+                                    (accounting for options &amp; convertibles).</span>
                             </div>
                         </div>
 
                         <!-- P/E Ratio -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-magnifying-glass-chart"></i> <span>Price-to-Earnings (P/E) &amp; Multiples</span></div>
+                                <div class="card-title"><i class="fa-solid fa-magnifying-glass-chart"></i>
+                                    <span>Price-to-Earnings (P/E) &amp; Multiples</span>
+                                </div>
                                 <span class="tag-badge red">Valuation Multiple</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Compares current share price against annual per-share earnings, measuring how much capital the market pays per dollar of profit. Trailing P/E assesses historical results, Forward P/E prices future growth, and PEG incorporates projected growth rates.
+                                Compares current share price against annual per-share earnings, measuring how much
+                                capital the market pays per dollar of profit. Trailing P/E assesses historical results,
+                                Forward P/E prices future growth, and PEG incorporates projected growth rates.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Ratios:</strong> Trailing P/E (TTM), Forward P/E (NTM), PEG Ratio (P/E / Annual EPS Growth; &lt; 1.0 undervalued).</span>
+                                <span><strong>Key Ratios:</strong> Trailing P/E (TTM), Forward P/E (NTM), PEG Ratio (P/E
+                                    / Annual EPS Growth; &lt; 1.0 undervalued).</span>
                             </div>
                         </div>
 
                         <!-- Cash Flow -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-money-bill-transfer"></i> <span>Cash Flow &amp; Free Cash Flow (FCF)</span></div>
+                                <div class="card-title"><i class="fa-solid fa-money-bill-transfer"></i> <span>Cash Flow
+                                        &amp; Free Cash Flow (FCF)</span></div>
                                 <span class="tag-badge amber">Liquidity Truth</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                While accounting net income is subject to non-cash accruals, Free Cash Flow represents actual cash generated from operations minus Capital Expenditures (CapEx). FCF funds dividends, share buybacks, acquisitions, and debt paydown.
+                                While accounting net income is subject to non-cash accruals, Free Cash Flow represents
+                                actual cash generated from operations minus Capital Expenditures (CapEx). FCF funds
+                                dividends, share buybacks, acquisitions, and debt paydown.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Formulas:</strong> FCF = Operating Cash Flow - CapEx | FCF Conversion Rate (FCF / Net Income), FCF Yield %.</span>
+                                <span><strong>Formulas:</strong> FCF = Operating Cash Flow - CapEx | FCF Conversion Rate
+                                    (FCF / Net Income), FCF Yield %.</span>
                             </div>
                         </div>
 
                         <!-- Debt -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-shield-halved"></i> <span>Debt &amp; Financial Solvency</span></div>
+                                <div class="card-title"><i class="fa-solid fa-shield-halved"></i> <span>Debt &amp;
+                                        Financial Solvency</span></div>
                                 <span class="tag-badge red">Balance Sheet Risk</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Evaluates corporate debt obligations, liquidity reserves, and balance sheet solvency. While modest leverage amplifies returns during economic expansions, excessive debt loads trigger severe insolvency risk when interest rates climb.
+                                Evaluates corporate debt obligations, liquidity reserves, and balance sheet solvency.
+                                While modest leverage amplifies returns during economic expansions, excessive debt loads
+                                trigger severe insolvency risk when interest rates climb.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Solvency Checks:</strong> Debt-to-Equity (D/E), Net Debt / EBITDA (&lt; 2.5x safe), Interest Coverage Ratio (EBIT / Interest).</span>
+                                <span><strong>Solvency Checks:</strong> Debt-to-Equity (D/E), Net Debt / EBITDA (&lt;
+                                    2.5x safe), Interest Coverage Ratio (EBIT / Interest).</span>
                             </div>
                         </div>
 
                         <!-- Valuation -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-calculator"></i> <span>Intrinsic Valuation &amp; DCF Models</span></div>
+                                <div class="card-title"><i class="fa-solid fa-calculator"></i> <span>Intrinsic Valuation
+                                        &amp; DCF Models</span></div>
                                 <span class="tag-badge purple">Fair Value</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Calculates a business's true intrinsic worth independent of market volatility. Discounted Cash Flow (DCF) models project 5–10 years of future cash flows discounted to present value using WACC, establishing an objective Margin of Safety.
+                                Calculates a business's true intrinsic worth independent of market volatility.
+                                Discounted Cash Flow (DCF) models project 5–10 years of future cash flows discounted to
+                                present value using WACC, establishing an objective Margin of Safety.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Methodologies:</strong> Discounted Cash Flow (DCF), Enterprise Value (EV/EBITDA, EV/Sales), Margin of Safety (&gt; 25%).</span>
+                                <span><strong>Methodologies:</strong> Discounted Cash Flow (DCF), Enterprise Value
+                                    (EV/EBITDA, EV/Sales), Margin of Safety (&gt; 25%).</span>
                             </div>
                         </div>
 
                         <!-- Return on Capital -->
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-trophy"></i> <span>Capital Efficiency (ROIC &amp; ROE)</span></div>
+                                <div class="card-title"><i class="fa-solid fa-trophy"></i> <span>Capital Efficiency
+                                        (ROIC &amp; ROE)</span></div>
                                 <span class="tag-badge green">Moat Strength</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                                Measures management's ability to efficiently reinvest capital into high-return projects. Companies with Return on Invested Capital (ROIC) consistently exceeding their Weighted Average Cost of Capital (WACC) compound wealth and possess wide moats.
+                                Measures management's ability to efficiently reinvest capital into high-return projects.
+                                Companies with Return on Invested Capital (ROIC) consistently exceeding their Weighted
+                                Average Cost of Capital (WACC) compound wealth and possess wide moats.
                             </p>
                             <div class="card-footer-params">
-                                <span><strong>Key Benchmarks:</strong> ROIC (Return on Invested Capital), ROE (Return on Equity), Economic Value Added (ROIC - WACC).</span>
+                                <span><strong>Key Benchmarks:</strong> ROIC (Return on Invested Capital), ROE (Return on
+                                    Equity), Economic Value Added (ROIC - WACC).</span>
                             </div>
                         </div>
                     </div>
@@ -671,8 +793,10 @@
                 <section id="sec-news" class="hub-section">
                     <div class="section-banner">
                         <div class="banner-content">
-                            <h1><i class="fa-solid fa-newspaper text-primary"></i> Market News &amp; Economic Releases</h1>
-                            <p>Real-time financial journalism, central bank communications, earnings surprises, and macro catalysts.</p>
+                            <h1><i class="fa-solid fa-newspaper text-primary"></i> Market News &amp; Economic Releases
+                            </h1>
+                            <p>Real-time financial journalism, central bank communications, earnings surprises, and
+                                macro catalysts.</p>
                         </div>
                         <div class="banner-actions">
                             <a href="https://www.forexfactory.com/calendar" target="_blank" class="btn btn-secondary">
@@ -701,7 +825,8 @@
                                 <div class="resource-icon"><i class="fa-solid fa-newspaper"></i></div>
                                 <div class="resource-meta">
                                     <h3>Yahoo Finance</h3>
-                                    <p>Comprehensive market news, breaking earnings, sector moves, and analyst upgrades.</p>
+                                    <p>Comprehensive market news, breaking earnings, sector moves, and analyst upgrades.
+                                    </p>
                                 </div>
                             </div>
                             <div class="resource-bottom">
@@ -733,11 +858,12 @@
                     <div class="section-banner">
                         <div class="banner-content">
                             <h1><i class="fa-solid fa-book-bookmark text-primary"></i> Trading Journal</h1>
-                            <p>Record your executions, reflect on mistakes, track statistical performance, and refine your psychological discipline.</p>
+                            <p>Record your executions, reflect on mistakes, track statistical performance, and refine
+                                your psychological discipline.</p>
                         </div>
                         <div class="banner-actions">
                             <button class="btn btn-primary" data-open-modal="modal-add-trade">
-                                <i class="fa-solid fa-plus"></i> Log New Trade
+                                <i class="fa-solid fa-plus"></i> Log Trade
                             </button>
                         </div>
                     </div>
@@ -790,160 +916,12 @@
                                 <!-- Populated dynamically by app.js -->
                             </tbody>
                         </table>
-                        <div id="journal-empty-state" style="padding: 40px 20px; text-align: center; color: var(--text-muted);">
-                            <i class="fa-solid fa-receipt" style="font-size: 2.2rem; margin-bottom: 12px; color: var(--text-subtle);"></i>
-                            <p style="font-size: 0.95rem;">No trades recorded yet. Click <strong>"Log New Trade"</strong> to start your personal trading journal!</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- =========================================================
-                     Section 5: Risk Management & Calculator
-                     ========================================================= -->
-                <section id="sec-risk" class="hub-section">
-                    <div class="section-banner">
-                        <div class="banner-content">
-                            <h1><i class="fa-solid fa-shield-halved text-primary"></i> Risk Management &amp; Position Sizing</h1>
-                            <p>Capital preservation calculator, maximum drawdown rules, and risk-to-reward optimization.</p>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Risk Calculator -->
-                    <div class="grid-2">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <i class="fa-solid fa-calculator"></i>
-                                    <span>Position Size &amp; Leverage Calculator</span>
-                                </div>
-                            </div>
-
-                            <div class="grid-2" style="margin-bottom:0;">
-                                <div class="form-group">
-                                    <label for="calc-acc-balance">Account Balance ($)</label>
-                                    <input type="number" id="calc-acc-balance" class="form-control" value="25000" min="1" step="100">
-                                </div>
-                                <div class="form-group">
-                                    <label for="calc-leverage">Account Leverage</label>
-                                    <select id="calc-leverage" class="form-control">
-                                        <option value="1">1:1 (No Leverage / Spot)</option>
-                                        <option value="10">1:10</option>
-                                        <option value="20">1:20</option>
-                                        <option value="30">1:30</option>
-                                        <option value="50">1:50</option>
-                                        <option value="100" selected>1:100 (Default)</option>
-                                        <option value="200">1:200</option>
-                                        <option value="500">1:500</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="grid-2" style="margin-bottom:0;">
-                                <div class="form-group">
-                                    <label for="calc-market-type">Instrument / Contract Type</label>
-                                    <select id="calc-market-type" class="form-control">
-                                        <option value="gold" selected>Gold / XAUUSD (1 Lot = 100 oz)</option>
-                                        <option value="forex">Forex (1 Lot = 100,000 units)</option>
-                                        <option value="shares">Stocks / Crypto (1 Share = 1 unit)</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="calc-risk-percent">Max Risk Per Trade (%)</label>
-                                    <input type="number" id="calc-risk-percent" class="form-control" value="1.0" min="0.1" max="10" step="0.1">
-                                </div>
-                            </div>
-
-                            <div class="grid-2" style="margin-bottom:0;">
-                                <div class="form-group">
-                                    <label for="calc-entry-price">Entry Price ($)</label>
-                                    <input type="number" id="calc-entry-price" class="form-control" value="2650.00" min="0.0001" step="0.01">
-                                </div>
-                                <div class="form-group">
-                                    <label for="calc-stop-loss">Stop Loss Price ($)</label>
-                                    <input type="number" id="calc-stop-loss" class="form-control" value="2640.00" min="0.0001" step="0.01">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="calc-take-profit">Take Profit Target ($)</label>
-                                <input type="number" id="calc-take-profit" class="form-control" value="2675.00" min="0.0001" step="0.01">
-                            </div>
-                        </div>
-
-                        <!-- Outputs Card -->
-                        <div class="card" style="display:flex; flex-direction:column; justify-content:space-between; background: linear-gradient(145deg, rgba(24, 24, 27, 0.9) 0%, rgba(9, 9, 11, 0.95) 100%);">
-                            <div>
-                                <div class="card-header">
-                                    <div class="card-title"><i class="fa-solid fa-bullseye"></i> <span>Calculated Execution Plan</span></div>
-                                </div>
-
-                                <div class="grid-2" style="gap: 12px; margin-bottom: 16px;">
-                                    <div style="background:var(--bg-card-inner); padding:16px; border-radius:var(--radius-sm);">
-                                        <div style="font-size:0.775rem; color:var(--text-muted);">Max Dollar Risk</div>
-                                        <div id="calc-out-risk-amount" style="font-size:1.6rem; font-weight:700; color:var(--danger);">$250.00</div>
-                                    </div>
-
-                                    <div style="background:var(--bg-card-inner); padding:16px; border-radius:var(--radius-sm);">
-                                        <div style="font-size:0.775rem; color:var(--text-muted);">Optimal Lot Size (Position)</div>
-                                        <div id="calc-out-position-size" style="font-size:1.6rem; font-weight:700; color:#f87171;">0.25 Lots</div>
-                                        <div id="calc-out-units-detail" style="font-size:0.75rem; color:var(--text-subtle); margin-top:2px;">(25.00 oz)</div>
-                                    </div>
-                                </div>
-
-                                <div style="display:flex; flex-direction:column; gap:10px; font-size:0.875rem; color:var(--text-muted); padding:12px; border-radius:var(--radius-sm); background:rgba(255,255,255,0.02);">
-                                    <div style="display:flex; justify-content:space-between;">
-                                        <span>Capital Allocated (Margin Required):</span>
-                                        <strong id="calc-out-margin-required" style="color:var(--text-main);">$662.50 (2.7%)</strong>
-                                    </div>
-                                    <div style="display:flex; justify-content:space-between;">
-                                        <span>Total Notional Exposure:</span>
-                                        <strong id="calc-out-total-value" style="color:var(--text-muted);">$66,250.00</strong>
-                                    </div>
-                                    <div style="display:flex; justify-content:space-between;">
-                                        <span>Risk-to-Reward Ratio:</span>
-                                        <strong id="calc-out-reward-risk" style="color:var(--success);">2.50 : 1</strong>
-                                    </div>
-                                    <div style="display:flex; justify-content:space-between;">
-                                        <span>Potential Profit at Target:</span>
-                                        <strong id="calc-out-potential-profit" style="color:var(--success);">$625.00</strong>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="calc-info-note" style="margin-top: 16px; font-size:0.8rem; color:var(--text-subtle); line-height: 1.4;">
-                                <i class="fa-solid fa-circle-info"></i> Sizing automatically scales your lot volume so hitting Stop Loss loses exactly your predefined risk budget ($250.00). At 1:100 leverage, only $662.50 is required as margin collateral.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Core Risk Rules -->
-                    <h3 style="margin: 28px 0 16px; font-size: 1.2rem;">Non-Negotiable Risk Rules</h3>
-                    <div class="grid-3">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-lock"></i> <span>The 1% - 2% Rule</span></div>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted);">
-                                Never risk more than 1% to 2% of total account equity on any single execution. Surviving a 10-trade losing streak leaves 82%–90% of capital intact.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-hand"></i> <span>Daily Circuit Breaker</span></div>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted);">
-                                If account drawdown reaches 3% in a single trading session, stop trading immediately for 24 hours to prevent revenge trading and tilt.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title"><i class="fa-solid fa-scale-balanced"></i> <span>Positive Asymmetric R:R</span></div>
-                            </div>
-                            <p style="font-size: 0.85rem; color: var(--text-muted);">
-                                Only enter setups where potential reward is at least 2.0&times; greater than the risk. At a 1:2 R:R, you only need a 34% win rate to break even.
-                            </p>
+                        <div id="journal-empty-state"
+                            style="padding: 40px 20px; text-align: center; color: var(--text-muted);">
+                            <i class="fa-solid fa-receipt"
+                                style="font-size: 2.2rem; margin-bottom: 12px; color: var(--text-subtle);"></i>
+                            <p style="font-size: 0.95rem;">No trades recorded yet. Click <strong>"Log New
+                                    Trade"</strong> to start your personal trading journal!</p>
                         </div>
                     </div>
                 </section>
@@ -971,7 +949,8 @@
                         </div>
                         <div class="form-group">
                             <label for="j-ticker">Ticker / Symbol</label>
-                            <input type="text" id="j-ticker" class="form-control" placeholder="e.g. AAPL, NVDA, NQ" required style="text-transform:uppercase;">
+                            <input type="text" id="j-ticker" class="form-control" placeholder="e.g. AAPL, NVDA, NQ"
+                                required style="text-transform:uppercase;">
                         </div>
                     </div>
 
@@ -985,34 +964,40 @@
                         </div>
                         <div class="form-group">
                             <label for="j-size">Position Size (Shares/Contracts)</label>
-                            <input type="number" id="j-size" class="form-control" placeholder="100" min="0.0001" step="any" required>
+                            <input type="number" id="j-size" class="form-control" placeholder="100" min="0.0001"
+                                step="any" required>
                         </div>
                     </div>
 
                     <div class="grid-2">
                         <div class="form-group">
                             <label for="j-entry">Entry Price ($)</label>
-                            <input type="number" id="j-entry" class="form-control" placeholder="150.00" step="any" required>
+                            <input type="number" id="j-entry" class="form-control" placeholder="150.00" step="any"
+                                required>
                         </div>
                         <div class="form-group">
                             <label for="j-exit">Exit Price ($)</label>
-                            <input type="number" id="j-exit" class="form-control" placeholder="155.00" step="any" required>
+                            <input type="number" id="j-exit" class="form-control" placeholder="155.00" step="any"
+                                required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="j-strategy">Strategy Model Used</label>
-                        <input type="text" id="j-strategy" class="form-control" placeholder="e.g. Trend Breakout, FVG Sweep, ORB">
+                        <input type="text" id="j-strategy" class="form-control"
+                            placeholder="e.g. Trend Breakout, FVG Sweep, ORB">
                     </div>
 
                     <div class="form-group">
                         <label for="j-notes">Mistakes, Psychology &amp; Reflection</label>
-                        <textarea id="j-notes" class="form-control" placeholder="Did you follow your rules? Was entry rushed? What can be improved?"></textarea>
+                        <textarea id="j-notes" class="form-control"
+                            placeholder="Did you follow your rules? Was entry rushed? What can be improved?"></textarea>
                     </div>
 
                     <div class="modal-footer" style="padding: 16px 0 0;">
                         <button type="button" class="btn btn-secondary modal-close">Cancel</button>
-                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Trade</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save
+                            Trade</button>
                     </div>
                 </form>
             </div>
@@ -1024,7 +1009,9 @@
         <div class="modal-box cmd-palette">
             <div class="cmd-input-wrap">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="cmd-search-input" class="cmd-input" placeholder="Type a section name (e.g. Technical, Fundamental, News, Journal, Risk)..." autocomplete="off">
+                <input type="text" id="cmd-search-input" class="cmd-input"
+                    placeholder="Type a section name (e.g. Technical, Fundamental, News, Journal, Risk)..."
+                    autocomplete="off">
             </div>
             <div class="cmd-results" id="cmd-results-list">
                 <!-- Dynamically rendered by app.js -->
@@ -1041,21 +1028,30 @@
             </div>
             <div class="modal-body">
                 <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 20px;">
-                    All your trading journals and research notes are stored locally in your browser. You can export a full JSON backup or restore an existing backup file below.
+                    All your trading journals and research notes are stored locally in your browser. You can export a
+                    full JSON backup or restore an existing backup file below.
                 </p>
 
                 <div style="display:flex; flex-direction:column; gap:14px;">
-                    <div style="background:var(--bg-card-inner); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-color);">
-                        <h4 style="font-size:0.95rem; margin-bottom:6px;"><i class="fa-solid fa-download text-primary"></i> Export JSON Backup</h4>
-                        <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">Save all journal trades into a single backup file.</p>
-                        <button type="button" id="btn-export-json" class="btn btn-primary btn-block">Download Backup (.json)</button>
+                    <div
+                        style="background:var(--bg-card-inner); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+                        <h4 style="font-size:0.95rem; margin-bottom:6px;"><i
+                                class="fa-solid fa-download text-primary"></i> Export JSON Backup</h4>
+                        <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">Save all journal
+                            trades into a single backup file.</p>
+                        <button type="button" id="btn-export-json" class="btn btn-primary btn-block">Download Backup
+                            (.json)</button>
                     </div>
 
-                    <div style="background:var(--bg-card-inner); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-color);">
-                        <h4 style="font-size:0.95rem; margin-bottom:6px;"><i class="fa-solid fa-upload text-success"></i> Restore / Import JSON</h4>
-                        <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">Import a previously exported backup file to restore your trades and notes.</p>
+                    <div
+                        style="background:var(--bg-card-inner); padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-color);">
+                        <h4 style="font-size:0.95rem; margin-bottom:6px;"><i
+                                class="fa-solid fa-upload text-success"></i> Restore / Import JSON</h4>
+                        <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">Import a previously
+                            exported backup file to restore your trades and notes.</p>
                         <input type="file" id="input-import-json" accept=".json" style="display:none;">
-                        <button type="button" id="btn-trigger-import" class="btn btn-secondary btn-block">Select Backup File</button>
+                        <button type="button" id="btn-trigger-import" class="btn btn-secondary btn-block">Select Backup
+                            File</button>
                     </div>
                 </div>
             </div>

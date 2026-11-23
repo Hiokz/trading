@@ -15,8 +15,7 @@ const SECTIONS = [
     { id: 'technical', name: 'Technical Analysis', icon: 'fa-chart-line', group: 'Analysis & Models' },
     { id: 'fundamental', name: 'Fundamental Analysis', icon: 'fa-landmark', group: 'Analysis & Models' },
     { id: 'news', name: 'Market News', icon: 'fa-newspaper', group: 'Market Pulse' },
-    { id: 'journal', name: 'Trading Journal', icon: 'fa-book-bookmark', group: 'Execution & Risk' },
-    { id: 'risk', name: 'Risk Management', icon: 'fa-shield-halved', group: 'Execution & Risk' }
+    { id: 'journal', name: 'Trading Journal', icon: 'fa-book-bookmark', group: 'Execution & Journal' }
 ];
 
 // Initialize Application
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initCommandPalette();
     initLiveClocks();
-    initRiskCalculator();
     initJournal();
     initModals();
 
@@ -221,131 +219,6 @@ function initLiveClocks() {
 
     update();
     setInterval(update, 1000);
-}
-
-/* -------------------------------------------------------------
- * Risk Management Calculator
- * ------------------------------------------------------------- */
-function initRiskCalculator() {
-    const accBalanceInput = document.getElementById('calc-acc-balance');
-    const leverageInput = document.getElementById('calc-leverage');
-    const marketTypeInput = document.getElementById('calc-market-type');
-    const riskPercentInput = document.getElementById('calc-risk-percent');
-    const entryPriceInput = document.getElementById('calc-entry-price');
-    const stopLossInput = document.getElementById('calc-stop-loss');
-    const takeProfitInput = document.getElementById('calc-take-profit');
-
-    const outRiskAmount = document.getElementById('calc-out-risk-amount');
-    const outPositionSize = document.getElementById('calc-out-position-size');
-    const outUnitsDetail = document.getElementById('calc-out-units-detail');
-    const outMarginRequired = document.getElementById('calc-out-margin-required');
-    const outTotalValue = document.getElementById('calc-out-total-value');
-    const outRewardRisk = document.getElementById('calc-out-reward-risk');
-    const outPotentialProfit = document.getElementById('calc-out-potential-profit');
-    const infoNote = document.getElementById('calc-info-note');
-
-    function calculate() {
-        const balance = parseFloat(accBalanceInput.value) || 0;
-        const riskPct = parseFloat(riskPercentInput.value) || 0;
-        const entry = parseFloat(entryPriceInput.value) || 0;
-        const stop = parseFloat(stopLossInput.value) || 0;
-        const target = parseFloat(takeProfitInput.value) || 0;
-        const leverage = parseFloat(leverageInput ? leverageInput.value : 100) || 100;
-        const marketType = marketTypeInput ? marketTypeInput.value : 'gold';
-
-        if (balance <= 0 || riskPct <= 0 || entry <= 0 || stop <= 0 || entry === stop) {
-            if (outRiskAmount) outRiskAmount.textContent = '$0.00';
-            if (outPositionSize) outPositionSize.textContent = '0.00 Lots';
-            if (outUnitsDetail) outUnitsDetail.textContent = '(0 units)';
-            if (outMarginRequired) outMarginRequired.textContent = '$0.00';
-            if (outTotalValue) outTotalValue.textContent = '$0.00';
-            if (outRewardRisk) outRewardRisk.textContent = '0.00 : 1';
-            if (outPotentialProfit) outPotentialProfit.textContent = '$0.00';
-            return;
-        }
-
-        // 1. Predefined Max Dollar Risk
-        const riskDollar = balance * (riskPct / 100);
-
-        // 2. Stop Loss Distance per unit
-        const stopDistance = Math.abs(entry - stop);
-
-        // 3. Position Size in raw units (oz for gold, units for forex, shares for equity)
-        const positionUnits = riskDollar / stopDistance;
-
-        // 4. Lot sizing calculation based on market type
-        let lotsFormatted = '';
-        let unitsFormatted = '';
-
-        if (marketType === 'gold') {
-            const contractSize = 100; // 1 standard lot = 100 troy oz
-            const lots = positionUnits / contractSize;
-            lotsFormatted = `${lots.toFixed(2)} Lots`;
-            unitsFormatted = `(${positionUnits.toFixed(2)} oz)`;
-        } else if (marketType === 'forex') {
-            const contractSize = 100000; // 1 standard lot = 100,000 units
-            const lots = positionUnits / contractSize;
-            lotsFormatted = `${lots.toFixed(2)} Lots`;
-            unitsFormatted = `(${Math.round(positionUnits).toLocaleString()} units)`;
-        } else {
-            // Stocks / Crypto (1 share/coin = 1 unit)
-            lotsFormatted = `${positionUnits.toFixed(2)} Shares`;
-            unitsFormatted = `(${positionUnits.toFixed(2)} units)`;
-        }
-
-        // 5. Total Notional Position Value
-        const notionalValue = positionUnits * entry;
-
-        // 6. Actual Capital Allocated (Required Margin with Leverage)
-        const requiredMargin = notionalValue / leverage;
-        const marginPct = balance > 0 ? ((requiredMargin / balance) * 100).toFixed(1) : '0';
-
-        // 7. Reward-to-Risk and Profit Target
-        const targetDistance = Math.abs(target - entry);
-        const rr = stopDistance > 0 && targetDistance > 0 ? (targetDistance / stopDistance).toFixed(2) : '0.00';
-        const potentialProfit = positionUnits * targetDistance;
-
-        if (outRiskAmount) outRiskAmount.textContent = formatUSD(riskDollar);
-        if (outPositionSize) outPositionSize.textContent = lotsFormatted;
-        if (outUnitsDetail) outUnitsDetail.textContent = unitsFormatted;
-        if (outMarginRequired) outMarginRequired.textContent = `${formatUSD(requiredMargin)} (${marginPct}%)`;
-        if (outTotalValue) outTotalValue.textContent = formatUSD(notionalValue);
-        if (outRewardRisk) outRewardRisk.textContent = `${rr} : 1`;
-        if (outPotentialProfit) outPotentialProfit.textContent = formatUSD(potentialProfit);
-
-        if (infoNote) {
-            infoNote.innerHTML = `<i class="fa-solid fa-circle-info"></i> Sizing automatically scales your position so hitting Stop Loss loses exactly your predefined risk budget (<strong>${formatUSD(riskDollar)}</strong>). At <strong>1:${leverage}</strong> leverage, only <strong>${formatUSD(requiredMargin)}</strong> (${marginPct}% of equity) is required as margin collateral.`;
-        }
-    }
-
-    if (marketTypeInput) {
-        marketTypeInput.addEventListener('change', () => {
-            const type = marketTypeInput.value;
-            if (type === 'gold') {
-                entryPriceInput.value = '2650.00';
-                stopLossInput.value = '2640.00';
-                takeProfitInput.value = '2675.00';
-            } else if (type === 'forex') {
-                entryPriceInput.value = '1.0850';
-                stopLossInput.value = '1.0820';
-                takeProfitInput.value = '1.0925';
-            } else if (type === 'shares') {
-                entryPriceInput.value = '150.00';
-                stopLossInput.value = '145.00';
-                takeProfitInput.value = '162.50';
-            }
-            calculate();
-        });
-    }
-
-    [accBalanceInput, leverageInput, riskPercentInput, entryPriceInput, stopLossInput, takeProfitInput].forEach(inp => {
-        if (inp) {
-            inp.addEventListener('input', calculate);
-            inp.addEventListener('change', calculate);
-        }
-    });
-
-    calculate();
 }
 
 /* -------------------------------------------------------------
