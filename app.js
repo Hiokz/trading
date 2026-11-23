@@ -336,10 +336,12 @@ function initJournal() {
             const notes = document.getElementById('j-notes').value.trim();
 
             let pnl = 0;
+            // 1 standard lot = 100 contract units (e.g. 100 oz for XAUUSD: 0.01 lot = 1 oz -> $200 price move * 1 = $200)
+            const contractMultiplier = 100;
             if (direction === 'long') {
-                pnl = (exit - entry) * size;
+                pnl = (exit - entry) * (size * contractMultiplier);
             } else {
-                pnl = (entry - exit) * size;
+                pnl = (entry - exit) * (size * contractMultiplier);
             }
 
             const newTrade = { date, ticker, direction, entry, exit, size, pnl, strategy, notes };
@@ -394,11 +396,13 @@ function initJournal() {
             if (size > 0 && entry > 0 && exit > 0) {
                 let pnl = 0;
                 let pct = 0;
+                // 1 standard lot = 100 contract units (e.g. 100 oz for XAUUSD: 0.01 lot = 1 oz -> $200 price move * 1 = $200)
+                const contractMultiplier = 100;
                 if (dir === 'long') {
-                    pnl = (exit - entry) * size;
+                    pnl = (exit - entry) * (size * contractMultiplier);
                     pct = ((exit - entry) / entry) * 100;
                 } else {
-                    pnl = (entry - exit) * size;
+                    pnl = (entry - exit) * (size * contractMultiplier);
                     pct = ((entry - exit) / entry) * 100;
                 }
                 const isWin = pnl >= 0;
