@@ -350,12 +350,18 @@ function initJournal() {
         const dir = inputDirection ? inputDirection.value : 'long';
 
         if (inputDirection) {
+            const wrapper = inputDirection.closest('.custom-select-container');
+            const trigger = wrapper ? wrapper.querySelector('.custom-select-trigger') : null;
             if (dir === 'long') {
                 inputDirection.classList.add('is-long');
                 inputDirection.classList.remove('is-short');
+                if (wrapper) { wrapper.classList.add('is-long'); wrapper.classList.remove('is-short'); }
+                if (trigger) { trigger.classList.add('is-long'); trigger.classList.remove('is-short'); }
             } else {
                 inputDirection.classList.add('is-short');
                 inputDirection.classList.remove('is-long');
+                if (wrapper) { wrapper.classList.add('is-short'); wrapper.classList.remove('is-long'); }
+                if (trigger) { trigger.classList.add('is-short'); trigger.classList.remove('is-long'); }
             }
         }
 
@@ -530,14 +536,39 @@ function initCustomSelects() {
         const trigger = document.createElement('div');
         trigger.className = 'custom-select-trigger';
 
-        let selectedOption = select.options[select.selectedIndex];
-        let placeholderText = selectedOption ? selectedOption.text : 'Select an option';
+        function getOptionHTML(opt) {
+            if (!opt) return 'Select an option';
+            if (select.id === 'j-direction') {
+                if (opt.value === 'long') {
+                    return `<i class="fa-solid fa-arrow-trend-up" style="color:var(--success); margin-right:8px; font-size:0.85rem;"></i><span>${opt.text}</span>`;
+                } else if (opt.value === 'short') {
+                    return `<i class="fa-solid fa-arrow-trend-down" style="color:var(--danger); margin-right:8px; font-size:0.85rem;"></i><span>${opt.text}</span>`;
+                }
+            }
+            return `<span>${opt.text}</span>`;
+        }
 
+        function updateDirectionTheme(val) {
+            if (select.id === 'j-direction') {
+                wrapper.classList.remove('is-long', 'is-short');
+                trigger.classList.remove('is-long', 'is-short');
+                if (val === 'long') {
+                    wrapper.classList.add('is-long');
+                    trigger.classList.add('is-long');
+                } else if (val === 'short') {
+                    wrapper.classList.add('is-short');
+                    trigger.classList.add('is-short');
+                }
+            }
+        }
+
+        let selectedOption = select.options[select.selectedIndex];
         trigger.innerHTML = `
-            <span class="trigger-text">${placeholderText}</span>
+            <span class="trigger-text">${getOptionHTML(selectedOption)}</span>
             <i class="fa-solid fa-chevron-down arrow-icon"></i>
         `;
         wrapper.appendChild(trigger);
+        updateDirectionTheme(select.value);
 
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'custom-options-container';
@@ -548,7 +579,7 @@ function initCustomSelects() {
             optionDiv.className = 'custom-option';
             if (option.selected) optionDiv.classList.add('selected');
             optionDiv.dataset.value = option.value;
-            optionDiv.textContent = option.text;
+            optionDiv.innerHTML = getOptionHTML(option);
 
             if (option.disabled && option.value === "") {
                 optionDiv.classList.add('is-placeholder');
@@ -556,13 +587,14 @@ function initCustomSelects() {
 
             optionDiv.addEventListener('click', (e) => {
                 e.stopPropagation();
-                trigger.querySelector('.trigger-text').textContent = optionDiv.textContent;
+                trigger.querySelector('.trigger-text').innerHTML = getOptionHTML(option);
                 select.value = optionDiv.dataset.value;
 
                 optionsContainer.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('selected'));
                 optionDiv.classList.add('selected');
 
                 wrapper.classList.remove('open');
+                updateDirectionTheme(select.value);
                 select.dispatchEvent(new Event('change', { bubbles: true }));
             });
 
@@ -584,10 +616,11 @@ function initCustomSelects() {
                 setTimeout(() => {
                     const opt = select.options[select.selectedIndex];
                     if (opt) {
-                        trigger.querySelector('.trigger-text').textContent = opt.text;
+                        trigger.querySelector('.trigger-text').innerHTML = getOptionHTML(opt);
                         optionsContainer.querySelectorAll('.custom-option').forEach(o => {
                             o.classList.toggle('selected', o.dataset.value === opt.value);
                         });
+                        updateDirectionTheme(opt.value);
                     }
                 }, 0);
             });
