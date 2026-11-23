@@ -543,32 +543,35 @@ body {
     max-width: 800px;
 }
 
+/* Journal Leverage & Execution Note */
+.journal-execution-note {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    color: var(--text-main);
+    line-height: 1.5;
+    max-width: 860px;
+}
+
+.journal-execution-note i {
+    color: var(--primary);
+    font-size: 0.95rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
 .banner-actions {
     display: flex;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
     white-space: nowrap;
-}
-
-/* Modal Leverage Note */
-.modal-leverage-note {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 14px;
-    margin-bottom: 16px;
-    background: rgba(239, 68, 68, 0.06);
-    border: 1px solid rgba(239, 68, 68, 0.22);
-    border-radius: var(--radius-sm);
-    font-size: 0.825rem;
-    color: var(--text-main);
-    line-height: 1.4;
-}
-
-.modal-leverage-note i {
-    font-size: 0.95rem;
-    flex-shrink: 0;
 }
 
 /* -------------------------------------------------------------

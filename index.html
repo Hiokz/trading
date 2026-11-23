@@ -860,6 +860,10 @@
                             <h1><i class="fa-solid fa-book-bookmark text-primary"></i> Trading Journal</h1>
                             <p>Record your executions, reflect on mistakes, track statistical performance, and refine
                                 your psychological discipline.</p>
+                            <div class="journal-execution-note">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span><strong>Execution &amp; Leverage Specification (1:100):</strong> Leverage is calibrated at <strong>1:100</strong> with a standard 100-multiplier contract size (1.00 lot = 100 oz / units). For example, buying and selling <strong>XAU/USD</strong> between <strong>$3,500</strong> and <strong>$3,700</strong>: with a <strong>0.01 lot size</strong> (1 oz), you make <strong>+$200.00</strong> profit (1 oz &times; $200 price move); with a <strong>0.02 lot size</strong> (2 oz), you make <strong>+$400.00</strong> profit (2 oz &times; $200 price move).</span>
+                            </div>
                         </div>
                         <div class="banner-actions">
                             <button class="btn btn-primary" data-open-modal="modal-add-trade">
@@ -941,10 +945,6 @@
                 <button class="modal-close">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-leverage-note">
-                    <i class="fa-solid fa-scale-balanced text-primary"></i>
-                    <span><strong>1:100 Leverage:</strong> 0.01 lot = 1 oz ($1/point) &bull; 0.02 lot = 2 oz ($2/point)</span>
-                </div>
                 <form id="journal-form">
                     <div class="grid-2">
                         <div class="form-group">
@@ -976,9 +976,6 @@
                                     <button type="button" class="stepper-btn down" data-target="j-size" data-step="-1" title="Decrease"><i class="fa-solid fa-chevron-down"></i></button>
                                 </div>
                             </div>
-                            <small class="text-muted" style="font-size:0.75rem; display:block; margin-top:4px;">
-                                <i class="fa-solid fa-scale-balanced text-primary"></i> 1:100 Leverage &bull; 0.01 lot = 1 oz ($1/point) &bull; 0.02 lot = 2 oz ($2/point)
-                            </small>
                         </div>
                     </div>
 
