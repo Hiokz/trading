@@ -607,6 +607,10 @@ body {
     margin-bottom: 24px;
 }
 
+.grid-span-2 {
+    grid-column: span 2;
+}
+
 @media (max-width: 1200px) {
     .grid-4 { grid-template-columns: repeat(2, 1fr); }
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -614,6 +618,7 @@ body {
 
 @media (max-width: 800px) {
     .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    .grid-span-2 { grid-column: span 1; }
 }
 
 .card {
