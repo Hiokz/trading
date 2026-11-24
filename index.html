@@ -386,16 +386,16 @@
                         </div>
                     </div>
 
-                    <!-- Category 4: Volume & Liquidity -->
+                    <!-- Category 4: Volume & Execution Benchmarks -->
                     <div class="indicator-category-title">
                         <div class="title-left">
                             <i class="fa-solid fa-chart-column"></i>
-                            <span>Volume &amp; Liquidity</span>
+                            <span>Volume, Liquidity &amp; Execution Benchmarks</span>
                         </div>
-                        <span class="tag-badge purple">2 Indicators</span>
+                        <span class="tag-badge purple">3 Indicators</span>
                     </div>
 
-                    <div class="grid-2">
+                    <div class="grid-3">
                         <!-- Volume -->
                         <div class="card">
                             <div class="card-header">
@@ -418,7 +418,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="card-title"><i class="fa-solid fa-water"></i> <span>VWAP</span></div>
-                                <span class="tag-badge purple">Institutional Anchor</span>
+                                <span class="tag-badge purple">Volume Benchmark</span>
                             </div>
                             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
                                 Volume-Weighted Average Price calculates the cumulative dollar value divided by volume
@@ -428,6 +428,23 @@
                             <div class="card-footer-params">
                                 <span><strong>Key Setups:</strong> Session Anchored (Daily / Weekly / Monthly) |
                                     Intraday bias (Above = Bullish, Below = Bearish), ±1σ &amp; ±2σ Bands.</span>
+                            </div>
+                        </div>
+
+                        <!-- TWAP -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title"><i class="fa-solid fa-stopwatch"></i> <span>TWAP</span></div>
+                                <span class="tag-badge purple">Time Benchmark</span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                                Time-Weighted Average Price calculates the linear average price of an asset over a set
+                                duration by slicing orders into equal time slices. Unlike VWAP, it eliminates volume skew,
+                                revealing pure temporal fair value and exposing algorithm execution pacing.
+                            </p>
+                            <div class="card-footer-params">
+                                <span><strong>Key Setups:</strong> Regular Interval Slices (1m, 5m, 1h) | TWAP Mean
+                                    Reversion, VWAP vs. TWAP Spread (volume bias vs. time slicing).</span>
                             </div>
                         </div>
                     </div>
