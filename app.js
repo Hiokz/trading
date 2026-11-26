@@ -283,7 +283,6 @@ function initLiveClocks() {
 function initJournal() {
     const form = document.getElementById('journal-form');
     const tableBody = document.getElementById('journal-table-body');
-    const emptyState = document.getElementById('journal-empty-state');
     const statTotalPnl = document.getElementById('journal-stat-total-pnl');
     const statWinRate = document.getElementById('journal-stat-win-rate');
     const statTotalTrades = document.getElementById('journal-stat-total-trades');
@@ -293,14 +292,19 @@ function initJournal() {
         tableBody.innerHTML = '';
 
         if (state.journalTrades.length === 0) {
-            if (emptyState) emptyState.style.display = 'block';
+            tableBody.innerHTML = `
+                <tr id="journal-empty-state">
+                    <td colspan="10" class="journal-empty-cell">
+                        <i class="fa-solid fa-receipt"></i>
+                        <p>No trades recorded yet. Click <strong>"Log New Trade"</strong> to start your personal trading journal!</p>
+                    </td>
+                </tr>
+            `;
             if (statTotalTrades) statTotalTrades.textContent = '0';
             if (statTotalPnl) statTotalPnl.textContent = '$0.00';
             if (statWinRate) statWinRate.textContent = '0%';
             return;
         }
-
-        if (emptyState) emptyState.style.display = 'none';
 
         let totalPnl = 0;
         let winCount = 0;

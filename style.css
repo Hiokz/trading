@@ -872,6 +872,36 @@ body {
     background: rgba(255, 255, 255, 0.02);
 }
 
+/* Journal Empty State inside Table */
+.journal-empty-cell {
+    padding: 60px 20px !important;
+    text-align: center !important;
+    color: var(--text-muted);
+    border-bottom: none !important;
+    background: transparent !important;
+}
+
+#journal-empty-state:hover td {
+    background: transparent !important;
+}
+
+.journal-empty-cell i {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    color: var(--text-subtle);
+    display: block;
+}
+
+.journal-empty-cell p {
+    font-size: 0.95rem;
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.journal-empty-cell strong {
+    color: var(--text-main);
+}
+
 /* Pill status */
 .pill {
     padding: 3px 10px;

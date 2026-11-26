@@ -971,16 +971,14 @@
                                 </tr>
                             </thead>
                             <tbody id="journal-table-body">
-                                <!-- Populated dynamically by app.js -->
+                                <tr id="journal-empty-state">
+                                    <td colspan="10" class="journal-empty-cell">
+                                        <i class="fa-solid fa-receipt"></i>
+                                        <p>No trades recorded yet. Click <strong>"Log New Trade"</strong> to start your personal trading journal!</p>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
-                        <div id="journal-empty-state"
-                            style="padding: 40px 20px; text-align: center; color: var(--text-muted);">
-                            <i class="fa-solid fa-receipt"
-                                style="font-size: 2.2rem; margin-bottom: 12px; color: var(--text-subtle);"></i>
-                            <p style="font-size: 0.95rem;">No trades recorded yet. Click <strong>"Log New
-                                    Trade"</strong> to start your personal trading journal!</p>
-                        </div>
                     </div>
                 </section>
             </div>
