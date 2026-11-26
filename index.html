@@ -29,6 +29,9 @@
 
 <body>
     <div class="app-layout" id="app-layout" style="display: none;">
+        <!-- Mobile Sidebar Backdrop Overlay -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
         <!-- =========================================================
              Sidebar Navigation (8 Core Sections)
              ========================================================= -->
@@ -119,6 +122,9 @@
             <!-- Top App Header -->
             <header class="top-navbar">
                 <div class="header-left">
+                    <button class="mobile-menu-toggle" id="btn-mobile-menu" aria-label="Toggle navigation menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
                     <div class="breadcrumb">
                         <span>Trading Hub</span>
                         <i class="fa-solid fa-chevron-right sep"></i>

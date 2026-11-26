@@ -81,10 +81,35 @@ function initNavigation() {
             }
         });
     });
+
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('btn-mobile-menu');
+    const sidebar = document.querySelector('.sidebar');
+    const backdrop = document.getElementById('sidebar-backdrop');
+
+    if (mobileBtn && sidebar) {
+        mobileBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            if (backdrop) backdrop.classList.toggle('active');
+        });
+    }
+
+    if (backdrop && sidebar) {
+        backdrop.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            backdrop.classList.remove('active');
+        });
+    }
 }
 
 function switchSection(sectionId) {
     state.activeSection = sectionId;
+
+    // Close mobile sidebar if open
+    const sidebar = document.querySelector('.sidebar');
+    const backdrop = document.getElementById('sidebar-backdrop');
+    if (sidebar) sidebar.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('active');
 
     // Update Nav Sidebar
     document.querySelectorAll('.nav-item').forEach(el => {
