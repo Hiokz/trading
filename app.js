@@ -845,6 +845,7 @@ function initAuth() {
 
     function unlockApp(user) {
         currentAuthUser = user;
+        document.documentElement.classList.add('auth-session-active');
         const email = user.email || '';
         const rawName = email.includes('@') ? email.split('@')[0] : 'Trader';
         const displayName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
@@ -857,18 +858,17 @@ function initAuth() {
 
         if (loginOverlay) {
             loginOverlay.classList.remove('active');
-            setTimeout(() => {
-                loginOverlay.style.display = 'none';
-                if (appLayout) appLayout.style.display = 'flex';
-                if (loginForm) loginForm.reset();
-            }, 250);
-        } else if (appLayout) {
+            loginOverlay.style.display = 'none';
+        }
+        if (appLayout) {
             appLayout.style.display = 'flex';
         }
+        if (loginForm) loginForm.reset();
     }
 
     function lockApp() {
         currentAuthUser = null;
+        document.documentElement.classList.remove('auth-session-active');
         if (authProfile) authProfile.style.display = 'none';
         if (btnLogout) btnLogout.style.display = 'none';
         if (btnOpenLogin) btnOpenLogin.style.display = 'inline-flex';
@@ -877,9 +877,9 @@ function initAuth() {
         if (loginOverlay) {
             setAuthMode(false);
             loginOverlay.style.display = 'flex';
-            setTimeout(() => {
+            requestAnimationFrame(() => {
                 loginOverlay.classList.add('active');
-            }, 10);
+            });
             if (loginUsername) loginUsername.focus();
         }
     }

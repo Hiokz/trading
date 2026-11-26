@@ -25,6 +25,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Main Style -->
     <link rel="stylesheet" href="style.css">
+    <!-- Immediate Auth Session Check (Prevents login screen flash on refresh) -->
+    <script>
+        try {
+            var rawSession = sessionStorage.getItem('tradinghub-session-auth');
+            if (rawSession && rawSession.indexOf('access_token') !== -1) {
+                document.documentElement.classList.add('auth-session-active');
+            }
+        } catch (e) {}
+    </script>
 </head>
 
 <body>
@@ -1153,7 +1162,7 @@
     </div>
 
     <!-- Login Screen (FinTracks Architecture) -->
-    <div id="login-overlay" class="login-overlay active" style="display: flex;">
+    <div id="login-overlay" class="login-overlay" style="display: none;">
         <div class="login-container">
             <div class="login-logo-wrap">
                 <i class="fa-solid fa-shield-halved text-primary"
